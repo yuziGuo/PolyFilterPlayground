@@ -12,7 +12,7 @@ from typing import Union
 def acc(logits, labels):
     _, indices = th.max(logits, dim=1)
     correct = th.sum(indices == labels)
-    acc = correct.item() * 1.0 / len(labels)
+    acc = correct / len(labels)
     return acc
 
 

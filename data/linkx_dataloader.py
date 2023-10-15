@@ -63,7 +63,6 @@ class linkx_dataloader(loader):
         self.train_mask = index_to_mask(train_idxs, self.n_nodes).bool()
         self.val_mask = index_to_mask(val_idxs, self.n_nodes).bool()
         self.test_mask = index_to_mask(test_idxs, self.n_nodes).bool()
-        import ipdb; ipdb.set_trace()
         return split
         
 

@@ -13,7 +13,7 @@ def build_dataset(args):
         dataset = args.dataset.split('-')[1]
         loader = geom_dataloader(dataset, args.gpu, args.self_loop, digraph=not args.udgraph, n_cv=args.n_cv, cv_id=args.start_cv)
     elif args.dataset in ['questions', 'roman-empire', 'minesweeper', 'tolokers', 'amazon_ratings']:
-        loader = platonov_dataloader(args.dataset)
+        loader = platonov_dataloader(args.dataset, args.gpu, args.self_loop, digraph=not args.udgraph, n_cv=args.n_cv, cv_id=args.start_cv)
     else:
         raise ValueError('Unknown dataset: {}'.format(args.dataset))
     loader.load_data()

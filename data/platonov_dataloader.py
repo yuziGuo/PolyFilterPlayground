@@ -34,13 +34,15 @@ class platonov_dataloader(loader):
             self.edge_index = add_self_loops(self.edge_index)[0]
         self.features = th.FloatTensor(dataset['node_features']).to(self.device)
         self.labels = th.LongTensor(dataset['node_labels']).to(self.device)
+        if self.labels.dim()==2 and self.labels.shape[-1]==1:
+            self.labels = self.labels.squeeze()
         self.n_nodes = self.labels.shape[0]
         self.in_feats = self.features.shape[1]
         
         # infer the number of classes for non one-hot and one-hot labels
         if len(self.labels.shape) == 1:
-            self.labels = self.labels.unsqueeze(1)
-        self.n_classes = max(self.labels.max().item() + 1, self.labels.shape[-1])
+            labels = self.labels.unsqueeze(1)
+        self.n_classes = max(self.labels.max().item() + 1, labels.shape[-1])
         self.n_edges = self.edge_index.shape[-1]
 
 

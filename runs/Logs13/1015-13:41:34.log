@@ -1,0 +1,14 @@
+2023-10-15 13:41:34,555 - train.py [line:198] - INFO: Namespace(seed=42, model='NormalNN', gpu=1, dataset='genius', ds_split='standard', n_layers=2, n_hidden=64, wd1=0.01, wd2=0.0005, wd3=0.0005, lr1=0.01, lr2=0.01, lr3=0.01, alpha=0.5, momentum=0.9, n_epochs=2000, dropout=0.5, dropout2=0.7, self_loop=False, udgraph=False, early_stop=False, patience=300, es_ckpt='es_checkpoint_device=1', n_cv=1, start_cv=0, logging=True, log_detail=True, log_detailedCh=True, id_log=0)
+2023-10-15 13:41:37,001 - train.py [line:122] - INFO: Split_seeds:[1824]
+2023-10-15 13:41:37,002 - train.py [line:123] - INFO: Model_seeds:[409]
+2023-10-15 13:41:37,237 - train.py [line:55] - INFO: #Train:210980
+2023-10-15 13:41:56,178 - train.py [line:95] - INFO: Epoch 00050 | Time(s) 0.3786 | Val Loss 0.5823 | Val Acc 0.8430 |  Train Acc 0.8437 | ETputs(KTEPS) 48749.86
+2023-10-15 13:42:14,691 - train.py [line:95] - INFO: Epoch 00100 | Time(s) 0.3744 | Val Loss 0.5311 | Val Acc 0.2449 |  Train Acc 0.2447 | ETputs(KTEPS) 49294.67
+2023-10-15 13:42:32,669 - train.py [line:95] - INFO: Epoch 00150 | Time(s) 0.3695 | Val Loss 0.5121 | Val Acc 0.5116 |  Train Acc 0.5118 | ETputs(KTEPS) 49956.86
+2023-10-15 13:42:50,380 - train.py [line:95] - INFO: Epoch 00200 | Time(s) 0.3657 | Val Loss 0.5055 | Val Acc 0.5005 |  Train Acc 0.5005 | ETputs(KTEPS) 50478.11
+2023-10-15 13:43:07,887 - train.py [line:95] - INFO: Epoch 00250 | Time(s) 0.3625 | Val Loss 0.5032 | Val Acc 0.5000 |  Train Acc 0.5000 | ETputs(KTEPS) 50910.37
+2023-10-15 13:43:25,661 - train.py [line:95] - INFO: Epoch 00300 | Time(s) 0.3614 | Val Loss 0.5025 | Val Acc 0.5000 |  Train Acc 0.5000 | ETputs(KTEPS) 51076.91
+2023-10-15 13:43:42,963 - train.py [line:95] - INFO: Epoch 00350 | Time(s) 0.3592 | Val Loss 0.5022 | Val Acc 0.5000 |  Train Acc 0.5000 | ETputs(KTEPS) 51388.41
+2023-10-15 13:44:00,674 - train.py [line:95] - INFO: Epoch 00400 | Time(s) 0.3586 | Val Loss 0.5021 | Val Acc 0.5000 |  Train Acc 0.5000 | ETputs(KTEPS) 51477.47
+2023-10-15 13:44:18,428 - train.py [line:95] - INFO: Epoch 00450 | Time(s) 0.3582 | Val Loss 0.5021 | Val Acc 0.5000 |  Train Acc 0.5000 | ETputs(KTEPS) 51533.53
+2023-10-15 13:44:35,286 - train.py [line:95] - INFO: Epoch 00500 | Time(s) 0.3561 | Val Loss 0.5021 | Val Acc 0.5000 |  Train Acc 0.5000 | ETputs(KTEPS) 51837.76

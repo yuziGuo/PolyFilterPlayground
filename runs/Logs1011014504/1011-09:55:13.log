@@ -1,0 +1,3 @@
+2023-10-11 09:55:13,067 - tune.py [line:203] - INFO: Namespace(seed=42, model='GPRGNN', gpu=1, dataset='geom-squirrel', logging=True, log_detail=True, log_detailedCh=False, id_log=1011014504, optuna_n_trials=202, n_epochs=2000, self_loop=True, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=8, lr1=0.03, lr2=0.005, wd1=1e-07, wd2=1e-05, dropout=0.2, dropout2=0.9, alpha=0.2, es_ckpt='TestTuningScript-geom-squirrel_geom-squirrel_trialNo17')
+2023-10-11 09:55:15,766 - tune.py [line:128] - INFO: Split_seeds:[1824]
+2023-10-11 09:55:15,766 - tune.py [line:129] - INFO: Model_seeds:[409]

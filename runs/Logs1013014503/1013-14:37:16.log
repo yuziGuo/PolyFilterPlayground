@@ -1,0 +1,7 @@
+2023-10-13 14:37:16,299 - tune.py [line:203] - INFO: Namespace(seed=42, model='NormalNNV2', gpu=1, dataset='geom-squirrel', logging=True, log_detail=True, log_detailedCh=False, id_log=1013014503, optuna_n_trials=202, n_epochs=2000, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=12, lr1=0.04, lr2=0.03, wd1=1e-06, wd2=0.0001, dropout=0.3, dropout2=0.3, es_ckpt='woselfloop-geom-squirrel_NormalNNV2-geom-squirrel_trialNo46')
+2023-10-13 14:37:18,642 - tune.py [line:128] - INFO: Split_seeds:[1824]
+2023-10-13 14:37:18,642 - tune.py [line:129] - INFO: Model_seeds:[409]
+2023-10-13 14:37:19,659 - tune.py [line:103] - INFO: Epoch 00020 | Time(s) 0.0410 | Val Loss 1.5936 | Val Acc 0.4673 | ETputs(KTEPS) 96759.12
+2023-10-13 14:37:20,486 - tune.py [line:103] - INFO: Epoch 00040 | Time(s) 0.0407 | Val Loss 1.5745 | Val Acc 0.5240 | ETputs(KTEPS) 97511.77
+2023-10-13 14:37:21,300 - tune.py [line:103] - INFO: Epoch 00060 | Time(s) 0.0406 | Val Loss 1.5530 | Val Acc 0.5288 | ETputs(KTEPS) 97685.59
+2023-10-13 14:37:22,105 - tune.py [line:103] - INFO: Epoch 00080 | Time(s) 0.0405 | Val Loss 1.5320 | Val Acc 0.5269 | ETputs(KTEPS) 97906.79

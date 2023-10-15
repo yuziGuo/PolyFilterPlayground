@@ -1,0 +1,11 @@
+2023-10-11 09:54:33,340 - tune.py [line:203] - INFO: Namespace(seed=42, model='GPRGNN', gpu=0, dataset='geom-chameleon', logging=True, log_detail=True, log_detailedCh=False, id_log=1011014503, optuna_n_trials=202, n_epochs=2000, self_loop=True, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=4, lr1=0.05, lr2=0.03, wd1=1e-05, wd2=1e-05, dropout=0.4, dropout2=0.4, alpha=0.4, es_ckpt='TestTuningScript-geom-chameleon_geom-chameleon_trialNo85')
+2023-10-11 09:54:34,108 - tune.py [line:128] - INFO: Split_seeds:[1824]
+2023-10-11 09:54:34,108 - tune.py [line:129] - INFO: Model_seeds:[409]
+2023-10-11 09:54:34,465 - tune.py [line:103] - INFO: Epoch 00020 | Time(s) 0.0161 | Val Loss 1.2955 | Val Acc 0.5692 | ETputs(KTEPS) 40299.43
+2023-10-11 09:54:34,748 - tune.py [line:103] - INFO: Epoch 00040 | Time(s) 0.0149 | Val Loss 1.7313 | Val Acc 0.5978 | ETputs(KTEPS) 43598.93
+2023-10-11 09:54:35,001 - tune.py [line:103] - INFO: Epoch 00060 | Time(s) 0.0141 | Val Loss 1.7978 | Val Acc 0.6044 | ETputs(KTEPS) 46166.87
+2023-10-11 09:54:35,271 - tune.py [line:103] - INFO: Epoch 00080 | Time(s) 0.0139 | Val Loss 2.0127 | Val Acc 0.5604 | ETputs(KTEPS) 46804.99
+2023-10-11 09:54:35,563 - tune.py [line:103] - INFO: Epoch 00100 | Time(s) 0.0140 | Val Loss 1.7789 | Val Acc 0.6374 | ETputs(KTEPS) 46493.04
+2023-10-11 09:54:35,834 - tune.py [line:103] - INFO: Epoch 00120 | Time(s) 0.0139 | Val Loss 1.8313 | Val Acc 0.6549 | ETputs(KTEPS) 46838.06
+2023-10-11 09:54:36,074 - tune.py [line:103] - INFO: Epoch 00140 | Time(s) 0.0136 | Val Loss 1.8471 | Val Acc 0.6396 | ETputs(KTEPS) 47846.56
+2023-10-11 09:54:36,281 - tune.py [line:103] - INFO: Epoch 00160 | Time(s) 0.0132 | Val Loss 1.7612 | Val Acc 0.6396 | ETputs(KTEPS) 49319.14

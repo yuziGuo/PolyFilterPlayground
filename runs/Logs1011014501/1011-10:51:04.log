@@ -1,0 +1,3 @@
+2023-10-11 10:51:04,768 - tune.py [line:191] - INFO: Namespace(seed=42, model='NormalNN', gpu=1, dataset='genius', logging=True, log_detail=True, log_detailedCh=False, id_log=1011014501, optuna_n_trials=202, self_loop=True, udgraph=True, early_stop=True, patience=300, n_epochs=2000, n_hidden=64, n_cv=1, start_cv=0, n_layers=8, lr1=0.02, lr2=0.03, wd1=1e-08, wd2=1e-05, dropout=0.1, dropout2=0.4, es_ckpt='TestTuningScript-genius_genius_trialNo58')
+2023-10-11 10:51:05,056 - tune.py [line:125] - INFO: Split_seeds:[1824]
+2023-10-11 10:51:05,056 - tune.py [line:126] - INFO: Model_seeds:[409]

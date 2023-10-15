@@ -1,0 +1,13 @@
+2023-10-13 21:14:01,011 - tune.py [line:203] - INFO: Namespace(seed=42, model='NormalNN', gpu=0, dataset='genius', logging=True, log_detail=True, log_detailedCh=False, id_log=1013014501, optuna_n_trials=202, n_epochs=2000, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=16, lr1=0.04, lr2=0.001, wd1=0.001, wd2=1e-07, dropout=0.1, dropout2=0.4, es_ckpt='chipLogSoftmax-genius_NormalNN-genius_trialNo57')
+2023-10-13 21:14:01,268 - tune.py [line:128] - INFO: Split_seeds:[1824]
+2023-10-13 21:14:01,268 - tune.py [line:129] - INFO: Model_seeds:[409]
+2023-10-13 21:14:31,080 - tune.py [line:103] - INFO: Epoch 00020 | Time(s) 1.4788 | Val Loss 0.5381 | Val Acc 0.7850 | ETputs(KTEPS) 12481.42
+2023-10-13 21:15:00,838 - tune.py [line:103] - INFO: Epoch 00040 | Time(s) 1.4832 | Val Loss 0.5024 | Val Acc 0.8278 | ETputs(KTEPS) 12444.09
+2023-10-13 21:15:30,376 - tune.py [line:103] - INFO: Epoch 00060 | Time(s) 1.4811 | Val Loss 0.5004 | Val Acc 0.7409 | ETputs(KTEPS) 12462.01
+2023-10-13 21:16:00,250 - tune.py [line:103] - INFO: Epoch 00080 | Time(s) 1.4842 | Val Loss 0.5004 | Val Acc 0.7423 | ETputs(KTEPS) 12435.77
+2023-10-13 21:16:30,008 - tune.py [line:103] - INFO: Epoch 00100 | Time(s) 1.4849 | Val Loss 0.5004 | Val Acc 0.8407 | ETputs(KTEPS) 12429.79
+2023-10-13 21:17:00,064 - tune.py [line:103] - INFO: Epoch 00120 | Time(s) 1.4879 | Val Loss 0.5004 | Val Acc 0.8437 | ETputs(KTEPS) 12405.06
+2023-10-13 21:17:29,625 - tune.py [line:103] - INFO: Epoch 00140 | Time(s) 1.4865 | Val Loss 0.5004 | Val Acc 0.7005 | ETputs(KTEPS) 12416.81
+2023-10-13 21:17:59,119 - tune.py [line:103] - INFO: Epoch 00160 | Time(s) 1.4850 | Val Loss 0.5004 | Val Acc 0.8498 | ETputs(KTEPS) 12429.18
+2023-10-13 21:18:28,740 - tune.py [line:103] - INFO: Epoch 00180 | Time(s) 1.4846 | Val Loss 0.5004 | Val Acc 0.6063 | ETputs(KTEPS) 12432.88
+2023-10-13 21:18:58,507 - tune.py [line:103] - INFO: Epoch 00200 | Time(s) 1.4849 | Val Loss 0.5004 | Val Acc 0.4589 | ETputs(KTEPS) 12429.73

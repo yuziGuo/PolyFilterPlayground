@@ -1,0 +1,23 @@
+2023-10-13 14:47:55,967 - tune.py [line:203] - INFO: Namespace(seed=42, model='NormalNNV2', gpu=1, dataset='geom-chameleon', logging=True, log_detail=True, log_detailedCh=False, id_log=1013014502, optuna_n_trials=202, n_epochs=2000, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=12, lr1=0.02, lr2=0.02, wd1=1e-07, wd2=0.0001, dropout=0.3, dropout2=0.5, es_ckpt='woselfloop-geom-chameleon_NormalNNV2-geom-chameleon_trialNo185')
+2023-10-13 14:47:56,799 - tune.py [line:128] - INFO: Split_seeds:[1824]
+2023-10-13 14:47:56,799 - tune.py [line:129] - INFO: Model_seeds:[409]
+2023-10-13 14:47:58,047 - tune.py [line:103] - INFO: Epoch 00020 | Time(s) 0.0601 | Val Loss 1.5757 | Val Acc 0.6703 | ETputs(KTEPS) 10439.32
+2023-10-13 14:47:59,362 - tune.py [line:103] - INFO: Epoch 00040 | Time(s) 0.0626 | Val Loss 1.5435 | Val Acc 0.6989 | ETputs(KTEPS) 10014.75
+2023-10-13 14:48:00,410 - tune.py [line:103] - INFO: Epoch 00060 | Time(s) 0.0592 | Val Loss 1.5149 | Val Acc 0.7033 | ETputs(KTEPS) 10594.70
+2023-10-13 14:48:01,640 - tune.py [line:103] - INFO: Epoch 00080 | Time(s) 0.0598 | Val Loss 1.4892 | Val Acc 0.6659 | ETputs(KTEPS) 10495.24
+2023-10-13 14:48:02,753 - tune.py [line:103] - INFO: Epoch 00100 | Time(s) 0.0590 | Val Loss 1.4636 | Val Acc 0.7011 | ETputs(KTEPS) 10642.46
+2023-10-13 14:48:04,081 - tune.py [line:103] - INFO: Epoch 00120 | Time(s) 0.0602 | Val Loss 1.4381 | Val Acc 0.6637 | ETputs(KTEPS) 10424.56
+2023-10-13 14:48:05,341 - tune.py [line:103] - INFO: Epoch 00140 | Time(s) 0.0606 | Val Loss 1.4174 | Val Acc 0.6813 | ETputs(KTEPS) 10355.50
+2023-10-13 14:48:06,533 - tune.py [line:103] - INFO: Epoch 00160 | Time(s) 0.0605 | Val Loss 1.3945 | Val Acc 0.6659 | ETputs(KTEPS) 10376.92
+2023-10-13 14:48:07,696 - tune.py [line:103] - INFO: Epoch 00180 | Time(s) 0.0602 | Val Loss 1.3777 | Val Acc 0.6571 | ETputs(KTEPS) 10421.84
+2023-10-13 14:48:08,734 - tune.py [line:103] - INFO: Epoch 00200 | Time(s) 0.0594 | Val Loss 1.3605 | Val Acc 0.6681 | ETputs(KTEPS) 10568.10
+2023-10-13 14:48:09,872 - tune.py [line:103] - INFO: Epoch 00220 | Time(s) 0.0591 | Val Loss 1.3488 | Val Acc 0.6637 | ETputs(KTEPS) 10608.79
+2023-10-13 14:48:10,957 - tune.py [line:103] - INFO: Epoch 00240 | Time(s) 0.0587 | Val Loss 1.3353 | Val Acc 0.6484 | ETputs(KTEPS) 10682.91
+2023-10-13 14:48:12,214 - tune.py [line:103] - INFO: Epoch 00260 | Time(s) 0.0590 | Val Loss 1.3239 | Val Acc 0.6637 | ETputs(KTEPS) 10625.43
+2023-10-13 14:48:13,462 - tune.py [line:103] - INFO: Epoch 00280 | Time(s) 0.0593 | Val Loss 1.3136 | Val Acc 0.6637 | ETputs(KTEPS) 10582.76
+2023-10-13 14:48:14,815 - tune.py [line:103] - INFO: Epoch 00300 | Time(s) 0.0598 | Val Loss 1.3070 | Val Acc 0.6440 | ETputs(KTEPS) 10484.75
+2023-10-13 14:48:16,237 - tune.py [line:103] - INFO: Epoch 00320 | Time(s) 0.0605 | Val Loss 1.2926 | Val Acc 0.6593 | ETputs(KTEPS) 10363.49
+2023-10-13 14:48:16,971 - tune.py [line:117] - INFO: [FINAL MODEL] Val accuracy 72.09% \Val loss: 1.6
+2023-10-13 14:48:16,981 - tune.py [line:119] - INFO: [FINAL MODEL] Test accuracy 69.80% \Test loss: 1.6
+2023-10-13 14:48:16,981 - tune.py [line:144] - INFO: Acc on the first split (Validation Set): 0.7209
+2023-10-13 14:48:16,982 - tune.py [line:145] - INFO: Acc on the first split (Test Set): 0.6980

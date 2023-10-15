@@ -1,0 +1,3 @@
+2023-10-12 03:12:04,274 - tune.py [line:203] - INFO: Namespace(seed=42, model='NormalNNV2', gpu=0, dataset='geom-squirrel', logging=True, log_detail=True, log_detailedCh=False, id_log=1012014502, optuna_n_trials=202, n_epochs=2000, self_loop=True, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=4, lr1=0.02, lr2=0.04, wd1=1e-05, wd2=1e-07, dropout=0.3, dropout2=0.5, es_ckpt='TestTuningScript-geom-squirrel_NormalNNV2-geom-squirrel_trialNo68')
+2023-10-12 03:12:06,690 - tune.py [line:128] - INFO: Split_seeds:[1824]
+2023-10-12 03:12:06,690 - tune.py [line:129] - INFO: Model_seeds:[409]

@@ -1,0 +1,6 @@
+2023-10-12 04:34:25,167 - tune.py [line:203] - INFO: Namespace(seed=42, model='GPRGNNV2', gpu=1, dataset='geom-squirrel', logging=True, log_detail=True, log_detailedCh=False, id_log=1012014504, optuna_n_trials=202, n_epochs=2000, self_loop=True, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=8, lr1=0.03, lr2=0.04, wd1=1e-06, wd2=1e-08, dropout=0.4, dropout2=0.3, alpha=0.4, es_ckpt='TestTuningScript-geom-squirrel_GPRGNNV2-geom-squirrel_trialNo129')
+2023-10-12 04:34:27,706 - tune.py [line:128] - INFO: Split_seeds:[1824]
+2023-10-12 04:34:27,707 - tune.py [line:129] - INFO: Model_seeds:[409]
+2023-10-12 04:34:29,379 - tune.py [line:103] - INFO: Epoch 00020 | Time(s) 0.0820 | Val Loss 1.4946 | Val Acc 0.3567 | ETputs(KTEPS) 49019.36
+2023-10-12 04:34:30,777 - tune.py [line:103] - INFO: Epoch 00040 | Time(s) 0.0757 | Val Loss 1.6825 | Val Acc 0.3788 | ETputs(KTEPS) 53085.47
+2023-10-12 04:34:32,082 - tune.py [line:103] - INFO: Epoch 00060 | Time(s) 0.0720 | Val Loss 1.7972 | Val Acc 0.3933 | ETputs(KTEPS) 55801.31

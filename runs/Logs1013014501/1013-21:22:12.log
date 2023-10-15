@@ -1,0 +1,13 @@
+2023-10-13 21:22:12,841 - tune.py [line:203] - INFO: Namespace(seed=42, model='NormalNN', gpu=0, dataset='genius', logging=True, log_detail=True, log_detailedCh=False, id_log=1013014501, optuna_n_trials=202, n_epochs=2000, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=16, lr1=0.03, lr2=0.001, wd1=0.0001, wd2=1e-06, dropout=0.0, dropout2=0.5, es_ckpt='chipLogSoftmax-genius_NormalNN-genius_trialNo64')
+2023-10-13 21:22:13,098 - tune.py [line:128] - INFO: Split_seeds:[1824]
+2023-10-13 21:22:13,098 - tune.py [line:129] - INFO: Model_seeds:[409]
+2023-10-13 21:22:42,972 - tune.py [line:103] - INFO: Epoch 00020 | Time(s) 1.4821 | Val Loss 0.5630 | Val Acc 0.7046 | ETputs(KTEPS) 12453.48
+2023-10-13 21:23:12,657 - tune.py [line:103] - INFO: Epoch 00040 | Time(s) 1.4831 | Val Loss 0.5126 | Val Acc 0.8252 | ETputs(KTEPS) 12445.01
+2023-10-13 21:23:42,283 - tune.py [line:103] - INFO: Epoch 00060 | Time(s) 1.4821 | Val Loss 0.5014 | Val Acc 0.8308 | ETputs(KTEPS) 12453.49
+2023-10-13 21:24:12,145 - tune.py [line:103] - INFO: Epoch 00080 | Time(s) 1.4845 | Val Loss 0.5000 | Val Acc 0.8404 | ETputs(KTEPS) 12433.11
+2023-10-13 21:24:41,756 - tune.py [line:103] - INFO: Epoch 00100 | Time(s) 1.4836 | Val Loss 0.4998 | Val Acc 0.8420 | ETputs(KTEPS) 12440.58
+2023-10-13 21:25:11,770 - tune.py [line:103] - INFO: Epoch 00120 | Time(s) 1.4865 | Val Loss 0.4995 | Val Acc 0.8423 | ETputs(KTEPS) 12416.94
+2023-10-13 21:25:41,470 - tune.py [line:103] - INFO: Epoch 00140 | Time(s) 1.4863 | Val Loss 0.4993 | Val Acc 0.8430 | ETputs(KTEPS) 12418.69
+2023-10-13 21:26:11,365 - tune.py [line:103] - INFO: Epoch 00160 | Time(s) 1.4873 | Val Loss 0.4992 | Val Acc 0.8473 | ETputs(KTEPS) 12410.08
+2023-10-13 21:26:41,067 - tune.py [line:103] - INFO: Epoch 00180 | Time(s) 1.4870 | Val Loss 0.4990 | Val Acc 0.8461 | ETputs(KTEPS) 12412.25
+2023-10-13 21:27:10,982 - tune.py [line:103] - INFO: Epoch 00200 | Time(s) 1.4879 | Val Loss 0.4982 | Val Acc 0.8456 | ETputs(KTEPS) 12404.97

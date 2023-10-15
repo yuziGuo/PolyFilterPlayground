@@ -1,0 +1,3 @@
+2023-10-13 15:59:49,070 - tune.py [line:203] - INFO: Namespace(seed=42, model='GPRGNN', gpu=0, dataset='geom-chameleon', logging=True, log_detail=True, log_detailedCh=False, id_log=1013014504, optuna_n_trials=202, n_epochs=2000, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=12, lr1=0.04, lr2=0.05, wd1=0.0001, wd2=0.0001, dropout=0.7, dropout2=0.3, alpha=0.9, es_ckpt='woselfloop-geom-chameleon_GPRGNN-geom-chameleon_trialNo28')
+2023-10-13 15:59:49,959 - tune.py [line:128] - INFO: Split_seeds:[1824]
+2023-10-13 15:59:49,959 - tune.py [line:129] - INFO: Model_seeds:[409]

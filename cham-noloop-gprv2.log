@@ -1,0 +1,426 @@
+2023-10-14 04:53:19,024 - train.py [line:198] - INFO: Namespace(seed=42, model='GPRGNNV2', gpu=0, dataset='geom-chameleon', ds_split='standard', n_layers=16, n_hidden=64, wd1=1e-06, wd2=1e-06, wd3=0.0005, lr1=0.05, lr2=0.05, lr3=0.01, alpha=0.9, momentum=0.9, n_epochs=2000, dropout=0.4, dropout2=0.7, loss='nll', self_loop=False, udgraph=True, early_stop=True, patience=300, es_ckpt='es_checkpoint_device=0', n_cv=20, start_cv=0, logging=False, log_detail=True, log_detailedCh=True, id_log=0)
+2023-10-14 04:53:22,077 - train.py [line:121] - INFO: Split_seeds:[1824, 409, 4506, 4012, 3657, 2286, 1679, 8935, 1424, 9674, 6912, 520, 488, 1535, 3582, 3811, 8279, 9863, 434, 9195]
+2023-10-14 04:53:22,077 - train.py [line:122] - INFO: Model_seeds:[3257, 8928, 6873, 3611, 7359, 9654, 4557, 106, 2615, 6924, 5574, 4552, 2547, 3527, 5514, 1674, 1519, 6224, 1584, 5881]
+2023-10-14 04:53:22,084 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:53:24,079 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0391 | Val Loss 1.3610 | Val Acc 0.6110 |  Train Acc 0.9714 | ETputs(KTEPS) 16040.61
+2023-10-14 04:53:25,436 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0330 | Val Loss 1.4693 | Val Acc 0.6308 |  Train Acc 0.9890 | ETputs(KTEPS) 19012.70
+2023-10-14 04:53:26,801 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0310 | Val Loss 1.5012 | Val Acc 0.6571 |  Train Acc 0.9912 | ETputs(KTEPS) 20235.63
+2023-10-14 04:53:28,259 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0305 | Val Loss 1.5346 | Val Acc 0.6791 |  Train Acc 0.9927 | ETputs(KTEPS) 20559.00
+2023-10-14 04:53:29,684 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0301 | Val Loss 1.5542 | Val Acc 0.6857 |  Train Acc 0.9941 | ETputs(KTEPS) 20847.76
+2023-10-14 04:53:31,005 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0295 | Val Loss 1.6342 | Val Acc 0.6857 |  Train Acc 0.9971 | ETputs(KTEPS) 21288.86
+2023-10-14 04:53:32,310 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0290 | Val Loss 1.6370 | Val Acc 0.6945 |  Train Acc 0.9949 | ETputs(KTEPS) 21643.33
+2023-10-14 04:53:33,713 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0289 | Val Loss 1.6296 | Val Acc 0.6989 |  Train Acc 0.9971 | ETputs(KTEPS) 21732.46
+2023-10-14 04:53:35,118 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0288 | Val Loss 1.6555 | Val Acc 0.6857 |  Train Acc 0.9971 | ETputs(KTEPS) 21799.74
+2023-10-14 04:53:36,434 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0285 | Val Loss 1.6270 | Val Acc 0.7011 |  Train Acc 0.9963 | ETputs(KTEPS) 21995.95
+2023-10-14 04:53:37,843 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0285 | Val Loss 1.6856 | Val Acc 0.6945 |  Train Acc 0.9985 | ETputs(KTEPS) 22021.93
+2023-10-14 04:53:39,153 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0283 | Val Loss 1.6064 | Val Acc 0.7011 |  Train Acc 0.9963 | ETputs(KTEPS) 22171.08
+2023-10-14 04:53:40,475 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0281 | Val Loss 1.6592 | Val Acc 0.6967 |  Train Acc 0.9978 | ETputs(KTEPS) 22294.30
+2023-10-14 04:53:41,822 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0281 | Val Loss 1.6782 | Val Acc 0.6879 |  Train Acc 0.9949 | ETputs(KTEPS) 22363.29
+2023-10-14 04:53:43,200 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0280 | Val Loss 1.6575 | Val Acc 0.7033 |  Train Acc 0.9963 | ETputs(KTEPS) 22393.57
+2023-10-14 04:53:44,553 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0280 | Val Loss 1.6985 | Val Acc 0.7055 |  Train Acc 0.9971 | ETputs(KTEPS) 22442.31
+2023-10-14 04:53:45,919 - train.py [line:94] - INFO: Epoch 00850 | Time(s) 0.0279 | Val Loss 1.7413 | Val Acc 0.7165 |  Train Acc 0.9978 | ETputs(KTEPS) 22477.79
+2023-10-14 04:53:47,250 - train.py [line:94] - INFO: Epoch 00900 | Time(s) 0.0278 | Val Loss 1.8517 | Val Acc 0.7011 |  Train Acc 0.9963 | ETputs(KTEPS) 22542.74
+2023-10-14 04:53:48,550 - train.py [line:94] - INFO: Epoch 00950 | Time(s) 0.0277 | Val Loss 1.7242 | Val Acc 0.7099 |  Train Acc 0.9978 | ETputs(KTEPS) 22622.19
+2023-10-14 04:53:49,865 - train.py [line:94] - INFO: Epoch 01000 | Time(s) 0.0277 | Val Loss 1.6292 | Val Acc 0.7231 |  Train Acc 0.9978 | ETputs(KTEPS) 22681.54
+2023-10-14 04:53:51,218 - train.py [line:94] - INFO: Epoch 01050 | Time(s) 0.0276 | Val Loss 1.7034 | Val Acc 0.6879 |  Train Acc 0.9971 | ETputs(KTEPS) 22708.38
+2023-10-14 04:53:52,531 - train.py [line:94] - INFO: Epoch 01100 | Time(s) 0.0276 | Val Loss 1.6381 | Val Acc 0.7143 |  Train Acc 0.9971 | ETputs(KTEPS) 22763.60
+2023-10-14 04:53:53,842 - train.py [line:94] - INFO: Epoch 01150 | Time(s) 0.0275 | Val Loss 1.7131 | Val Acc 0.7055 |  Train Acc 0.9978 | ETputs(KTEPS) 22813.35
+2023-10-14 04:53:55,138 - train.py [line:94] - INFO: Epoch 01200 | Time(s) 0.0274 | Val Loss 1.6058 | Val Acc 0.7033 |  Train Acc 0.9956 | ETputs(KTEPS) 22868.18
+2023-10-14 04:53:56,413 - train.py [line:94] - INFO: Epoch 01250 | Time(s) 0.0274 | Val Loss 1.5893 | Val Acc 0.7121 |  Train Acc 0.9978 | ETputs(KTEPS) 22933.88
+2023-10-14 04:53:57,771 - train.py [line:94] - INFO: Epoch 01300 | Time(s) 0.0273 | Val Loss 1.5855 | Val Acc 0.7165 |  Train Acc 0.9978 | ETputs(KTEPS) 22940.53
+2023-10-14 04:53:59,080 - train.py [line:94] - INFO: Epoch 01350 | Time(s) 0.0273 | Val Loss 1.7209 | Val Acc 0.6923 |  Train Acc 0.9993 | ETputs(KTEPS) 22978.03
+2023-10-14 04:53:59,921 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:53:59,927 - train.py [line:108] - INFO: [FINAL MODEL] Run 0 .\Val accuracy 72.75% \Val loss: 1.6
+2023-10-14 04:53:59,932 - train.py [line:110] - INFO: [FINAL MODEL] Run 0 .	Test accuracy 69.58% \Test loss: 1.6
+2023-10-14 04:53:59,934 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:54:01,303 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0266 | Val Loss 1.2233 | Val Acc 0.5714 |  Train Acc 0.9722 | ETputs(KTEPS) 23627.49
+2023-10-14 04:54:02,633 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0264 | Val Loss 1.3150 | Val Acc 0.6418 |  Train Acc 0.9868 | ETputs(KTEPS) 23784.80
+2023-10-14 04:54:03,944 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0263 | Val Loss 1.4055 | Val Acc 0.6418 |  Train Acc 0.9897 | ETputs(KTEPS) 23881.03
+2023-10-14 04:54:05,239 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0262 | Val Loss 1.5179 | Val Acc 0.6593 |  Train Acc 0.9941 | ETputs(KTEPS) 23969.70
+2023-10-14 04:54:06,540 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0261 | Val Loss 1.4954 | Val Acc 0.6615 |  Train Acc 0.9956 | ETputs(KTEPS) 24007.38
+2023-10-14 04:54:07,854 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0261 | Val Loss 1.5015 | Val Acc 0.6703 |  Train Acc 0.9956 | ETputs(KTEPS) 23996.52
+2023-10-14 04:54:09,198 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0262 | Val Loss 1.5278 | Val Acc 0.6593 |  Train Acc 0.9978 | ETputs(KTEPS) 23906.42
+2023-10-14 04:54:10,506 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0262 | Val Loss 1.5361 | Val Acc 0.6593 |  Train Acc 0.9963 | ETputs(KTEPS) 23919.09
+2023-10-14 04:54:11,776 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0261 | Val Loss 1.6543 | Val Acc 0.6703 |  Train Acc 0.9949 | ETputs(KTEPS) 24004.08
+2023-10-14 04:54:13,072 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0261 | Val Loss 1.5517 | Val Acc 0.6659 |  Train Acc 0.9963 | ETputs(KTEPS) 24025.83
+2023-10-14 04:54:14,455 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0263 | Val Loss 1.6577 | Val Acc 0.6681 |  Train Acc 0.9963 | ETputs(KTEPS) 23899.45
+2023-10-14 04:54:15,821 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0263 | Val Loss 1.5838 | Val Acc 0.6703 |  Train Acc 0.9963 | ETputs(KTEPS) 23835.90
+2023-10-14 04:54:17,172 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0264 | Val Loss 1.6737 | Val Acc 0.6659 |  Train Acc 0.9949 | ETputs(KTEPS) 23789.10
+2023-10-14 04:54:18,467 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0263 | Val Loss 1.5857 | Val Acc 0.6901 |  Train Acc 0.9971 | ETputs(KTEPS) 23820.95
+2023-10-14 04:54:19,774 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0263 | Val Loss 1.6498 | Val Acc 0.6901 |  Train Acc 0.9956 | ETputs(KTEPS) 23834.55
+2023-10-14 04:54:21,063 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0263 | Val Loss 1.6103 | Val Acc 0.6835 |  Train Acc 0.9971 | ETputs(KTEPS) 23865.87
+2023-10-14 04:54:22,345 - train.py [line:94] - INFO: Epoch 00850 | Time(s) 0.0263 | Val Loss 1.5983 | Val Acc 0.6945 |  Train Acc 0.9963 | ETputs(KTEPS) 23901.69
+2023-10-14 04:54:22,760 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:54:22,765 - train.py [line:108] - INFO: [FINAL MODEL] Run 1 .\Val accuracy 69.45% \Val loss: 1.7
+2023-10-14 04:54:22,771 - train.py [line:110] - INFO: [FINAL MODEL] Run 1 .	Test accuracy 73.52% \Test loss: 1.4
+2023-10-14 04:54:22,773 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:54:24,120 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0259 | Val Loss 1.0347 | Val Acc 0.6615 |  Train Acc 0.9707 | ETputs(KTEPS) 24186.85
+2023-10-14 04:54:25,416 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0258 | Val Loss 1.1178 | Val Acc 0.6879 |  Train Acc 0.9853 | ETputs(KTEPS) 24356.26
+2023-10-14 04:54:26,701 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0257 | Val Loss 1.1120 | Val Acc 0.7011 |  Train Acc 0.9919 | ETputs(KTEPS) 24448.50
+2023-10-14 04:54:28,005 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0257 | Val Loss 1.2218 | Val Acc 0.7011 |  Train Acc 0.9934 | ETputs(KTEPS) 24370.88
+2023-10-14 04:54:29,307 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0258 | Val Loss 1.1832 | Val Acc 0.7033 |  Train Acc 0.9956 | ETputs(KTEPS) 24343.85
+2023-10-14 04:54:30,601 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0258 | Val Loss 1.2353 | Val Acc 0.7253 |  Train Acc 0.9941 | ETputs(KTEPS) 24329.56
+2023-10-14 04:54:31,892 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0258 | Val Loss 1.2188 | Val Acc 0.7363 |  Train Acc 0.9963 | ETputs(KTEPS) 24326.64
+2023-10-14 04:54:33,178 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0258 | Val Loss 1.2729 | Val Acc 0.7187 |  Train Acc 0.9956 | ETputs(KTEPS) 24344.40
+2023-10-14 04:54:34,480 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0258 | Val Loss 1.2494 | Val Acc 0.7319 |  Train Acc 0.9971 | ETputs(KTEPS) 24316.60
+2023-10-14 04:54:35,778 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0258 | Val Loss 1.2782 | Val Acc 0.7275 |  Train Acc 0.9963 | ETputs(KTEPS) 24307.61
+2023-10-14 04:54:37,064 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0258 | Val Loss 1.2724 | Val Acc 0.7341 |  Train Acc 0.9963 | ETputs(KTEPS) 24316.84
+2023-10-14 04:54:38,361 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0258 | Val Loss 1.2637 | Val Acc 0.7253 |  Train Acc 0.9963 | ETputs(KTEPS) 24309.37
+2023-10-14 04:54:39,649 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0258 | Val Loss 1.3289 | Val Acc 0.7231 |  Train Acc 0.9971 | ETputs(KTEPS) 24314.57
+2023-10-14 04:54:40,941 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0258 | Val Loss 1.3883 | Val Acc 0.7253 |  Train Acc 0.9978 | ETputs(KTEPS) 24313.19
+2023-10-14 04:54:42,255 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0258 | Val Loss 1.3696 | Val Acc 0.7165 |  Train Acc 0.9978 | ETputs(KTEPS) 24284.37
+2023-10-14 04:54:43,547 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0258 | Val Loss 1.2999 | Val Acc 0.7319 |  Train Acc 0.9978 | ETputs(KTEPS) 24284.84
+2023-10-14 04:54:44,843 - train.py [line:94] - INFO: Epoch 00850 | Time(s) 0.0258 | Val Loss 1.3590 | Val Acc 0.7231 |  Train Acc 0.9978 | ETputs(KTEPS) 24281.36
+2023-10-14 04:54:44,917 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:54:44,922 - train.py [line:108] - INFO: [FINAL MODEL] Run 2 .\Val accuracy 74.29% \Val loss: 1.3
+2023-10-14 04:54:44,927 - train.py [line:110] - INFO: [FINAL MODEL] Run 2 .	Test accuracy 70.90% \Test loss: 1.5
+2023-10-14 04:54:44,929 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:54:46,564 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0317 | Val Loss 1.1601 | Val Acc 0.6396 |  Train Acc 0.9736 | ETputs(KTEPS) 19794.91
+2023-10-14 04:54:47,876 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0288 | Val Loss 1.2753 | Val Acc 0.6615 |  Train Acc 0.9912 | ETputs(KTEPS) 21787.66
+2023-10-14 04:54:49,197 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0280 | Val Loss 1.2869 | Val Acc 0.6791 |  Train Acc 0.9927 | ETputs(KTEPS) 22438.68
+2023-10-14 04:54:50,487 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0274 | Val Loss 1.3474 | Val Acc 0.6945 |  Train Acc 0.9934 | ETputs(KTEPS) 22902.15
+2023-10-14 04:54:51,781 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0271 | Val Loss 1.3646 | Val Acc 0.6813 |  Train Acc 0.9927 | ETputs(KTEPS) 23167.54
+2023-10-14 04:54:53,154 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0271 | Val Loss 1.3982 | Val Acc 0.6967 |  Train Acc 0.9941 | ETputs(KTEPS) 23124.37
+2023-10-14 04:54:54,463 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0270 | Val Loss 1.4129 | Val Acc 0.6835 |  Train Acc 0.9941 | ETputs(KTEPS) 23241.48
+2023-10-14 04:54:55,754 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0268 | Val Loss 1.4779 | Val Acc 0.6835 |  Train Acc 0.9941 | ETputs(KTEPS) 23371.26
+2023-10-14 04:54:57,063 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0268 | Val Loss 1.4267 | Val Acc 0.6857 |  Train Acc 0.9949 | ETputs(KTEPS) 23436.01
+2023-10-14 04:54:58,377 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0267 | Val Loss 1.4565 | Val Acc 0.7077 |  Train Acc 0.9941 | ETputs(KTEPS) 23485.53
+2023-10-14 04:54:59,685 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0267 | Val Loss 1.4688 | Val Acc 0.6835 |  Train Acc 0.9949 | ETputs(KTEPS) 23535.31
+2023-10-14 04:55:00,999 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0266 | Val Loss 1.5123 | Val Acc 0.6835 |  Train Acc 0.9956 | ETputs(KTEPS) 23564.19
+2023-10-14 04:55:02,304 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0266 | Val Loss 1.4679 | Val Acc 0.6857 |  Train Acc 0.9956 | ETputs(KTEPS) 23600.84
+2023-10-14 04:55:03,596 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0265 | Val Loss 1.4296 | Val Acc 0.6857 |  Train Acc 0.9956 | ETputs(KTEPS) 23648.96
+2023-10-14 04:55:04,891 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0265 | Val Loss 1.4729 | Val Acc 0.7033 |  Train Acc 0.9971 | ETputs(KTEPS) 23687.23
+2023-10-14 04:55:06,198 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0265 | Val Loss 1.5119 | Val Acc 0.6967 |  Train Acc 0.9963 | ETputs(KTEPS) 23709.56
+2023-10-14 04:55:07,550 - train.py [line:94] - INFO: Epoch 00850 | Time(s) 0.0265 | Val Loss 1.5510 | Val Acc 0.7077 |  Train Acc 0.9971 | ETputs(KTEPS) 23680.50
+2023-10-14 04:55:08,881 - train.py [line:94] - INFO: Epoch 00900 | Time(s) 0.0265 | Val Loss 1.4910 | Val Acc 0.7011 |  Train Acc 0.9971 | ETputs(KTEPS) 23674.77
+2023-10-14 04:55:10,171 - train.py [line:94] - INFO: Epoch 00950 | Time(s) 0.0265 | Val Loss 1.5792 | Val Acc 0.6857 |  Train Acc 0.9971 | ETputs(KTEPS) 23708.10
+2023-10-14 04:55:11,475 - train.py [line:94] - INFO: Epoch 01000 | Time(s) 0.0264 | Val Loss 1.6227 | Val Acc 0.6879 |  Train Acc 0.9963 | ETputs(KTEPS) 23726.64
+2023-10-14 04:55:12,752 - train.py [line:94] - INFO: Epoch 01050 | Time(s) 0.0264 | Val Loss 1.5664 | Val Acc 0.6923 |  Train Acc 0.9963 | ETputs(KTEPS) 23766.41
+2023-10-14 04:55:12,960 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:55:12,966 - train.py [line:108] - INFO: [FINAL MODEL] Run 3 .\Val accuracy 71.65% \Val loss: 1.5
+2023-10-14 04:55:12,971 - train.py [line:110] - INFO: [FINAL MODEL] Run 3 .	Test accuracy 69.15% \Test loss: 1.4
+2023-10-14 04:55:12,973 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:55:14,314 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0259 | Val Loss 1.2700 | Val Acc 0.6308 |  Train Acc 0.9707 | ETputs(KTEPS) 24185.66
+2023-10-14 04:55:15,620 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0259 | Val Loss 1.4387 | Val Acc 0.6615 |  Train Acc 0.9905 | ETputs(KTEPS) 24243.72
+2023-10-14 04:55:16,936 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0260 | Val Loss 1.4678 | Val Acc 0.6901 |  Train Acc 0.9897 | ETputs(KTEPS) 24165.40
+2023-10-14 04:55:18,260 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0260 | Val Loss 1.4832 | Val Acc 0.7011 |  Train Acc 0.9912 | ETputs(KTEPS) 24087.95
+2023-10-14 04:55:19,569 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0261 | Val Loss 1.5311 | Val Acc 0.7187 |  Train Acc 0.9927 | ETputs(KTEPS) 24083.59
+2023-10-14 04:55:20,878 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0261 | Val Loss 1.5736 | Val Acc 0.7011 |  Train Acc 0.9934 | ETputs(KTEPS) 24073.46
+2023-10-14 04:55:22,180 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0261 | Val Loss 1.6260 | Val Acc 0.7033 |  Train Acc 0.9949 | ETputs(KTEPS) 24077.22
+2023-10-14 04:55:23,472 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0260 | Val Loss 1.6715 | Val Acc 0.6989 |  Train Acc 0.9949 | ETputs(KTEPS) 24102.86
+2023-10-14 04:55:24,773 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0260 | Val Loss 1.5894 | Val Acc 0.7099 |  Train Acc 0.9963 | ETputs(KTEPS) 24105.37
+2023-10-14 04:55:26,090 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0261 | Val Loss 1.6317 | Val Acc 0.7143 |  Train Acc 0.9919 | ETputs(KTEPS) 24079.42
+2023-10-14 04:55:27,412 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0261 | Val Loss 1.6220 | Val Acc 0.7055 |  Train Acc 0.9956 | ETputs(KTEPS) 24048.17
+2023-10-14 04:55:27,414 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:55:27,419 - train.py [line:108] - INFO: [FINAL MODEL] Run 4 .\Val accuracy 71.87% \Val loss: 1.5
+2023-10-14 04:55:27,424 - train.py [line:110] - INFO: [FINAL MODEL] Run 4 .	Test accuracy 66.96% \Test loss: 1.5
+2023-10-14 04:55:27,426 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:55:28,774 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0262 | Val Loss 1.1679 | Val Acc 0.6264 |  Train Acc 0.9641 | ETputs(KTEPS) 23942.27
+2023-10-14 04:55:30,072 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0259 | Val Loss 1.2162 | Val Acc 0.6505 |  Train Acc 0.9875 | ETputs(KTEPS) 24178.17
+2023-10-14 04:55:31,372 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0259 | Val Loss 1.2069 | Val Acc 0.6967 |  Train Acc 0.9941 | ETputs(KTEPS) 24202.69
+2023-10-14 04:55:32,673 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0259 | Val Loss 1.3001 | Val Acc 0.6813 |  Train Acc 0.9971 | ETputs(KTEPS) 24208.91
+2023-10-14 04:55:33,988 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0260 | Val Loss 1.3544 | Val Acc 0.7011 |  Train Acc 0.9949 | ETputs(KTEPS) 24160.65
+2023-10-14 04:55:35,282 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0259 | Val Loss 1.3578 | Val Acc 0.7099 |  Train Acc 0.9963 | ETputs(KTEPS) 24182.67
+2023-10-14 04:55:36,573 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0259 | Val Loss 1.4349 | Val Acc 0.7077 |  Train Acc 0.9949 | ETputs(KTEPS) 24201.26
+2023-10-14 04:55:37,860 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0259 | Val Loss 1.4125 | Val Acc 0.6967 |  Train Acc 0.9949 | ETputs(KTEPS) 24224.44
+2023-10-14 04:55:39,136 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0259 | Val Loss 1.4099 | Val Acc 0.7121 |  Train Acc 0.9971 | ETputs(KTEPS) 24263.76
+2023-10-14 04:55:40,418 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0258 | Val Loss 1.5002 | Val Acc 0.7011 |  Train Acc 0.9949 | ETputs(KTEPS) 24287.16
+2023-10-14 04:55:41,710 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0258 | Val Loss 1.5595 | Val Acc 0.7055 |  Train Acc 0.9949 | ETputs(KTEPS) 24286.51
+2023-10-14 04:55:42,354 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:55:42,359 - train.py [line:108] - INFO: [FINAL MODEL] Run 5 .\Val accuracy 72.75% \Val loss: 1.3
+2023-10-14 04:55:42,364 - train.py [line:110] - INFO: [FINAL MODEL] Run 5 .	Test accuracy 66.96% \Test loss: 1.6
+2023-10-14 04:55:42,366 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:55:43,687 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0255 | Val Loss 1.1609 | Val Acc 0.6374 |  Train Acc 0.9773 | ETputs(KTEPS) 24570.44
+2023-10-14 04:55:45,041 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0262 | Val Loss 1.2389 | Val Acc 0.6989 |  Train Acc 0.9905 | ETputs(KTEPS) 23986.95
+2023-10-14 04:55:46,383 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0264 | Val Loss 1.2801 | Val Acc 0.7099 |  Train Acc 0.9927 | ETputs(KTEPS) 23809.39
+2023-10-14 04:55:47,678 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0262 | Val Loss 1.3630 | Val Acc 0.7077 |  Train Acc 0.9919 | ETputs(KTEPS) 23940.56
+2023-10-14 04:55:48,952 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0261 | Val Loss 1.3461 | Val Acc 0.7231 |  Train Acc 0.9941 | ETputs(KTEPS) 24077.64
+2023-10-14 04:55:50,224 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0260 | Val Loss 1.3570 | Val Acc 0.7121 |  Train Acc 0.9941 | ETputs(KTEPS) 24172.85
+2023-10-14 04:55:51,515 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0259 | Val Loss 1.4399 | Val Acc 0.7209 |  Train Acc 0.9949 | ETputs(KTEPS) 24193.73
+2023-10-14 04:55:52,812 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0259 | Val Loss 1.4550 | Val Acc 0.7099 |  Train Acc 0.9949 | ETputs(KTEPS) 24195.18
+2023-10-14 04:55:54,123 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0259 | Val Loss 1.4904 | Val Acc 0.7055 |  Train Acc 0.9919 | ETputs(KTEPS) 24184.14
+2023-10-14 04:55:55,429 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0260 | Val Loss 1.4244 | Val Acc 0.7143 |  Train Acc 0.9956 | ETputs(KTEPS) 24173.60
+2023-10-14 04:55:56,734 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0260 | Val Loss 1.4671 | Val Acc 0.7187 |  Train Acc 0.9956 | ETputs(KTEPS) 24165.41
+2023-10-14 04:55:58,039 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0260 | Val Loss 1.5213 | Val Acc 0.7231 |  Train Acc 0.9949 | ETputs(KTEPS) 24159.37
+2023-10-14 04:55:59,349 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0260 | Val Loss 1.5004 | Val Acc 0.7143 |  Train Acc 0.9963 | ETputs(KTEPS) 24143.61
+2023-10-14 04:56:00,631 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0260 | Val Loss 1.5747 | Val Acc 0.7187 |  Train Acc 0.9963 | ETputs(KTEPS) 24167.98
+2023-10-14 04:56:01,935 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0260 | Val Loss 1.5950 | Val Acc 0.7231 |  Train Acc 0.9949 | ETputs(KTEPS) 24161.34
+2023-10-14 04:56:03,220 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0259 | Val Loss 1.6442 | Val Acc 0.7275 |  Train Acc 0.9963 | ETputs(KTEPS) 24181.03
+2023-10-14 04:56:04,543 - train.py [line:94] - INFO: Epoch 00850 | Time(s) 0.0260 | Val Loss 1.6031 | Val Acc 0.7275 |  Train Acc 0.9978 | ETputs(KTEPS) 24154.80
+2023-10-14 04:56:05,827 - train.py [line:94] - INFO: Epoch 00900 | Time(s) 0.0260 | Val Loss 1.6292 | Val Acc 0.7187 |  Train Acc 0.9949 | ETputs(KTEPS) 24170.50
+2023-10-14 04:56:07,129 - train.py [line:94] - INFO: Epoch 00950 | Time(s) 0.0260 | Val Loss 1.6813 | Val Acc 0.7275 |  Train Acc 0.9963 | ETputs(KTEPS) 24167.18
+2023-10-14 04:56:08,433 - train.py [line:94] - INFO: Epoch 01000 | Time(s) 0.0260 | Val Loss 1.6410 | Val Acc 0.7231 |  Train Acc 0.9971 | ETputs(KTEPS) 24161.98
+2023-10-14 04:56:09,746 - train.py [line:94] - INFO: Epoch 01050 | Time(s) 0.0260 | Val Loss 1.6743 | Val Acc 0.7165 |  Train Acc 0.9971 | ETputs(KTEPS) 24149.90
+2023-10-14 04:56:10,389 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:56:10,394 - train.py [line:108] - INFO: [FINAL MODEL] Run 6 .\Val accuracy 73.85% \Val loss: 1.6
+2023-10-14 04:56:10,399 - train.py [line:110] - INFO: [FINAL MODEL] Run 6 .	Test accuracy 70.46% \Test loss: 1.7
+2023-10-14 04:56:10,401 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:56:11,768 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0262 | Val Loss 1.2224 | Val Acc 0.6286 |  Train Acc 0.9795 | ETputs(KTEPS) 23960.84
+2023-10-14 04:56:13,061 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0259 | Val Loss 1.3601 | Val Acc 0.6462 |  Train Acc 0.9912 | ETputs(KTEPS) 24236.01
+2023-10-14 04:56:14,354 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0258 | Val Loss 1.3759 | Val Acc 0.6571 |  Train Acc 0.9941 | ETputs(KTEPS) 24339.11
+2023-10-14 04:56:15,627 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0257 | Val Loss 1.4563 | Val Acc 0.6769 |  Train Acc 0.9971 | ETputs(KTEPS) 24417.80
+2023-10-14 04:56:16,929 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0257 | Val Loss 1.4717 | Val Acc 0.6791 |  Train Acc 0.9971 | ETputs(KTEPS) 24377.89
+2023-10-14 04:56:18,217 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0257 | Val Loss 1.5285 | Val Acc 0.6923 |  Train Acc 0.9956 | ETputs(KTEPS) 24388.29
+2023-10-14 04:56:19,474 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0256 | Val Loss 1.5559 | Val Acc 0.6923 |  Train Acc 0.9985 | ETputs(KTEPS) 24471.28
+2023-10-14 04:56:20,757 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0256 | Val Loss 1.5943 | Val Acc 0.6945 |  Train Acc 0.9978 | ETputs(KTEPS) 24478.78
+2023-10-14 04:56:22,035 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0256 | Val Loss 1.5404 | Val Acc 0.7055 |  Train Acc 0.9978 | ETputs(KTEPS) 24495.87
+2023-10-14 04:56:23,313 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0256 | Val Loss 1.6399 | Val Acc 0.7011 |  Train Acc 0.9985 | ETputs(KTEPS) 24501.36
+2023-10-14 04:56:24,581 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0256 | Val Loss 1.6334 | Val Acc 0.7033 |  Train Acc 0.9985 | ETputs(KTEPS) 24528.99
+2023-10-14 04:56:25,852 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0256 | Val Loss 1.6555 | Val Acc 0.7077 |  Train Acc 0.9978 | ETputs(KTEPS) 24546.37
+2023-10-14 04:56:27,123 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0256 | Val Loss 1.6823 | Val Acc 0.7055 |  Train Acc 0.9978 | ETputs(KTEPS) 24556.52
+2023-10-14 04:56:28,397 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0255 | Val Loss 1.6500 | Val Acc 0.7099 |  Train Acc 0.9963 | ETputs(KTEPS) 24566.76
+2023-10-14 04:56:29,663 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0255 | Val Loss 1.6905 | Val Acc 0.6989 |  Train Acc 0.9971 | ETputs(KTEPS) 24581.96
+2023-10-14 04:56:30,929 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0255 | Val Loss 1.6443 | Val Acc 0.7033 |  Train Acc 0.9978 | ETputs(KTEPS) 24595.45
+2023-10-14 04:56:32,191 - train.py [line:94] - INFO: Epoch 00850 | Time(s) 0.0255 | Val Loss 1.6227 | Val Acc 0.7077 |  Train Acc 0.9985 | ETputs(KTEPS) 24611.47
+2023-10-14 04:56:33,465 - train.py [line:94] - INFO: Epoch 00900 | Time(s) 0.0255 | Val Loss 1.6915 | Val Acc 0.7077 |  Train Acc 0.9985 | ETputs(KTEPS) 24614.94
+2023-10-14 04:56:34,737 - train.py [line:94] - INFO: Epoch 00950 | Time(s) 0.0255 | Val Loss 1.6763 | Val Acc 0.6989 |  Train Acc 0.9985 | ETputs(KTEPS) 24618.54
+2023-10-14 04:56:36,001 - train.py [line:94] - INFO: Epoch 01000 | Time(s) 0.0255 | Val Loss 1.7091 | Val Acc 0.7011 |  Train Acc 0.9985 | ETputs(KTEPS) 24629.44
+2023-10-14 04:56:37,272 - train.py [line:94] - INFO: Epoch 01050 | Time(s) 0.0255 | Val Loss 1.6903 | Val Acc 0.7011 |  Train Acc 0.9978 | ETputs(KTEPS) 24632.05
+2023-10-14 04:56:38,563 - train.py [line:94] - INFO: Epoch 01100 | Time(s) 0.0255 | Val Loss 1.6746 | Val Acc 0.6989 |  Train Acc 0.9971 | ETputs(KTEPS) 24618.23
+2023-10-14 04:56:39,834 - train.py [line:94] - INFO: Epoch 01150 | Time(s) 0.0255 | Val Loss 1.7213 | Val Acc 0.6879 |  Train Acc 0.9985 | ETputs(KTEPS) 24620.85
+2023-10-14 04:56:40,897 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:56:40,902 - train.py [line:108] - INFO: [FINAL MODEL] Run 7 .\Val accuracy 72.31% \Val loss: 1.7
+2023-10-14 04:56:40,907 - train.py [line:110] - INFO: [FINAL MODEL] Run 7 .	Test accuracy 71.77% \Test loss: 1.6
+2023-10-14 04:56:40,909 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:56:42,239 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0259 | Val Loss 1.3102 | Val Acc 0.5890 |  Train Acc 0.9700 | ETputs(KTEPS) 24189.14
+2023-10-14 04:56:43,533 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0258 | Val Loss 1.4567 | Val Acc 0.6022 |  Train Acc 0.9890 | ETputs(KTEPS) 24283.57
+2023-10-14 04:56:44,797 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0256 | Val Loss 1.5355 | Val Acc 0.6527 |  Train Acc 0.9853 | ETputs(KTEPS) 24523.40
+2023-10-14 04:56:46,095 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0256 | Val Loss 1.5710 | Val Acc 0.6747 |  Train Acc 0.9912 | ETputs(KTEPS) 24498.91
+2023-10-14 04:56:47,391 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0257 | Val Loss 1.5994 | Val Acc 0.6769 |  Train Acc 0.9919 | ETputs(KTEPS) 24457.44
+2023-10-14 04:56:48,674 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0256 | Val Loss 1.6251 | Val Acc 0.6769 |  Train Acc 0.9941 | ETputs(KTEPS) 24483.25
+2023-10-14 04:56:49,960 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0256 | Val Loss 1.6914 | Val Acc 0.6681 |  Train Acc 0.9934 | ETputs(KTEPS) 24472.72
+2023-10-14 04:56:51,231 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0256 | Val Loss 1.6243 | Val Acc 0.6681 |  Train Acc 0.9949 | ETputs(KTEPS) 24501.07
+2023-10-14 04:56:52,518 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0256 | Val Loss 1.6959 | Val Acc 0.6571 |  Train Acc 0.9941 | ETputs(KTEPS) 24490.14
+2023-10-14 04:56:53,787 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0256 | Val Loss 1.6226 | Val Acc 0.6813 |  Train Acc 0.9941 | ETputs(KTEPS) 24514.35
+2023-10-14 04:56:55,074 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0256 | Val Loss 1.6385 | Val Acc 0.6791 |  Train Acc 0.9949 | ETputs(KTEPS) 24509.94
+2023-10-14 04:56:56,338 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0256 | Val Loss 1.7285 | Val Acc 0.6703 |  Train Acc 0.9963 | ETputs(KTEPS) 24536.39
+2023-10-14 04:56:57,633 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0256 | Val Loss 1.6152 | Val Acc 0.6901 |  Train Acc 0.9949 | ETputs(KTEPS) 24513.50
+2023-10-14 04:56:58,901 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0256 | Val Loss 1.7391 | Val Acc 0.6835 |  Train Acc 0.9956 | ETputs(KTEPS) 24531.76
+2023-10-14 04:57:00,186 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0256 | Val Loss 1.6498 | Val Acc 0.6835 |  Train Acc 0.9934 | ETputs(KTEPS) 24527.93
+2023-10-14 04:57:01,475 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0256 | Val Loss 1.7807 | Val Acc 0.6747 |  Train Acc 0.9949 | ETputs(KTEPS) 24517.18
+2023-10-14 04:57:02,791 - train.py [line:94] - INFO: Epoch 00850 | Time(s) 0.0256 | Val Loss 1.7541 | Val Acc 0.6813 |  Train Acc 0.9956 | ETputs(KTEPS) 24476.67
+2023-10-14 04:57:04,075 - train.py [line:94] - INFO: Epoch 00900 | Time(s) 0.0256 | Val Loss 1.6799 | Val Acc 0.6901 |  Train Acc 0.9934 | ETputs(KTEPS) 24479.21
+2023-10-14 04:57:05,349 - train.py [line:94] - INFO: Epoch 00950 | Time(s) 0.0256 | Val Loss 1.7333 | Val Acc 0.6901 |  Train Acc 0.9956 | ETputs(KTEPS) 24490.74
+2023-10-14 04:57:06,644 - train.py [line:94] - INFO: Epoch 01000 | Time(s) 0.0256 | Val Loss 1.6887 | Val Acc 0.6813 |  Train Acc 0.9949 | ETputs(KTEPS) 24480.03
+2023-10-14 04:57:07,932 - train.py [line:94] - INFO: Epoch 01050 | Time(s) 0.0256 | Val Loss 1.7109 | Val Acc 0.6857 |  Train Acc 0.9963 | ETputs(KTEPS) 24474.48
+2023-10-14 04:57:09,222 - train.py [line:94] - INFO: Epoch 01100 | Time(s) 0.0256 | Val Loss 1.7207 | Val Acc 0.6835 |  Train Acc 0.9934 | ETputs(KTEPS) 24468.00
+2023-10-14 04:57:10,482 - train.py [line:94] - INFO: Epoch 01150 | Time(s) 0.0256 | Val Loss 1.7628 | Val Acc 0.6835 |  Train Acc 0.9971 | ETputs(KTEPS) 24487.22
+2023-10-14 04:57:11,770 - train.py [line:94] - INFO: Epoch 01200 | Time(s) 0.0256 | Val Loss 1.7061 | Val Acc 0.6945 |  Train Acc 0.9949 | ETputs(KTEPS) 24481.95
+2023-10-14 04:57:13,054 - train.py [line:94] - INFO: Epoch 01250 | Time(s) 0.0256 | Val Loss 1.6917 | Val Acc 0.6879 |  Train Acc 0.9956 | ETputs(KTEPS) 24480.80
+2023-10-14 04:57:13,293 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:57:13,299 - train.py [line:108] - INFO: [FINAL MODEL] Run 8 .\Val accuracy 70.77% \Val loss: 1.7
+2023-10-14 04:57:13,304 - train.py [line:110] - INFO: [FINAL MODEL] Run 8 .	Test accuracy 71.77% \Test loss: 1.5
+2023-10-14 04:57:13,306 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:57:14,666 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0261 | Val Loss 1.2060 | Val Acc 0.6000 |  Train Acc 0.9685 | ETputs(KTEPS) 24035.53
+2023-10-14 04:57:15,956 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0258 | Val Loss 1.3558 | Val Acc 0.6308 |  Train Acc 0.9824 | ETputs(KTEPS) 24317.74
+2023-10-14 04:57:17,254 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0258 | Val Loss 1.4464 | Val Acc 0.6396 |  Train Acc 0.9927 | ETputs(KTEPS) 24334.18
+2023-10-14 04:57:18,544 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0258 | Val Loss 1.4097 | Val Acc 0.6484 |  Train Acc 0.9927 | ETputs(KTEPS) 24330.69
+2023-10-14 04:57:19,880 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0260 | Val Loss 1.5020 | Val Acc 0.6571 |  Train Acc 0.9963 | ETputs(KTEPS) 24160.73
+2023-10-14 04:57:21,164 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0259 | Val Loss 1.4599 | Val Acc 0.6681 |  Train Acc 0.9963 | ETputs(KTEPS) 24207.07
+2023-10-14 04:57:22,451 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0259 | Val Loss 1.4144 | Val Acc 0.6901 |  Train Acc 0.9963 | ETputs(KTEPS) 24250.26
+2023-10-14 04:57:23,716 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0258 | Val Loss 1.4845 | Val Acc 0.6703 |  Train Acc 0.9971 | ETputs(KTEPS) 24320.97
+2023-10-14 04:57:24,978 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0257 | Val Loss 1.5181 | Val Acc 0.6725 |  Train Acc 0.9963 | ETputs(KTEPS) 24385.06
+2023-10-14 04:57:26,325 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0258 | Val Loss 1.4686 | Val Acc 0.6857 |  Train Acc 0.9956 | ETputs(KTEPS) 24275.61
+2023-10-14 04:57:27,667 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0259 | Val Loss 1.4918 | Val Acc 0.6923 |  Train Acc 0.9963 | ETputs(KTEPS) 24197.04
+2023-10-14 04:57:28,945 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0259 | Val Loss 1.4695 | Val Acc 0.7055 |  Train Acc 0.9971 | ETputs(KTEPS) 24233.92
+2023-10-14 04:57:30,287 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0260 | Val Loss 1.4082 | Val Acc 0.6945 |  Train Acc 0.9956 | ETputs(KTEPS) 24170.18
+2023-10-14 04:57:31,551 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0259 | Val Loss 1.5644 | Val Acc 0.6923 |  Train Acc 0.9963 | ETputs(KTEPS) 24217.00
+2023-10-14 04:57:32,850 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0259 | Val Loss 1.5093 | Val Acc 0.6967 |  Train Acc 0.9956 | ETputs(KTEPS) 24212.75
+2023-10-14 04:57:34,191 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0260 | Val Loss 1.4847 | Val Acc 0.7033 |  Train Acc 0.9963 | ETputs(KTEPS) 24161.69
+2023-10-14 04:57:35,524 - train.py [line:94] - INFO: Epoch 00850 | Time(s) 0.0260 | Val Loss 1.5206 | Val Acc 0.6835 |  Train Acc 0.9971 | ETputs(KTEPS) 24125.42
+2023-10-14 04:57:36,802 - train.py [line:94] - INFO: Epoch 00900 | Time(s) 0.0260 | Val Loss 1.5966 | Val Acc 0.6747 |  Train Acc 0.9978 | ETputs(KTEPS) 24148.78
+2023-10-14 04:57:36,887 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:57:36,893 - train.py [line:108] - INFO: [FINAL MODEL] Run 9 .\Val accuracy 71.43% \Val loss: 1.5
+2023-10-14 04:57:36,898 - train.py [line:110] - INFO: [FINAL MODEL] Run 9 .	Test accuracy 69.80% \Test loss: 1.5
+2023-10-14 04:57:36,900 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:57:38,241 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0262 | Val Loss 1.0925 | Val Acc 0.6242 |  Train Acc 0.9795 | ETputs(KTEPS) 23950.45
+2023-10-14 04:57:39,555 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0260 | Val Loss 1.2305 | Val Acc 0.6791 |  Train Acc 0.9905 | ETputs(KTEPS) 24089.50
+2023-10-14 04:57:40,840 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0259 | Val Loss 1.3629 | Val Acc 0.6835 |  Train Acc 0.9927 | ETputs(KTEPS) 24218.87
+2023-10-14 04:57:42,145 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0260 | Val Loss 1.3391 | Val Acc 0.6769 |  Train Acc 0.9934 | ETputs(KTEPS) 24176.13
+2023-10-14 04:57:43,428 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0259 | Val Loss 1.4518 | Val Acc 0.6945 |  Train Acc 0.9927 | ETputs(KTEPS) 24251.30
+2023-10-14 04:57:44,724 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0259 | Val Loss 1.4497 | Val Acc 0.6857 |  Train Acc 0.9971 | ETputs(KTEPS) 24260.77
+2023-10-14 04:57:46,021 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0259 | Val Loss 1.5055 | Val Acc 0.6791 |  Train Acc 0.9919 | ETputs(KTEPS) 24254.91
+2023-10-14 04:57:47,271 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0258 | Val Loss 1.4795 | Val Acc 0.7055 |  Train Acc 0.9956 | ETputs(KTEPS) 24358.18
+2023-10-14 04:57:48,617 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0259 | Val Loss 1.4938 | Val Acc 0.6923 |  Train Acc 0.9941 | ETputs(KTEPS) 24238.50
+2023-10-14 04:57:49,898 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0259 | Val Loss 1.5254 | Val Acc 0.6879 |  Train Acc 0.9956 | ETputs(KTEPS) 24265.12
+2023-10-14 04:57:51,184 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0258 | Val Loss 1.5621 | Val Acc 0.6835 |  Train Acc 0.9971 | ETputs(KTEPS) 24278.10
+2023-10-14 04:57:51,420 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:57:51,425 - train.py [line:108] - INFO: [FINAL MODEL] Run 10 .\Val accuracy 71.21% \Val loss: 1.4
+2023-10-14 04:57:51,431 - train.py [line:110] - INFO: [FINAL MODEL] Run 10 .	Test accuracy 68.49% \Test loss: 1.4
+2023-10-14 04:57:51,432 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:57:52,773 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0261 | Val Loss 1.2012 | Val Acc 0.6066 |  Train Acc 0.9736 | ETputs(KTEPS) 24044.48
+2023-10-14 04:57:54,180 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0270 | Val Loss 1.3082 | Val Acc 0.6396 |  Train Acc 0.9868 | ETputs(KTEPS) 23279.28
+2023-10-14 04:57:55,589 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0273 | Val Loss 1.4127 | Val Acc 0.6615 |  Train Acc 0.9883 | ETputs(KTEPS) 23002.21
+2023-10-14 04:57:56,958 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0272 | Val Loss 1.4599 | Val Acc 0.6703 |  Train Acc 0.9941 | ETputs(KTEPS) 23058.06
+2023-10-14 04:57:58,251 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0269 | Val Loss 1.5136 | Val Acc 0.6637 |  Train Acc 0.9912 | ETputs(KTEPS) 23300.06
+2023-10-14 04:57:59,655 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0271 | Val Loss 1.5256 | Val Acc 0.6813 |  Train Acc 0.9934 | ETputs(KTEPS) 23137.40
+2023-10-14 04:58:01,126 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0274 | Val Loss 1.5796 | Val Acc 0.6659 |  Train Acc 0.9941 | ETputs(KTEPS) 22860.35
+2023-10-14 04:58:02,430 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0273 | Val Loss 1.5696 | Val Acc 0.6813 |  Train Acc 0.9919 | ETputs(KTEPS) 23012.37
+2023-10-14 04:58:03,805 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0273 | Val Loss 1.5172 | Val Acc 0.6835 |  Train Acc 0.9919 | ETputs(KTEPS) 22992.40
+2023-10-14 04:58:05,186 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0273 | Val Loss 1.5963 | Val Acc 0.6857 |  Train Acc 0.9941 | ETputs(KTEPS) 22974.38
+2023-10-14 04:58:06,667 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0275 | Val Loss 1.5635 | Val Acc 0.6857 |  Train Acc 0.9949 | ETputs(KTEPS) 22804.61
+2023-10-14 04:58:08,900 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0275 | Val Loss 1.6248 | Val Acc 0.6945 |  Train Acc 0.9949 | ETputs(KTEPS) 22840.93
+2023-10-14 04:58:10,213 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0274 | Val Loss 1.6189 | Val Acc 0.6879 |  Train Acc 0.9963 | ETputs(KTEPS) 22923.94
+2023-10-14 04:58:11,296 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0270 | Val Loss 1.5483 | Val Acc 0.7011 |  Train Acc 0.9956 | ETputs(KTEPS) 23272.29
+2023-10-14 04:58:12,276 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0265 | Val Loss 1.5610 | Val Acc 0.6725 |  Train Acc 0.9941 | ETputs(KTEPS) 23704.01
+2023-10-14 04:58:13,295 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0261 | Val Loss 1.5767 | Val Acc 0.6967 |  Train Acc 0.9956 | ETputs(KTEPS) 24051.60
+2023-10-14 04:58:14,348 - train.py [line:94] - INFO: Epoch 00850 | Time(s) 0.0258 | Val Loss 1.6399 | Val Acc 0.6835 |  Train Acc 0.9941 | ETputs(KTEPS) 24328.48
+2023-10-14 04:58:15,411 - train.py [line:94] - INFO: Epoch 00900 | Time(s) 0.0255 | Val Loss 1.6019 | Val Acc 0.6901 |  Train Acc 0.9956 | ETputs(KTEPS) 24568.44
+2023-10-14 04:58:16,343 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:58:16,348 - train.py [line:108] - INFO: [FINAL MODEL] Run 11 .\Val accuracy 70.99% \Val loss: 1.6
+2023-10-14 04:58:16,354 - train.py [line:110] - INFO: [FINAL MODEL] Run 11 .	Test accuracy 70.46% \Test loss: 1.7
+2023-10-14 04:58:16,356 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:58:17,863 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0291 | Val Loss 1.1578 | Val Acc 0.6637 |  Train Acc 0.9722 | ETputs(KTEPS) 21588.56
+2023-10-14 04:58:19,492 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0308 | Val Loss 1.2121 | Val Acc 0.6725 |  Train Acc 0.9868 | ETputs(KTEPS) 20398.42
+2023-10-14 04:58:21,121 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0314 | Val Loss 1.2648 | Val Acc 0.6835 |  Train Acc 0.9905 | ETputs(KTEPS) 20006.60
+2023-10-14 04:58:22,732 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0316 | Val Loss 1.2353 | Val Acc 0.6769 |  Train Acc 0.9941 | ETputs(KTEPS) 19872.09
+2023-10-14 04:58:24,359 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0318 | Val Loss 1.3233 | Val Acc 0.6769 |  Train Acc 0.9956 | ETputs(KTEPS) 19760.78
+2023-10-14 04:58:25,986 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0319 | Val Loss 1.4158 | Val Acc 0.6747 |  Train Acc 0.9956 | ETputs(KTEPS) 19681.17
+2023-10-14 04:58:27,635 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0320 | Val Loss 1.4010 | Val Acc 0.6725 |  Train Acc 0.9971 | ETputs(KTEPS) 19585.85
+2023-10-14 04:58:29,283 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0322 | Val Loss 1.3935 | Val Acc 0.6813 |  Train Acc 0.9971 | ETputs(KTEPS) 19515.32
+2023-10-14 04:58:30,886 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0321 | Val Loss 1.4088 | Val Acc 0.6769 |  Train Acc 0.9971 | ETputs(KTEPS) 19522.13
+2023-10-14 04:58:32,511 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0322 | Val Loss 1.4566 | Val Acc 0.6813 |  Train Acc 0.9971 | ETputs(KTEPS) 19501.61
+2023-10-14 04:58:33,979 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:58:33,988 - train.py [line:108] - INFO: [FINAL MODEL] Run 12 .\Val accuracy 70.11% \Val loss: 1.3
+2023-10-14 04:58:33,995 - train.py [line:110] - INFO: [FINAL MODEL] Run 12 .	Test accuracy 65.65% \Test loss: 1.7
+2023-10-14 04:58:34,000 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:58:35,685 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0328 | Val Loss 1.2479 | Val Acc 0.6176 |  Train Acc 0.9758 | ETputs(KTEPS) 19137.35
+2023-10-14 04:58:37,377 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0331 | Val Loss 1.3187 | Val Acc 0.6571 |  Train Acc 0.9919 | ETputs(KTEPS) 18942.67
+2023-10-14 04:58:38,997 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0329 | Val Loss 1.4018 | Val Acc 0.6681 |  Train Acc 0.9941 | ETputs(KTEPS) 19093.23
+2023-10-14 04:58:40,635 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0328 | Val Loss 1.3870 | Val Acc 0.6681 |  Train Acc 0.9912 | ETputs(KTEPS) 19130.75
+2023-10-14 04:58:42,292 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0328 | Val Loss 1.4057 | Val Acc 0.6593 |  Train Acc 0.9949 | ETputs(KTEPS) 19106.79
+2023-10-14 04:58:43,952 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0329 | Val Loss 1.3468 | Val Acc 0.6967 |  Train Acc 0.9949 | ETputs(KTEPS) 19078.69
+2023-10-14 04:58:45,592 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0329 | Val Loss 1.4288 | Val Acc 0.6923 |  Train Acc 0.9956 | ETputs(KTEPS) 19089.72
+2023-10-14 04:58:47,233 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0328 | Val Loss 1.4978 | Val Acc 0.6967 |  Train Acc 0.9934 | ETputs(KTEPS) 19102.07
+2023-10-14 04:58:48,867 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0328 | Val Loss 1.5249 | Val Acc 0.6945 |  Train Acc 0.9941 | ETputs(KTEPS) 19113.61
+2023-10-14 04:58:50,491 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0328 | Val Loss 1.5065 | Val Acc 0.6879 |  Train Acc 0.9949 | ETputs(KTEPS) 19137.76
+2023-10-14 04:58:52,157 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0328 | Val Loss 1.4907 | Val Acc 0.7011 |  Train Acc 0.9956 | ETputs(KTEPS) 19114.56
+2023-10-14 04:58:53,784 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0328 | Val Loss 1.4531 | Val Acc 0.7033 |  Train Acc 0.9963 | ETputs(KTEPS) 19128.89
+2023-10-14 04:58:55,426 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0328 | Val Loss 1.3818 | Val Acc 0.7143 |  Train Acc 0.9956 | ETputs(KTEPS) 19131.90
+2023-10-14 04:58:57,056 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0328 | Val Loss 1.4270 | Val Acc 0.6967 |  Train Acc 0.9956 | ETputs(KTEPS) 19140.85
+2023-10-14 04:58:58,652 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0327 | Val Loss 1.5119 | Val Acc 0.6901 |  Train Acc 0.9956 | ETputs(KTEPS) 19174.68
+2023-10-14 04:59:00,244 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0327 | Val Loss 1.4341 | Val Acc 0.6967 |  Train Acc 0.9971 | ETputs(KTEPS) 19207.59
+2023-10-14 04:59:01,702 - train.py [line:94] - INFO: Epoch 00850 | Time(s) 0.0325 | Val Loss 1.4603 | Val Acc 0.6989 |  Train Acc 0.9956 | ETputs(KTEPS) 19330.45
+2023-10-14 04:59:03,192 - train.py [line:94] - INFO: Epoch 00900 | Time(s) 0.0323 | Val Loss 1.5044 | Val Acc 0.6791 |  Train Acc 0.9949 | ETputs(KTEPS) 19419.20
+2023-10-14 04:59:04,638 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:59:04,643 - train.py [line:108] - INFO: [FINAL MODEL] Run 13 .\Val accuracy 71.87% \Val loss: 1.4
+2023-10-14 04:59:04,651 - train.py [line:110] - INFO: [FINAL MODEL] Run 13 .	Test accuracy 68.71% \Test loss: 1.7
+2023-10-14 04:59:04,654 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:59:06,391 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0339 | Val Loss 1.0624 | Val Acc 0.6681 |  Train Acc 0.9722 | ETputs(KTEPS) 18502.46
+2023-10-14 04:59:08,024 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0331 | Val Loss 1.0820 | Val Acc 0.6857 |  Train Acc 0.9868 | ETputs(KTEPS) 18936.32
+2023-10-14 04:59:09,600 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0325 | Val Loss 1.1825 | Val Acc 0.6879 |  Train Acc 0.9941 | ETputs(KTEPS) 19283.88
+2023-10-14 04:59:11,143 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0321 | Val Loss 1.1592 | Val Acc 0.7033 |  Train Acc 0.9912 | ETputs(KTEPS) 19545.90
+2023-10-14 04:59:12,518 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0312 | Val Loss 1.2038 | Val Acc 0.7011 |  Train Acc 0.9934 | ETputs(KTEPS) 20122.61
+2023-10-14 04:59:14,217 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0316 | Val Loss 1.2370 | Val Acc 0.7055 |  Train Acc 0.9949 | ETputs(KTEPS) 19838.14
+2023-10-14 04:59:15,890 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0319 | Val Loss 1.2928 | Val Acc 0.7033 |  Train Acc 0.9912 | ETputs(KTEPS) 19679.15
+2023-10-14 04:59:17,507 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0319 | Val Loss 1.2416 | Val Acc 0.7187 |  Train Acc 0.9963 | ETputs(KTEPS) 19646.09
+2023-10-14 04:59:19,209 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0322 | Val Loss 1.2663 | Val Acc 0.7033 |  Train Acc 0.9956 | ETputs(KTEPS) 19504.61
+2023-10-14 04:59:20,901 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0323 | Val Loss 1.2705 | Val Acc 0.7143 |  Train Acc 0.9956 | ETputs(KTEPS) 19404.40
+2023-10-14 04:59:22,592 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0325 | Val Loss 1.3121 | Val Acc 0.7165 |  Train Acc 0.9949 | ETputs(KTEPS) 19324.27
+2023-10-14 04:59:24,266 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0326 | Val Loss 1.4099 | Val Acc 0.6989 |  Train Acc 0.9956 | ETputs(KTEPS) 19275.09
+2023-10-14 04:59:25,427 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:59:25,435 - train.py [line:108] - INFO: [FINAL MODEL] Run 14 .\Val accuracy 72.31% \Val loss: 1.3
+2023-10-14 04:59:25,443 - train.py [line:110] - INFO: [FINAL MODEL] Run 14 .	Test accuracy 70.68% \Test loss: 1.5
+2023-10-14 04:59:25,446 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:59:27,182 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0337 | Val Loss 1.1171 | Val Acc 0.6286 |  Train Acc 0.9634 | ETputs(KTEPS) 18595.97
+2023-10-14 04:59:28,885 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0337 | Val Loss 1.1753 | Val Acc 0.6703 |  Train Acc 0.9824 | ETputs(KTEPS) 18627.09
+2023-10-14 04:59:30,592 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0338 | Val Loss 1.3012 | Val Acc 0.6879 |  Train Acc 0.9890 | ETputs(KTEPS) 18577.78
+2023-10-14 04:59:32,138 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0331 | Val Loss 1.3076 | Val Acc 0.6791 |  Train Acc 0.9963 | ETputs(KTEPS) 18981.56
+2023-10-14 04:59:33,633 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0324 | Val Loss 1.3361 | Val Acc 0.6923 |  Train Acc 0.9949 | ETputs(KTEPS) 19351.33
+2023-10-14 04:59:35,213 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0323 | Val Loss 1.3935 | Val Acc 0.7011 |  Train Acc 0.9905 | ETputs(KTEPS) 19442.73
+2023-10-14 04:59:36,860 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0324 | Val Loss 1.4408 | Val Acc 0.6769 |  Train Acc 0.9956 | ETputs(KTEPS) 19387.66
+2023-10-14 04:59:38,539 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0325 | Val Loss 1.4736 | Val Acc 0.7033 |  Train Acc 0.9919 | ETputs(KTEPS) 19300.45
+2023-10-14 04:59:40,190 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0326 | Val Loss 1.5435 | Val Acc 0.6857 |  Train Acc 0.9890 | ETputs(KTEPS) 19268.36
+2023-10-14 04:59:41,863 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0326 | Val Loss 1.5347 | Val Acc 0.7121 |  Train Acc 0.9927 | ETputs(KTEPS) 19223.25
+2023-10-14 04:59:43,552 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0327 | Val Loss 1.5172 | Val Acc 0.6945 |  Train Acc 0.9978 | ETputs(KTEPS) 19165.94
+2023-10-14 04:59:45,222 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0328 | Val Loss 1.5648 | Val Acc 0.6945 |  Train Acc 0.9971 | ETputs(KTEPS) 19133.95
+2023-10-14 04:59:46,896 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0328 | Val Loss 1.5246 | Val Acc 0.6989 |  Train Acc 0.9956 | ETputs(KTEPS) 19104.23
+2023-10-14 04:59:48,409 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0327 | Val Loss 1.5659 | Val Acc 0.6967 |  Train Acc 0.9963 | ETputs(KTEPS) 19212.72
+2023-10-14 04:59:50,042 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0327 | Val Loss 1.5276 | Val Acc 0.6923 |  Train Acc 0.9949 | ETputs(KTEPS) 19212.93
+2023-10-14 04:59:51,703 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0327 | Val Loss 1.5859 | Val Acc 0.7099 |  Train Acc 0.9949 | ETputs(KTEPS) 19192.43
+2023-10-14 04:59:51,766 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 04:59:51,775 - train.py [line:108] - INFO: [FINAL MODEL] Run 15 .\Val accuracy 72.31% \Val loss: 1.5
+2023-10-14 04:59:51,782 - train.py [line:110] - INFO: [FINAL MODEL] Run 15 .	Test accuracy 73.52% \Test loss: 1.4
+2023-10-14 04:59:51,785 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 04:59:53,445 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0322 | Val Loss 1.3598 | Val Acc 0.6176 |  Train Acc 0.9780 | ETputs(KTEPS) 19470.98
+2023-10-14 04:59:55,120 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0328 | Val Loss 1.4972 | Val Acc 0.6308 |  Train Acc 0.9912 | ETputs(KTEPS) 19128.73
+2023-10-14 04:59:56,800 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0330 | Val Loss 1.4949 | Val Acc 0.6571 |  Train Acc 0.9956 | ETputs(KTEPS) 19000.12
+2023-10-14 04:59:58,498 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0332 | Val Loss 1.5807 | Val Acc 0.6549 |  Train Acc 0.9927 | ETputs(KTEPS) 18889.65
+2023-10-14 05:00:00,172 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0333 | Val Loss 1.6121 | Val Acc 0.6637 |  Train Acc 0.9927 | ETputs(KTEPS) 18860.76
+2023-10-14 05:00:01,869 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0334 | Val Loss 1.6912 | Val Acc 0.6549 |  Train Acc 0.9963 | ETputs(KTEPS) 18802.33
+2023-10-14 05:00:03,532 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0334 | Val Loss 1.7197 | Val Acc 0.6549 |  Train Acc 0.9934 | ETputs(KTEPS) 18811.39
+2023-10-14 05:00:04,931 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0327 | Val Loss 1.6451 | Val Acc 0.6747 |  Train Acc 0.9985 | ETputs(KTEPS) 19206.14
+2023-10-14 05:00:06,585 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0327 | Val Loss 1.7507 | Val Acc 0.6813 |  Train Acc 0.9971 | ETputs(KTEPS) 19185.63
+2023-10-14 05:00:08,280 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0328 | Val Loss 1.7141 | Val Acc 0.6835 |  Train Acc 0.9978 | ETputs(KTEPS) 19118.85
+2023-10-14 05:00:09,945 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0329 | Val Loss 1.7058 | Val Acc 0.6681 |  Train Acc 0.9956 | ETputs(KTEPS) 19093.91
+2023-10-14 05:00:11,575 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0328 | Val Loss 1.7101 | Val Acc 0.6813 |  Train Acc 0.9971 | ETputs(KTEPS) 19107.31
+2023-10-14 05:00:13,229 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0329 | Val Loss 1.7655 | Val Acc 0.6835 |  Train Acc 0.9934 | ETputs(KTEPS) 19097.67
+2023-10-14 05:00:14,869 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0328 | Val Loss 1.7142 | Val Acc 0.6703 |  Train Acc 0.9985 | ETputs(KTEPS) 19100.07
+2023-10-14 05:00:16,498 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0328 | Val Loss 1.8199 | Val Acc 0.6879 |  Train Acc 0.9949 | ETputs(KTEPS) 19110.96
+2023-10-14 05:00:16,865 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 05:00:16,873 - train.py [line:108] - INFO: [FINAL MODEL] Run 16 .\Val accuracy 69.67% \Val loss: 1.7
+2023-10-14 05:00:16,882 - train.py [line:110] - INFO: [FINAL MODEL] Run 16 .	Test accuracy 68.71% \Test loss: 1.5
+2023-10-14 05:00:16,885 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 05:00:18,583 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0330 | Val Loss 1.3210 | Val Acc 0.6308 |  Train Acc 0.9714 | ETputs(KTEPS) 19030.14
+2023-10-14 05:00:20,232 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0328 | Val Loss 1.4331 | Val Acc 0.6615 |  Train Acc 0.9846 | ETputs(KTEPS) 19111.33
+2023-10-14 05:00:21,751 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0319 | Val Loss 1.4875 | Val Acc 0.6593 |  Train Acc 0.9927 | ETputs(KTEPS) 19639.26
+2023-10-14 05:00:23,333 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0318 | Val Loss 1.5634 | Val Acc 0.6769 |  Train Acc 0.9912 | ETputs(KTEPS) 19719.29
+2023-10-14 05:00:24,929 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0318 | Val Loss 1.6609 | Val Acc 0.6681 |  Train Acc 0.9919 | ETputs(KTEPS) 19723.28
+2023-10-14 05:00:26,569 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0320 | Val Loss 1.5889 | Val Acc 0.6879 |  Train Acc 0.9941 | ETputs(KTEPS) 19622.14
+2023-10-14 05:00:28,222 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0321 | Val Loss 1.5841 | Val Acc 0.7011 |  Train Acc 0.9927 | ETputs(KTEPS) 19542.73
+2023-10-14 05:00:29,839 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0321 | Val Loss 1.5284 | Val Acc 0.7099 |  Train Acc 0.9934 | ETputs(KTEPS) 19529.20
+2023-10-14 05:00:31,480 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0322 | Val Loss 1.5847 | Val Acc 0.7121 |  Train Acc 0.9934 | ETputs(KTEPS) 19485.87
+2023-10-14 05:00:33,134 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0323 | Val Loss 1.6229 | Val Acc 0.7033 |  Train Acc 0.9912 | ETputs(KTEPS) 19434.25
+2023-10-14 05:00:34,760 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0323 | Val Loss 1.6074 | Val Acc 0.6989 |  Train Acc 0.9934 | ETputs(KTEPS) 19423.87
+2023-10-14 05:00:36,429 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0324 | Val Loss 1.5563 | Val Acc 0.7011 |  Train Acc 0.9927 | ETputs(KTEPS) 19370.91
+2023-10-14 05:00:38,033 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0324 | Val Loss 1.6768 | Val Acc 0.7055 |  Train Acc 0.9927 | ETputs(KTEPS) 19385.37
+2023-10-14 05:00:39,667 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0324 | Val Loss 1.6377 | Val Acc 0.7011 |  Train Acc 0.9941 | ETputs(KTEPS) 19372.84
+2023-10-14 05:00:41,285 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0324 | Val Loss 1.6559 | Val Acc 0.6967 |  Train Acc 0.9934 | ETputs(KTEPS) 19374.51
+2023-10-14 05:00:42,927 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0324 | Val Loss 1.7123 | Val Acc 0.6857 |  Train Acc 0.9941 | ETputs(KTEPS) 19358.67
+2023-10-14 05:00:43,667 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 05:00:43,673 - train.py [line:108] - INFO: [FINAL MODEL] Run 17 .\Val accuracy 72.31% \Val loss: 1.6
+2023-10-14 05:00:43,679 - train.py [line:110] - INFO: [FINAL MODEL] Run 17 .	Test accuracy 66.74% \Test loss: 1.7
+2023-10-14 05:00:43,681 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 05:00:45,450 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0343 | Val Loss 1.1834 | Val Acc 0.6505 |  Train Acc 0.9788 | ETputs(KTEPS) 18266.40
+2023-10-14 05:00:47,139 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0339 | Val Loss 1.2211 | Val Acc 0.6615 |  Train Acc 0.9905 | ETputs(KTEPS) 18512.19
+2023-10-14 05:00:48,841 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0338 | Val Loss 1.2387 | Val Acc 0.6769 |  Train Acc 0.9927 | ETputs(KTEPS) 18563.59
+2023-10-14 05:00:50,482 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0335 | Val Loss 1.2598 | Val Acc 0.6769 |  Train Acc 0.9978 | ETputs(KTEPS) 18701.38
+2023-10-14 05:00:52,122 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0334 | Val Loss 1.2415 | Val Acc 0.6901 |  Train Acc 0.9978 | ETputs(KTEPS) 18795.53
+2023-10-14 05:00:53,767 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0333 | Val Loss 1.2699 | Val Acc 0.6879 |  Train Acc 0.9956 | ETputs(KTEPS) 18846.12
+2023-10-14 05:00:55,391 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0332 | Val Loss 1.2133 | Val Acc 0.6945 |  Train Acc 0.9971 | ETputs(KTEPS) 18917.72
+2023-10-14 05:00:57,033 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0331 | Val Loss 1.2277 | Val Acc 0.6923 |  Train Acc 0.9978 | ETputs(KTEPS) 18948.04
+2023-10-14 05:00:58,644 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0330 | Val Loss 1.2358 | Val Acc 0.6967 |  Train Acc 0.9971 | ETputs(KTEPS) 19008.41
+2023-10-14 05:01:00,290 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0330 | Val Loss 1.2277 | Val Acc 0.7077 |  Train Acc 0.9963 | ETputs(KTEPS) 19013.66
+2023-10-14 05:01:01,931 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0330 | Val Loss 1.2139 | Val Acc 0.7077 |  Train Acc 0.9978 | ETputs(KTEPS) 19024.18
+2023-10-14 05:01:03,282 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0325 | Val Loss 1.2183 | Val Acc 0.7055 |  Train Acc 0.9985 | ETputs(KTEPS) 19319.17
+2023-10-14 05:01:04,646 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0321 | Val Loss 1.2218 | Val Acc 0.6989 |  Train Acc 0.9985 | ETputs(KTEPS) 19561.80
+2023-10-14 05:01:06,101 - train.py [line:94] - INFO: Epoch 00700 | Time(s) 0.0319 | Val Loss 1.2398 | Val Acc 0.6989 |  Train Acc 0.9993 | ETputs(KTEPS) 19692.88
+2023-10-14 05:01:07,690 - train.py [line:94] - INFO: Epoch 00750 | Time(s) 0.0318 | Val Loss 1.1656 | Val Acc 0.7187 |  Train Acc 0.9956 | ETputs(KTEPS) 19699.78
+2023-10-14 05:01:09,366 - train.py [line:94] - INFO: Epoch 00800 | Time(s) 0.0320 | Val Loss 1.1725 | Val Acc 0.7209 |  Train Acc 0.9971 | ETputs(KTEPS) 19635.77
+2023-10-14 05:01:11,035 - train.py [line:94] - INFO: Epoch 00850 | Time(s) 0.0320 | Val Loss 1.1960 | Val Acc 0.7165 |  Train Acc 1.0000 | ETputs(KTEPS) 19584.90
+2023-10-14 05:01:12,700 - train.py [line:94] - INFO: Epoch 00900 | Time(s) 0.0321 | Val Loss 1.2095 | Val Acc 0.7165 |  Train Acc 0.9993 | ETputs(KTEPS) 19542.67
+2023-10-14 05:01:14,310 - train.py [line:94] - INFO: Epoch 00950 | Time(s) 0.0321 | Val Loss 1.2131 | Val Acc 0.6967 |  Train Acc 0.9971 | ETputs(KTEPS) 19540.58
+2023-10-14 05:01:15,939 - train.py [line:94] - INFO: Epoch 01000 | Time(s) 0.0321 | Val Loss 1.2288 | Val Acc 0.7143 |  Train Acc 0.9985 | ETputs(KTEPS) 19526.54
+2023-10-14 05:01:16,505 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 05:01:16,513 - train.py [line:108] - INFO: [FINAL MODEL] Run 18 .\Val accuracy 72.97% \Val loss: 1.2
+2023-10-14 05:01:16,521 - train.py [line:110] - INFO: [FINAL MODEL] Run 18 .	Test accuracy 66.30% \Test loss: 1.6
+2023-10-14 05:01:16,524 - train.py [line:53] - INFO: #Train:1365
+2023-10-14 05:01:18,229 - train.py [line:94] - INFO: Epoch 00050 | Time(s) 0.0332 | Val Loss 1.2600 | Val Acc 0.6242 |  Train Acc 0.9722 | ETputs(KTEPS) 18918.68
+2023-10-14 05:01:19,864 - train.py [line:94] - INFO: Epoch 00100 | Time(s) 0.0329 | Val Loss 1.3289 | Val Acc 0.6505 |  Train Acc 0.9853 | ETputs(KTEPS) 19088.31
+2023-10-14 05:01:21,578 - train.py [line:94] - INFO: Epoch 00150 | Time(s) 0.0333 | Val Loss 1.2987 | Val Acc 0.6769 |  Train Acc 0.9905 | ETputs(KTEPS) 18867.68
+2023-10-14 05:01:23,163 - train.py [line:94] - INFO: Epoch 00200 | Time(s) 0.0328 | Val Loss 1.4036 | Val Acc 0.6923 |  Train Acc 0.9919 | ETputs(KTEPS) 19112.53
+2023-10-14 05:01:24,838 - train.py [line:94] - INFO: Epoch 00250 | Time(s) 0.0329 | Val Loss 1.3857 | Val Acc 0.7011 |  Train Acc 0.9927 | ETputs(KTEPS) 19048.35
+2023-10-14 05:01:26,483 - train.py [line:94] - INFO: Epoch 00300 | Time(s) 0.0329 | Val Loss 1.4219 | Val Acc 0.7011 |  Train Acc 0.9941 | ETputs(KTEPS) 19054.40
+2023-10-14 05:01:28,130 - train.py [line:94] - INFO: Epoch 00350 | Time(s) 0.0329 | Val Loss 1.4366 | Val Acc 0.7099 |  Train Acc 0.9956 | ETputs(KTEPS) 19064.61
+2023-10-14 05:01:29,802 - train.py [line:94] - INFO: Epoch 00400 | Time(s) 0.0330 | Val Loss 1.4471 | Val Acc 0.7187 |  Train Acc 0.9941 | ETputs(KTEPS) 19031.50
+2023-10-14 05:01:31,471 - train.py [line:94] - INFO: Epoch 00450 | Time(s) 0.0330 | Val Loss 1.4935 | Val Acc 0.7011 |  Train Acc 0.9949 | ETputs(KTEPS) 19005.01
+2023-10-14 05:01:33,130 - train.py [line:94] - INFO: Epoch 00500 | Time(s) 0.0330 | Val Loss 1.4984 | Val Acc 0.7077 |  Train Acc 0.9949 | ETputs(KTEPS) 18996.47
+2023-10-14 05:01:34,773 - train.py [line:94] - INFO: Epoch 00550 | Time(s) 0.0330 | Val Loss 1.4708 | Val Acc 0.7033 |  Train Acc 0.9934 | ETputs(KTEPS) 19006.01
+2023-10-14 05:01:36,471 - train.py [line:94] - INFO: Epoch 00600 | Time(s) 0.0331 | Val Loss 1.5165 | Val Acc 0.7077 |  Train Acc 0.9949 | ETputs(KTEPS) 18962.06
+2023-10-14 05:01:38,142 - train.py [line:94] - INFO: Epoch 00650 | Time(s) 0.0331 | Val Loss 1.5380 | Val Acc 0.7011 |  Train Acc 0.9956 | ETputs(KTEPS) 18947.95
+2023-10-14 05:01:38,885 - train.py [line:106] - DEBUG: Model Saved by Early Stopper is Loaded!
+2023-10-14 05:01:38,893 - train.py [line:108] - INFO: [FINAL MODEL] Run 19 .\Val accuracy 72.53% \Val loss: 1.5
+2023-10-14 05:01:38,901 - train.py [line:110] - INFO: [FINAL MODEL] Run 19 .	Test accuracy 70.24% \Test loss: 1.3
+2023-10-14 05:01:38,921 - train.py [line:140] - INFO: Mean Acc For Cross Validation: 0.6952, STDV: 0.0220
+2023-10-14 05:01:38,921 - train.py [line:141] - INFO: Uncertainty: 0.0099
+2023-10-14 05:01:38,921 - train.py [line:142] - INFO: [0.6958424507658644, 0.7352297592997812, 0.7089715536105032, 0.6914660831509847, 0.6695842450765864, 0.6695842450765864, 0.7045951859956237, 0.7177242888402626, 0.7177242888402626, 0.6980306345733042, 0.6849015317286652, 0.7045951859956237, 0.6564551422319475, 0.687089715536105, 0.7067833698030634, 0.7352297592997812, 0.687089715536105, 0.6673960612691466, 0.6630196936542669, 0.7024070021881839]

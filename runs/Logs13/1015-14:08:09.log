@@ -1,0 +1,14 @@
+2023-10-15 14:08:09,994 - tune.py [line:203] - INFO: Namespace(seed=42, model='NormalNN', gpu=1, dataset='genius', logging=True, log_detail=True, log_detailedCh=True, id_log=0, optuna_n_trials=2, n_epochs=150, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=4, lr1=0.01, lr2=0.005, wd1=1e-08, wd2=0.001, dropout=0.5, dropout2=0.1, es_ckpt='woselfloop-genius_NormalNN-genius_trialNo6')
+2023-10-15 14:08:12,383 - tune.py [line:127] - INFO: Split_seeds:[1824]
+2023-10-15 14:08:12,383 - tune.py [line:128] - INFO: Model_seeds:[409]
+2023-10-15 14:08:19,784 - tune.py [line:97] - INFO: Epoch 00020 | Time(s) 0.3576 | Val Loss 0.6439 | Val Acc 0.5072 |  Train Acc 0.5112 | ETputs(KTEPS) 51616.94
+2023-10-15 14:08:26,188 - tune.py [line:97] - INFO: Epoch 00040 | Time(s) 0.3388 | Val Loss 0.5996 | Val Acc 0.4846 |  Train Acc 0.4841 | ETputs(KTEPS) 54472.32
+2023-10-15 14:08:32,611 - tune.py [line:97] - INFO: Epoch 00060 | Time(s) 0.3329 | Val Loss 0.5667 | Val Acc 0.5007 |  Train Acc 0.5004 | ETputs(KTEPS) 55442.58
+2023-10-15 14:08:38,970 - tune.py [line:97] - INFO: Epoch 00080 | Time(s) 0.3291 | Val Loss 0.5435 | Val Acc 0.4754 |  Train Acc 0.4725 | ETputs(KTEPS) 56076.77
+2023-10-15 14:08:45,535 - tune.py [line:97] - INFO: Epoch 00100 | Time(s) 0.3289 | Val Loss 0.5275 | Val Acc 0.5115 |  Train Acc 0.5073 | ETputs(KTEPS) 56111.38
+2023-10-15 14:08:51,757 - tune.py [line:97] - INFO: Epoch 00120 | Time(s) 0.3259 | Val Loss 0.5168 | Val Acc 0.5443 |  Train Acc 0.5435 | ETputs(KTEPS) 56626.59
+2023-10-15 14:08:58,023 - tune.py [line:97] - INFO: Epoch 00140 | Time(s) 0.3241 | Val Loss 0.5096 | Val Acc 0.5893 |  Train Acc 0.5911 | ETputs(KTEPS) 56944.77
+2023-10-15 14:09:01,458 - tune.py [line:117] - INFO: [FINAL MODEL] Val accuracy 28.51% \Val loss: 0.51
+2023-10-15 14:09:01,458 - tune.py [line:118] - INFO: [FINAL MODEL] Test accuracy 28.21% \Test loss: 0.51
+2023-10-15 14:09:01,458 - tune.py [line:143] - INFO: Acc on the first split (Validation Set): 0.2851
+2023-10-15 14:09:01,459 - tune.py [line:144] - INFO: Acc on the first split (Test Set): 0.2821

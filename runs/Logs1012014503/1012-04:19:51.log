@@ -1,0 +1,13 @@
+2023-10-12 04:19:51,132 - tune.py [line:203] - INFO: Namespace(seed=42, model='GPRGNNV2', gpu=0, dataset='geom-chameleon', logging=True, log_detail=True, log_detailedCh=False, id_log=1012014503, optuna_n_trials=202, n_epochs=2000, self_loop=True, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=4, lr1=0.03, lr2=0.04, wd1=1e-05, wd2=1e-08, dropout=0.4, dropout2=0.7, alpha=0.4, es_ckpt='TestTuningScript-geom-chameleon_GPRGNNV2-geom-chameleon_trialNo147')
+2023-10-12 04:19:51,942 - tune.py [line:128] - INFO: Split_seeds:[1824]
+2023-10-12 04:19:51,942 - tune.py [line:129] - INFO: Model_seeds:[409]
+2023-10-12 04:19:52,693 - tune.py [line:103] - INFO: Epoch 00020 | Time(s) 0.0346 | Val Loss 1.1852 | Val Acc 0.5626 | ETputs(KTEPS) 18808.26
+2023-10-12 04:19:53,386 - tune.py [line:103] - INFO: Epoch 00040 | Time(s) 0.0343 | Val Loss 1.2957 | Val Acc 0.6022 | ETputs(KTEPS) 18954.70
+2023-10-12 04:19:54,080 - tune.py [line:103] - INFO: Epoch 00060 | Time(s) 0.0343 | Val Loss 1.4155 | Val Acc 0.6396 | ETputs(KTEPS) 18980.99
+2023-10-12 04:19:54,709 - tune.py [line:103] - INFO: Epoch 00080 | Time(s) 0.0335 | Val Loss 1.5372 | Val Acc 0.6110 | ETputs(KTEPS) 19394.92
+2023-10-12 04:19:55,510 - tune.py [line:103] - INFO: Epoch 00100 | Time(s) 0.0348 | Val Loss 1.6340 | Val Acc 0.6132 | ETputs(KTEPS) 18671.84
+2023-10-12 04:19:56,170 - tune.py [line:103] - INFO: Epoch 00120 | Time(s) 0.0345 | Val Loss 1.7258 | Val Acc 0.6132 | ETputs(KTEPS) 18839.17
+2023-10-12 04:19:56,840 - tune.py [line:103] - INFO: Epoch 00140 | Time(s) 0.0344 | Val Loss 1.7132 | Val Acc 0.6330 | ETputs(KTEPS) 18920.13
+2023-10-12 04:19:57,564 - tune.py [line:103] - INFO: Epoch 00160 | Time(s) 0.0346 | Val Loss 1.8457 | Val Acc 0.6330 | ETputs(KTEPS) 18801.88
+2023-10-12 04:19:58,280 - tune.py [line:103] - INFO: Epoch 00180 | Time(s) 0.0347 | Val Loss 1.8923 | Val Acc 0.6308 | ETputs(KTEPS) 18730.18
+2023-10-12 04:19:59,059 - tune.py [line:103] - INFO: Epoch 00200 | Time(s) 0.0351 | Val Loss 1.9601 | Val Acc 0.6264 | ETputs(KTEPS) 18505.70

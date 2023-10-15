@@ -1,0 +1,13 @@
+2023-10-12 04:19:14,262 - tune.py [line:203] - INFO: Namespace(seed=42, model='GPRGNNV2', gpu=0, dataset='geom-squirrel', logging=True, log_detail=True, log_detailedCh=False, id_log=1012014504, optuna_n_trials=202, n_epochs=2000, self_loop=True, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=4, lr1=0.04, lr2=0.05, wd1=1e-05, wd2=1e-08, dropout=0.6, dropout2=0.6, alpha=0.6, es_ckpt='TestTuningScript-geom-squirrel_GPRGNNV2-geom-squirrel_trialNo64')
+2023-10-12 04:19:16,870 - tune.py [line:128] - INFO: Split_seeds:[1824]
+2023-10-12 04:19:16,870 - tune.py [line:129] - INFO: Model_seeds:[409]
+2023-10-12 04:19:18,693 - tune.py [line:103] - INFO: Epoch 00020 | Time(s) 0.0897 | Val Loss 1.4581 | Val Acc 0.3596 | ETputs(KTEPS) 44808.67
+2023-10-12 04:19:20,519 - tune.py [line:103] - INFO: Epoch 00040 | Time(s) 0.0904 | Val Loss 1.4244 | Val Acc 0.3433 | ETputs(KTEPS) 44446.84
+2023-10-12 04:19:22,472 - tune.py [line:103] - INFO: Epoch 00060 | Time(s) 0.0927 | Val Loss 1.3886 | Val Acc 0.3712 | ETputs(KTEPS) 43332.91
+2023-10-12 04:19:24,234 - tune.py [line:103] - INFO: Epoch 00080 | Time(s) 0.0914 | Val Loss 1.3776 | Val Acc 0.4250 | ETputs(KTEPS) 43960.70
+2023-10-12 04:19:26,048 - tune.py [line:103] - INFO: Epoch 00100 | Time(s) 0.0912 | Val Loss 1.3717 | Val Acc 0.4337 | ETputs(KTEPS) 44069.97
+2023-10-12 04:19:27,997 - tune.py [line:103] - INFO: Epoch 00120 | Time(s) 0.0922 | Val Loss 1.3614 | Val Acc 0.4308 | ETputs(KTEPS) 43582.87
+2023-10-12 04:19:29,956 - tune.py [line:103] - INFO: Epoch 00140 | Time(s) 0.0930 | Val Loss 1.3469 | Val Acc 0.4510 | ETputs(KTEPS) 43224.25
+2023-10-12 04:19:31,891 - tune.py [line:103] - INFO: Epoch 00160 | Time(s) 0.0934 | Val Loss 1.3362 | Val Acc 0.4721 | ETputs(KTEPS) 43033.75
+2023-10-12 04:19:33,940 - tune.py [line:103] - INFO: Epoch 00180 | Time(s) 0.0944 | Val Loss 1.3301 | Val Acc 0.4654 | ETputs(KTEPS) 42576.19
+2023-10-12 04:19:35,849 - tune.py [line:103] - INFO: Epoch 00200 | Time(s) 0.0945 | Val Loss 1.3161 | Val Acc 0.4663 | ETputs(KTEPS) 42530.15

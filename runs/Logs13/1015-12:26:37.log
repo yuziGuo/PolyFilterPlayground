@@ -1,0 +1,1 @@
+2023-10-15 12:27:01,208 - <stdin> [line:1] - INFO: Epoch {:05d} | Time(s) {:.4f} | Val Loss {:.4f} | Val Acc {:.4f} |  Train Acc {:.4f} | 

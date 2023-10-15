@@ -1,0 +1,5 @@
+2023-10-11 07:35:49,840 - tune.py [line:191] - INFO: Namespace(seed=42, model='NormalNN', gpu=0, dataset='geom-chameleon', logging=True, log_detail=True, log_detailedCh=False, id_log=1011014502, optuna_n_trials=202, self_loop=True, udgraph=True, early_stop=True, patience=300, n_epochs=2000, n_hidden=64, n_cv=1, start_cv=0, n_layers=16, lr1=0.01, lr2=0.001, wd1=1e-06, wd2=1e-08, dropout=0.4, dropout2=0.0, es_ckpt='TestTuningScript-geom-chameleon_geom-chameleon_trialNo6')
+2023-10-11 07:35:50,644 - tune.py [line:125] - INFO: Split_seeds:[1824]
+2023-10-11 07:35:50,644 - tune.py [line:126] - INFO: Model_seeds:[409]
+2023-10-11 07:35:51,709 - tune.py [line:100] - INFO: Epoch 00020 | Time(s) 0.0510 | Val Loss 1.5536 | Val Acc 0.4967 | ETputs(KTEPS) 12754.49
+2023-10-11 07:35:52,882 - tune.py [line:100] - INFO: Epoch 00040 | Time(s) 0.0543 | Val Loss 1.4996 | Val Acc 0.5538 | ETputs(KTEPS) 11975.68

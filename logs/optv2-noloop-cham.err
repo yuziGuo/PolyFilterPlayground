@@ -1,0 +1,276 @@
+[32m[I 2023-10-13 14:13:23,978][0m Using an existing study with name 'woselfloop-geom-chameleon' instead of creating a new one.[0m
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:36: RuntimeWarning: divide by zero encountered in power
+  r_inv = np.power(rowsum, -1).flatten()
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:95: FutureWarning: adjacency_matrix will return a scipy.sparse array instead of a matrix in Networkx 3.0.
+  adj = nx.adjacency_matrix(G, sorted(G.nodes()))
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:96: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  ../torch/csrc/utils/tensor_new.cpp:201.)
+  edge_index = th.Tensor(adj.nonzero())
+WARNING:root:The OGB package is out of date. Your version is 1.3.5, while the latest version is 1.3.6.
+[32m[I 2023-10-13 14:13:46,687][0m Trial 8 finished with value: 0.6989010989010989 and parameters: {'n_layers': 4, 'lr1': 0.05, 'lr2': 0.0, 'wd1': -8, 'wd2': -3, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 8 with value: 0.6989010989010989 and user_attrs {'test_acc': 0.6849015317286652, 'val_acc': 0.6989010989010989}.[0m
+[32m[I 2023-10-13 14:20:14,263][0m Using an existing study with name 'woselfloop-geom-chameleon' instead of creating a new one.[0m
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:36: RuntimeWarning: divide by zero encountered in power
+  r_inv = np.power(rowsum, -1).flatten()
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:95: FutureWarning: adjacency_matrix will return a scipy.sparse array instead of a matrix in Networkx 3.0.
+  adj = nx.adjacency_matrix(G, sorted(G.nodes()))
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:96: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  ../torch/csrc/utils/tensor_new.cpp:201.)
+  edge_index = th.Tensor(adj.nonzero())
+WARNING:root:The OGB package is out of date. Your version is 1.3.5, while the latest version is 1.3.6.
+[32m[I 2023-10-13 14:21:22,275][0m Using an existing study with name 'woselfloop-geom-chameleon' instead of creating a new one.[0m
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:36: RuntimeWarning: divide by zero encountered in power
+  r_inv = np.power(rowsum, -1).flatten()
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:95: FutureWarning: adjacency_matrix will return a scipy.sparse array instead of a matrix in Networkx 3.0.
+  adj = nx.adjacency_matrix(G, sorted(G.nodes()))
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:96: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  ../torch/csrc/utils/tensor_new.cpp:201.)
+  edge_index = th.Tensor(adj.nonzero())
+WARNING:root:The OGB package is out of date. Your version is 1.3.5, while the latest version is 1.3.6.
+[32m[I 2023-10-13 14:22:42,224][0m Using an existing study with name 'woselfloop-geom-chameleon' instead of creating a new one.[0m
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:36: RuntimeWarning: divide by zero encountered in power
+  r_inv = np.power(rowsum, -1).flatten()
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:95: FutureWarning: adjacency_matrix will return a scipy.sparse array instead of a matrix in Networkx 3.0.
+  adj = nx.adjacency_matrix(G, sorted(G.nodes()))
+/home/yuhe_guo/repos/polyFilterPlayground/data/geom_dataloader.py:96: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  ../torch/csrc/utils/tensor_new.cpp:201.)
+  edge_index = th.Tensor(adj.nonzero())
+WARNING:root:The OGB package is out of date. Your version is 1.3.5, while the latest version is 1.3.6.
+[32m[I 2023-10-13 14:23:21,472][0m Trial 12 finished with value: 0.6659340659340659 and parameters: {'n_layers': 20, 'lr1': -0.02, 'lr2': 0.02, 'wd1': -3, 'wd2': -3, 'dropout': 0.0, 'dropout2': 0.30000000000000004}. Best is trial 8 with value: 0.6989010989010989 and user_attrs {'test_acc': 0.6849015317286652, 'val_acc': 0.6989010989010989}.[0m
+[32m[I 2023-10-13 14:25:20,450][0m Trial 13 finished with value: 0.35824175824175825 and parameters: {'n_layers': 20, 'lr1': -0.01, 'lr2': 0.030000000000000002, 'wd1': -7, 'wd2': -4, 'dropout': 0.9, 'dropout2': 0.9}. Best is trial 8 with value: 0.6989010989010989 and user_attrs {'test_acc': 0.6849015317286652, 'val_acc': 0.6989010989010989}.[0m
+[32m[I 2023-10-13 14:25:54,193][0m Trial 14 finished with value: 0.6395604395604395 and parameters: {'n_layers': 16, 'lr1': 0.039999999999999994, 'lr2': 0.0, 'wd1': -3, 'wd2': -6, 'dropout': 0.30000000000000004, 'dropout2': 0.1}. Best is trial 8 with value: 0.6989010989010989 and user_attrs {'test_acc': 0.6849015317286652, 'val_acc': 0.6989010989010989}.[0m
+[32m[I 2023-10-13 14:27:02,129][0m Trial 15 finished with value: 0.7032967032967034 and parameters: {'n_layers': 4, 'lr1': -0.01, 'lr2': 0.039999999999999994, 'wd1': -5, 'wd2': -5, 'dropout': 0.6000000000000001, 'dropout2': 0.30000000000000004}. Best is trial 15 with value: 0.7032967032967034 and user_attrs {'test_acc': 0.6849015317286652, 'val_acc': 0.7032967032967034}.[0m
+[32m[I 2023-10-13 14:27:04,110][0m Trial 16 pruned. [0m
+[32m[I 2023-10-13 14:27:06,254][0m Trial 17 pruned. [0m
+[32m[I 2023-10-13 14:27:09,797][0m Trial 18 pruned. [0m
+[32m[I 2023-10-13 14:27:13,289][0m Trial 19 pruned. [0m
+[32m[I 2023-10-13 14:27:17,663][0m Trial 20 pruned. [0m
+[32m[I 2023-10-13 14:27:23,747][0m Trial 21 pruned. [0m
+[32m[I 2023-10-13 14:27:39,243][0m Trial 22 finished with value: 0.6967032967032967 and parameters: {'n_layers': 4, 'lr1': 0.05, 'lr2': 0.05, 'wd1': -6, 'wd2': -3, 'dropout': 0.5, 'dropout2': 0.0}. Best is trial 15 with value: 0.7032967032967034 and user_attrs {'test_acc': 0.6849015317286652, 'val_acc': 0.7032967032967034}.[0m
+[32m[I 2023-10-13 14:28:01,876][0m Trial 23 finished with value: 0.6703296703296703 and parameters: {'n_layers': 4, 'lr1': 0.009999999999999998, 'lr2': 0.009999999999999998, 'wd1': -4, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.6000000000000001}. Best is trial 15 with value: 0.7032967032967034 and user_attrs {'test_acc': 0.6849015317286652, 'val_acc': 0.7032967032967034}.[0m
+[32m[I 2023-10-13 14:28:23,150][0m Trial 24 finished with value: 0.6923076923076923 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.039999999999999994, 'wd1': -7, 'wd2': -8, 'dropout': 0.4, 'dropout2': 0.5}. Best is trial 15 with value: 0.7032967032967034 and user_attrs {'test_acc': 0.6849015317286652, 'val_acc': 0.7032967032967034}.[0m
+[32m[I 2023-10-13 14:28:24,940][0m Trial 25 pruned. [0m
+[32m[I 2023-10-13 14:28:26,845][0m Trial 26 pruned. [0m
+[32m[I 2023-10-13 14:28:49,246][0m Trial 27 finished with value: 0.7186813186813187 and parameters: {'n_layers': 12, 'lr1': 0.0, 'lr2': 0.0, 'wd1': -5, 'wd2': -7, 'dropout': 0.5, 'dropout2': 0.2}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:29:17,845][0m Trial 28 finished with value: 0.6813186813186813 and parameters: {'n_layers': 12, 'lr1': 0.0, 'lr2': 0.030000000000000002, 'wd1': -4, 'wd2': -7, 'dropout': 0.5, 'dropout2': 0.0}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:29:19,804][0m Trial 29 pruned. [0m
+[32m[I 2023-10-13 14:29:22,040][0m Trial 30 pruned. [0m
+[32m[I 2023-10-13 14:30:13,487][0m Trial 31 finished with value: 0.6923076923076923 and parameters: {'n_layers': 16, 'lr1': 0.02, 'lr2': 0.039999999999999994, 'wd1': -4, 'wd2': -5, 'dropout': 0.4, 'dropout2': 0.2}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:30:15,254][0m Trial 32 pruned. [0m
+[32m[I 2023-10-13 14:30:40,931][0m Trial 33 finished with value: 0.7032967032967034 and parameters: {'n_layers': 8, 'lr1': 0.009999999999999998, 'lr2': 0.0, 'wd1': -6, 'wd2': -4, 'dropout': 0.2, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:31:01,556][0m Trial 34 finished with value: 0.6989010989010989 and parameters: {'n_layers': 8, 'lr1': 0.009999999999999998, 'lr2': 0.009999999999999998, 'wd1': -6, 'wd2': -4, 'dropout': 0.2, 'dropout2': 0.30000000000000004}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:31:03,457][0m Trial 35 pruned. [0m
+[32m[I 2023-10-13 14:31:05,224][0m Trial 36 pruned. [0m
+[32m[I 2023-10-13 14:31:07,183][0m Trial 37 pruned. [0m
+[32m[I 2023-10-13 14:31:25,342][0m Trial 38 finished with value: 0.7076923076923077 and parameters: {'n_layers': 8, 'lr1': 0.0, 'lr2': 0.009999999999999998, 'wd1': -5, 'wd2': -5, 'dropout': 0.2, 'dropout2': 0.5}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:31:47,497][0m Trial 39 finished with value: 0.6879120879120879 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.009999999999999998, 'wd1': -4, 'wd2': -8, 'dropout': 0.2, 'dropout2': 0.7000000000000001}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:31:49,371][0m Trial 40 pruned. [0m
+[32m[I 2023-10-13 14:31:51,192][0m Trial 41 pruned. [0m
+[32m[I 2023-10-13 14:31:53,011][0m Trial 42 pruned. [0m
+[32m[I 2023-10-13 14:31:54,725][0m Trial 43 pruned. [0m
+[32m[I 2023-10-13 14:31:56,622][0m Trial 44 pruned. [0m
+[32m[I 2023-10-13 14:31:58,350][0m Trial 45 pruned. [0m
+[32m[I 2023-10-13 14:32:00,659][0m Trial 46 pruned. [0m
+[32m[I 2023-10-13 14:32:02,998][0m Trial 47 pruned. [0m
+[32m[I 2023-10-13 14:32:04,948][0m Trial 48 pruned. [0m
+[32m[I 2023-10-13 14:32:06,767][0m Trial 49 pruned. [0m
+[32m[I 2023-10-13 14:32:09,003][0m Trial 50 pruned. [0m
+[32m[I 2023-10-13 14:32:10,938][0m Trial 51 pruned. [0m
+[32m[I 2023-10-13 14:32:12,589][0m Trial 52 pruned. [0m
+[32m[I 2023-10-13 14:32:14,419][0m Trial 53 pruned. [0m
+[32m[I 2023-10-13 14:32:16,158][0m Trial 54 pruned. [0m
+[32m[I 2023-10-13 14:32:17,861][0m Trial 55 pruned. [0m
+[32m[I 2023-10-13 14:32:36,391][0m Trial 56 finished with value: 0.6967032967032967 and parameters: {'n_layers': 8, 'lr1': 0.009999999999999998, 'lr2': 0.009999999999999998, 'wd1': -6, 'wd2': -4, 'dropout': 0.2, 'dropout2': 0.30000000000000004}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:32:38,506][0m Trial 57 pruned. [0m
+[32m[I 2023-10-13 14:32:40,822][0m Trial 58 pruned. [0m
+[32m[I 2023-10-13 14:32:42,508][0m Trial 59 pruned. [0m
+[32m[I 2023-10-13 14:33:03,686][0m Trial 60 finished with value: 0.6945054945054945 and parameters: {'n_layers': 8, 'lr1': 0.009999999999999998, 'lr2': 0.02, 'wd1': -6, 'wd2': -4, 'dropout': 0.4, 'dropout2': 0.30000000000000004}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:33:05,228][0m Trial 61 pruned. [0m
+[32m[I 2023-10-13 14:33:07,149][0m Trial 62 pruned. [0m
+[32m[I 2023-10-13 14:33:09,418][0m Trial 63 pruned. [0m
+[32m[I 2023-10-13 14:33:11,397][0m Trial 64 pruned. [0m
+[32m[I 2023-10-13 14:33:13,051][0m Trial 65 pruned. [0m
+[32m[I 2023-10-13 14:33:15,079][0m Trial 66 pruned. [0m
+[32m[I 2023-10-13 14:33:16,902][0m Trial 67 pruned. [0m
+[32m[I 2023-10-13 14:33:18,547][0m Trial 68 pruned. [0m
+[32m[I 2023-10-13 14:33:20,385][0m Trial 69 pruned. [0m
+[32m[I 2023-10-13 14:33:22,320][0m Trial 70 pruned. [0m
+[32m[I 2023-10-13 14:33:24,044][0m Trial 71 pruned. [0m
+[32m[I 2023-10-13 14:33:24,265][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:33:24,271][0m Trial 72 pruned. [0m
+[32m[I 2023-10-13 14:33:40,038][0m Trial 73 finished with value: 0.6967032967032967 and parameters: {'n_layers': 4, 'lr1': 0.05, 'lr2': 0.05, 'wd1': -5, 'wd2': -3, 'dropout': 0.5, 'dropout2': 0.0}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:33:40,386][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:33:40,392][0m Trial 74 pruned. [0m
+[32m[I 2023-10-13 14:33:56,730][0m Trial 75 finished with value: 0.6879120879120879 and parameters: {'n_layers': 4, 'lr1': 0.05, 'lr2': 0.05, 'wd1': -5, 'wd2': -3, 'dropout': 0.4, 'dropout2': 0.0}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:34:12,816][0m Trial 76 finished with value: 0.6945054945054945 and parameters: {'n_layers': 4, 'lr1': 0.05, 'lr2': 0.05, 'wd1': -5, 'wd2': -3, 'dropout': 0.5, 'dropout2': 0.0}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:34:14,711][0m Trial 77 pruned. [0m
+[32m[I 2023-10-13 14:34:33,340][0m Trial 78 finished with value: 0.6901098901098901 and parameters: {'n_layers': 8, 'lr1': 0.02, 'lr2': 0.02, 'wd1': -6, 'wd2': -5, 'dropout': 0.30000000000000004, 'dropout2': 0.5}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:34:35,505][0m Trial 79 pruned. [0m
+[32m[I 2023-10-13 14:35:04,385][0m Trial 80 finished with value: 0.7054945054945055 and parameters: {'n_layers': 8, 'lr1': 0.009999999999999998, 'lr2': 0.009999999999999998, 'wd1': -7, 'wd2': -4, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:35:06,298][0m Trial 81 pruned. [0m
+[32m[I 2023-10-13 14:35:09,433][0m Trial 82 pruned. [0m
+[32m[I 2023-10-13 14:35:38,072][0m Trial 83 finished with value: 0.7054945054945055 and parameters: {'n_layers': 8, 'lr1': 0.02, 'lr2': 0.009999999999999998, 'wd1': -7, 'wd2': -4, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:35:39,986][0m Trial 84 pruned. [0m
+[32m[I 2023-10-13 14:35:41,991][0m Trial 85 pruned. [0m
+[32m[I 2023-10-13 14:36:07,129][0m Trial 86 finished with value: 0.6967032967032967 and parameters: {'n_layers': 16, 'lr1': 0.009999999999999998, 'lr2': 0.02, 'wd1': -7, 'wd2': -5, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:36:08,989][0m Trial 87 pruned. [0m
+[32m[I 2023-10-13 14:36:10,947][0m Trial 88 pruned. [0m
+[32m[I 2023-10-13 14:36:13,051][0m Trial 89 pruned. [0m
+[32m[I 2023-10-13 14:36:15,086][0m Trial 90 pruned. [0m
+[32m[I 2023-10-13 14:36:17,074][0m Trial 91 pruned. [0m
+[32m[I 2023-10-13 14:36:18,733][0m Trial 92 pruned. [0m
+[32m[I 2023-10-13 14:36:18,950][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:36:18,956][0m Trial 93 pruned. [0m
+[32m[I 2023-10-13 14:36:20,589][0m Trial 94 pruned. [0m
+[32m[I 2023-10-13 14:36:22,221][0m Trial 95 pruned. [0m
+[32m[I 2023-10-13 14:36:24,221][0m Trial 96 pruned. [0m
+[32m[I 2023-10-13 14:36:25,935][0m Trial 97 pruned. [0m
+[32m[I 2023-10-13 14:36:26,155][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:36:26,161][0m Trial 98 pruned. [0m
+[32m[I 2023-10-13 14:36:28,271][0m Trial 99 pruned. [0m
+[32m[I 2023-10-13 14:36:30,747][0m Trial 100 pruned. [0m
+[32m[I 2023-10-13 14:36:32,543][0m Trial 101 pruned. [0m
+[32m[I 2023-10-13 14:36:58,026][0m Trial 102 finished with value: 0.7120879120879121 and parameters: {'n_layers': 16, 'lr1': 0.009999999999999998, 'lr2': 0.030000000000000002, 'wd1': -7, 'wd2': -5, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:37:29,057][0m Trial 103 finished with value: 0.6945054945054945 and parameters: {'n_layers': 20, 'lr1': 0.009999999999999998, 'lr2': 0.030000000000000002, 'wd1': -7, 'wd2': -5, 'dropout': 0.2, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:37:52,109][0m Trial 104 finished with value: 0.6879120879120879 and parameters: {'n_layers': 16, 'lr1': 0.02, 'lr2': 0.039999999999999994, 'wd1': -7, 'wd2': -5, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:38:23,202][0m Trial 105 finished with value: 0.6923076923076923 and parameters: {'n_layers': 16, 'lr1': 0.009999999999999998, 'lr2': 0.030000000000000002, 'wd1': -7, 'wd2': -5, 'dropout': 0.0, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:38:23,423][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:38:23,429][0m Trial 106 pruned. [0m
+[32m[I 2023-10-13 14:38:25,493][0m Trial 107 pruned. [0m
+[32m[I 2023-10-13 14:38:27,741][0m Trial 108 pruned. [0m
+[32m[I 2023-10-13 14:38:30,205][0m Trial 109 pruned. [0m
+[32m[I 2023-10-13 14:38:56,112][0m Trial 110 finished with value: 0.6923076923076923 and parameters: {'n_layers': 16, 'lr1': 0.0, 'lr2': 0.02, 'wd1': -7, 'wd2': -5, 'dropout': 0.1, 'dropout2': 0.5}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:39:19,996][0m Trial 111 finished with value: 0.6967032967032967 and parameters: {'n_layers': 16, 'lr1': 0.009999999999999998, 'lr2': 0.02, 'wd1': -7, 'wd2': -5, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:39:22,178][0m Trial 112 pruned. [0m
+[32m[I 2023-10-13 14:39:23,948][0m Trial 113 pruned. [0m
+[32m[I 2023-10-13 14:39:51,284][0m Trial 114 finished with value: 0.6945054945054945 and parameters: {'n_layers': 8, 'lr1': 0.030000000000000002, 'lr2': 0.039999999999999994, 'wd1': -5, 'wd2': -4, 'dropout': 0.2, 'dropout2': 0.30000000000000004}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:40:08,736][0m Trial 115 finished with value: 0.6879120879120879 and parameters: {'n_layers': 4, 'lr1': 0.05, 'lr2': 0.05, 'wd1': -5, 'wd2': -3, 'dropout': 0.4, 'dropout2': 0.0}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:40:33,993][0m Trial 116 finished with value: 0.7076923076923077 and parameters: {'n_layers': 16, 'lr1': 0.009999999999999998, 'lr2': 0.030000000000000002, 'wd1': -7, 'wd2': -5, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:40:36,137][0m Trial 117 pruned. [0m
+[32m[I 2023-10-13 14:40:38,243][0m Trial 118 pruned. [0m
+[32m[I 2023-10-13 14:40:40,194][0m Trial 119 pruned. [0m
+[32m[I 2023-10-13 14:40:42,914][0m Trial 120 pruned. [0m
+[32m[I 2023-10-13 14:40:45,342][0m Trial 121 pruned. [0m
+[32m[I 2023-10-13 14:40:45,562][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:40:45,568][0m Trial 122 pruned. [0m
+[32m[I 2023-10-13 14:41:14,100][0m Trial 123 finished with value: 0.6945054945054945 and parameters: {'n_layers': 16, 'lr1': 0.009999999999999998, 'lr2': 0.009999999999999998, 'wd1': -7, 'wd2': -5, 'dropout': 0.1, 'dropout2': 0.30000000000000004}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:41:37,749][0m Trial 124 finished with value: 0.6967032967032967 and parameters: {'n_layers': 16, 'lr1': 0.009999999999999998, 'lr2': 0.02, 'wd1': -7, 'wd2': -7, 'dropout': 0.0, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:41:37,963][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:41:37,969][0m Trial 125 pruned. [0m
+[32m[I 2023-10-13 14:41:39,863][0m Trial 126 pruned. [0m
+[32m[I 2023-10-13 14:41:41,975][0m Trial 127 pruned. [0m
+[32m[I 2023-10-13 14:41:42,208][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:41:42,214][0m Trial 128 pruned. [0m
+[32m[I 2023-10-13 14:41:42,571][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:41:42,577][0m Trial 129 pruned. [0m
+[32m[I 2023-10-13 14:41:44,702][0m Trial 130 pruned. [0m
+[32m[I 2023-10-13 14:41:46,473][0m Trial 131 pruned. [0m
+[32m[I 2023-10-13 14:42:02,334][0m Trial 132 finished with value: 0.6967032967032967 and parameters: {'n_layers': 4, 'lr1': 0.05, 'lr2': 0.05, 'wd1': -6, 'wd2': -3, 'dropout': 0.5, 'dropout2': 0.0}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:42:26,603][0m Trial 133 finished with value: 0.6967032967032967 and parameters: {'n_layers': 16, 'lr1': 0.009999999999999998, 'lr2': 0.02, 'wd1': -7, 'wd2': -7, 'dropout': 0.0, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:42:26,810][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:42:26,816][0m Trial 134 pruned. [0m
+[32m[I 2023-10-13 14:42:28,586][0m Trial 135 pruned. [0m
+[32m[I 2023-10-13 14:42:28,810][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:42:28,816][0m Trial 136 pruned. [0m
+[32m[I 2023-10-13 14:42:52,452][0m Trial 137 finished with value: 0.6923076923076923 and parameters: {'n_layers': 16, 'lr1': 0.009999999999999998, 'lr2': 0.030000000000000002, 'wd1': -7, 'wd2': -7, 'dropout': 0.0, 'dropout2': 0.5}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:42:54,675][0m Trial 138 pruned. [0m
+[32m[I 2023-10-13 14:42:56,880][0m Trial 139 pruned. [0m
+[32m[I 2023-10-13 14:42:59,021][0m Trial 140 pruned. [0m
+[32m[I 2023-10-13 14:43:00,762][0m Trial 141 pruned. [0m
+[32m[I 2023-10-13 14:43:00,970][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:43:00,975][0m Trial 142 pruned. [0m
+[32m[I 2023-10-13 14:43:01,182][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:43:01,188][0m Trial 143 pruned. [0m
+[32m[I 2023-10-13 14:43:03,230][0m Trial 144 pruned. [0m
+[32m[I 2023-10-13 14:43:05,370][0m Trial 145 pruned. [0m
+[32m[I 2023-10-13 14:43:07,312][0m Trial 146 pruned. [0m
+[32m[I 2023-10-13 14:43:09,062][0m Trial 147 pruned. [0m
+[32m[I 2023-10-13 14:43:09,424][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:43:09,431][0m Trial 148 pruned. [0m
+[32m[I 2023-10-13 14:43:09,661][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:43:09,667][0m Trial 149 pruned. [0m
+[32m[I 2023-10-13 14:43:09,886][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:43:09,892][0m Trial 150 pruned. [0m
+[32m[I 2023-10-13 14:43:12,177][0m Trial 151 pruned. [0m
+[32m[I 2023-10-13 14:43:14,058][0m Trial 152 pruned. [0m
+[32m[I 2023-10-13 14:43:31,543][0m Trial 153 finished with value: 0.7054945054945055 and parameters: {'n_layers': 8, 'lr1': 0.009999999999999998, 'lr2': 0.02, 'wd1': -7, 'wd2': -5, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 27 with value: 0.7186813186813187 and user_attrs {'test_acc': 0.7067833698030634, 'val_acc': 0.7186813186813187}.[0m
+[32m[I 2023-10-13 14:43:33,276][0m Trial 154 pruned. [0m
+[32m[I 2023-10-13 14:43:35,110][0m Trial 155 pruned. [0m
+[32m[I 2023-10-13 14:43:36,967][0m Trial 156 pruned. [0m
+[32m[I 2023-10-13 14:43:39,089][0m Trial 157 pruned. [0m
+[32m[I 2023-10-13 14:43:41,089][0m Trial 158 pruned. [0m
+[32m[I 2023-10-13 14:43:43,011][0m Trial 159 pruned. [0m
+[32m[I 2023-10-13 14:43:44,677][0m Trial 160 pruned. [0m
+[32m[I 2023-10-13 14:43:46,371][0m Trial 161 pruned. [0m
+[32m[I 2023-10-13 14:43:46,606][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:43:46,614][0m Trial 162 pruned. [0m
+[32m[I 2023-10-13 14:44:24,862][0m Trial 163 finished with value: 0.7230769230769231 and parameters: {'n_layers': 16, 'lr1': 0.05, 'lr2': 0.02, 'wd1': -7, 'wd2': -3, 'dropout': 0.0, 'dropout2': 0.4}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:44:41,345][0m Trial 164 finished with value: 0.7054945054945055 and parameters: {'n_layers': 8, 'lr1': 0.009999999999999998, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:44:43,293][0m Trial 165 pruned. [0m
+[32m[I 2023-10-13 14:45:03,190][0m Trial 166 finished with value: 0.7098901098901099 and parameters: {'n_layers': 12, 'lr1': 0.009999999999999998, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.0, 'dropout2': 0.4}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:45:23,153][0m Trial 167 finished with value: 0.7164835164835165 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.4}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:46:03,716][0m Trial 168 finished with value: 0.7142857142857143 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:46:31,802][0m Trial 169 finished with value: 0.7142857142857143 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.1, 'dropout2': 0.4}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:46:32,062][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:46:32,068][0m Trial 170 pruned. [0m
+[32m[I 2023-10-13 14:46:32,297][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:46:32,303][0m Trial 171 pruned. [0m
+[32m[I 2023-10-13 14:46:32,645][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:46:32,651][0m Trial 172 pruned. [0m
+[32m[I 2023-10-13 14:46:32,886][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:46:32,892][0m Trial 173 pruned. [0m
+[32m[I 2023-10-13 14:46:33,116][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:46:33,123][0m Trial 174 pruned. [0m
+[32m[I 2023-10-13 14:46:52,115][0m Trial 175 finished with value: 0.7032967032967034 and parameters: {'n_layers': 12, 'lr1': 0.030000000000000002, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.4}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:47:11,958][0m Trial 176 finished with value: 0.7032967032967034 and parameters: {'n_layers': 12, 'lr1': 0.030000000000000002, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.4}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:47:12,168][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:47:12,174][0m Trial 177 pruned. [0m
+[32m[I 2023-10-13 14:47:12,485][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:47:12,492][0m Trial 178 pruned. [0m
+[32m[I 2023-10-13 14:47:32,073][0m Trial 179 finished with value: 0.7186813186813187 and parameters: {'n_layers': 12, 'lr1': 0.030000000000000002, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.5}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:47:52,750][0m Trial 180 finished with value: 0.7186813186813187 and parameters: {'n_layers': 12, 'lr1': 0.030000000000000002, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.5}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:47:53,074][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:47:53,080][0m Trial 181 pruned. [0m
+[32m[I 2023-10-13 14:47:53,311][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:47:53,317][0m Trial 182 pruned. [0m
+[32m[I 2023-10-13 14:47:53,571][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:47:53,577][0m Trial 183 pruned. [0m
+[32m[I 2023-10-13 14:47:55,751][0m Trial 184 pruned. [0m
+[32m[I 2023-10-13 14:48:17,015][0m Trial 185 finished with value: 0.7208791208791209 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.5}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:48:36,366][0m Trial 186 finished with value: 0.7208791208791209 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.5}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:48:56,888][0m Trial 187 finished with value: 0.7120879120879121 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.6000000000000001}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:49:17,675][0m Trial 188 finished with value: 0.7120879120879121 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.02, 'wd1': -7, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.6000000000000001}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:49:18,004][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:49:18,010][0m Trial 189 pruned. [0m
+[32m[I 2023-10-13 14:49:19,982][0m Trial 190 pruned. [0m
+[32m[I 2023-10-13 14:49:42,470][0m Trial 191 finished with value: 0.7098901098901099 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.030000000000000002, 'wd1': -7, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.6000000000000001}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:50:04,098][0m Trial 192 finished with value: 0.7076923076923077 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.030000000000000002, 'wd1': -7, 'wd2': -4, 'dropout': 0.30000000000000004, 'dropout2': 0.6000000000000001}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:50:04,335][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:04,341][0m Trial 193 pruned. [0m
+[32m[I 2023-10-13 14:50:04,691][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:04,698][0m Trial 194 pruned. [0m
+[32m[I 2023-10-13 14:50:04,934][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:04,940][0m Trial 195 pruned. [0m
+[32m[I 2023-10-13 14:50:07,203][0m Trial 196 pruned. [0m
+[32m[I 2023-10-13 14:50:07,466][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:07,475][0m Trial 197 pruned. [0m
+[32m[I 2023-10-13 14:50:07,799][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:07,806][0m Trial 198 pruned. [0m
+[32m[I 2023-10-13 14:50:10,028][0m Trial 199 pruned. [0m
+[32m[I 2023-10-13 14:50:11,943][0m Trial 200 pruned. [0m
+[32m[I 2023-10-13 14:50:12,367][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:12,373][0m Trial 201 pruned. [0m
+[32m[I 2023-10-13 14:50:14,387][0m Trial 202 pruned. [0m
+[32m[I 2023-10-13 14:50:14,613][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:14,619][0m Trial 203 pruned. [0m
+[32m[I 2023-10-13 14:50:14,977][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:14,984][0m Trial 204 pruned. [0m
+[32m[I 2023-10-13 14:50:15,206][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:15,212][0m Trial 205 pruned. [0m
+[32m[I 2023-10-13 14:50:15,434][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:15,440][0m Trial 206 pruned. [0m
+[32m[I 2023-10-13 14:50:35,672][0m Trial 207 finished with value: 0.7054945054945055 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.030000000000000002, 'wd1': -7, 'wd2': -4, 'dropout': 0.4, 'dropout2': 0.5}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:50:35,905][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:35,911][0m Trial 208 pruned. [0m
+[32m[I 2023-10-13 14:50:55,939][0m Trial 209 finished with value: 0.7054945054945055 and parameters: {'n_layers': 12, 'lr1': 0.02, 'lr2': 0.030000000000000002, 'wd1': -7, 'wd2': -4, 'dropout': 0.4, 'dropout2': 0.5}. Best is trial 163 with value: 0.7230769230769231 and user_attrs {'test_acc': 0.6914660831509847, 'val_acc': 0.7230769230769231}.[0m
+[32m[I 2023-10-13 14:50:56,172][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:56,178][0m Trial 210 pruned. [0m
+[32m[I 2023-10-13 14:50:56,414][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:56,420][0m Trial 211 pruned. [0m
+[32m[I 2023-10-13 14:50:56,764][0m [YH INFO] Prune duplicated args![0m
+[32m[I 2023-10-13 14:50:56,770][0m Trial 212 pruned. [0m

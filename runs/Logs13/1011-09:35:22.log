@@ -1,2 +1,0 @@
-2023-10-11 09:35:37,281 - tune.py [line:103] - INFO: Epoch 00020 | Time(s) 0.1507 | Val Loss 1.6139 | Val Acc 0.1802 | ETputs(KTEPS) 4314.44
-2023-10-11 09:35:39,082 - tune.py [line:103] - INFO: Epoch 00040 | Time(s) 0.1203 | Val Loss 1.5818 | Val Acc 0.2352 | ETputs(KTEPS) 5403.08

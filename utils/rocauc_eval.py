@@ -1,6 +1,5 @@
 import numpy as np
 from sklearn.metrics import roc_auc_score
-import torchmetrics
 import torch.nn.functional as F
 import torch as th
 from typing import Union

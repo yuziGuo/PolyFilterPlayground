@@ -1,9 +1,0 @@
-2023-10-15 14:11:44,253 - tune.py [line:203] - INFO: Namespace(seed=42, model='NormalNN', gpu=1, dataset='genius', logging=True, log_detail=True, log_detailedCh=True, id_log=0, optuna_n_trials=2, n_epochs=50, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=2, lr1=0.01, lr2=0.001, wd1=0.001, wd2=1e-06, dropout=0.2, dropout2=0.9, es_ckpt='woselfloop-genius_NormalNN-genius_trialNo10')
-2023-10-15 14:11:44,525 - tune.py [line:127] - INFO: Split_seeds:[1824]
-2023-10-15 14:11:44,525 - tune.py [line:128] - INFO: Model_seeds:[409]
-2023-10-15 14:11:48,279 - tune.py [line:97] - INFO: Epoch 00020 | Time(s) 0.1757 | Val Loss 0.6444 | Val Acc 0.5621 |  Train Acc 0.5672 | ETputs(KTEPS) 105071.13
-2023-10-15 14:11:52,195 - tune.py [line:97] - INFO: Epoch 00040 | Time(s) 0.1854 | Val Loss 0.6008 | Val Acc 0.7007 |  Train Acc 0.7011 | ETputs(KTEPS) 99579.25
-2023-10-15 14:11:54,126 - tune.py [line:117] - INFO: [FINAL MODEL] Val accuracy 82.91% \Val loss: 0.59
-2023-10-15 14:11:54,126 - tune.py [line:118] - INFO: [FINAL MODEL] Test accuracy 83.28% \Test loss: 0.59
-2023-10-15 14:11:54,126 - tune.py [line:143] - INFO: Acc on the first split (Validation Set): 0.8291
-2023-10-15 14:11:54,126 - tune.py [line:144] - INFO: Acc on the first split (Test Set): 0.8328

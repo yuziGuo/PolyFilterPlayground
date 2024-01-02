@@ -1,13 +1,12 @@
-# name="opt-genius"
-# python tune.py --model NormalNN --dataset genius --gpu 1 --logging --log-detail --id-log 1011014501 1>>logs/${name}.log  2>>logs/${name}.err &
-# sleep 3
-
 # name="opt-cham"
 # python tune.py --model NormalNN --dataset geom-chameleon --gpu 0 --logging --log-detail --id-log 1011014502 1>>logs/${name}.log  2>>logs/${name}.err &
+# sleep 3
 
 # name="gpr-cham"
 # python tune.py --model GPRGNN --dataset geom-chameleon --gpu 0 --logging --log-detail --id-log 1011014503 1>>logs/${name}.log  2>>logs/${name}.err &
+# sleep 3
 
+<<<<<<< HEAD
 # name="gpr-squirrel"
 # python tune.py --model GPRGNN --dataset geom-squirrel --gpu 1 --logging --log-detail --id-log 1011014504 1>>logs/${name}.log  2>>logs/${name}.err &
 
@@ -337,3 +336,8 @@ sleep 3
 # name="OptBasis-physics"
 # python tune.py  --dataset physics   --model OptBasisGNN --optuna-n-trials 100 --log-detail --logging --log-detailedCh --gpu 0 --id-log 1114014510 1>logs/${name}.log  2>logs/${name}.err &
 # sleep 3
+=======
+name="opt-roman-empire"
+python tune.py --model NormalNN --dataset roman-empire --gpu 0 --logging --log-detail --id-log 1015014501 1>logs/${name}.log  2>logs/${name}.err &
+sleep 3
+>>>>>>> d02f75f7d5d823a6c95172b73a519f5a7d719768

@@ -1,9 +1,0 @@
-2023-10-14 14:01:26,169 - tune.py [line:201] - INFO: Namespace(seed=42, model='NormalNN', gpu=0, dataset='genius', logging=True, log_detail=True, log_detailedCh=True, id_log=0, optuna_n_trials=202, n_epochs=2000, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=12, lr1=0.01, lr2=0.02, wd1=1e-07, wd2=0.0001, dropout=0.0, dropout2=0.5, es_ckpt='woselfloop-genius_NormalNN-genius_trialNo47')
-2023-10-14 14:01:28,601 - tune.py [line:126] - INFO: Split_seeds:[1824]
-2023-10-14 14:01:28,601 - tune.py [line:127] - INFO: Model_seeds:[409]
-2023-10-14 14:01:51,647 - tune.py [line:101] - INFO: Epoch 00020 | Time(s) 1.1395 | Val Loss 0.6397 | Val Acc 0.6899 | ETputs(KTEPS) 16197.81
-2023-10-14 14:02:13,652 - tune.py [line:101] - INFO: Epoch 00040 | Time(s) 1.1198 | Val Loss 0.5915 | Val Acc 0.6629 | ETputs(KTEPS) 16482.00
-2023-10-14 14:02:35,768 - tune.py [line:101] - INFO: Epoch 00060 | Time(s) 1.1150 | Val Loss 0.5542 | Val Acc 0.7205 | ETputs(KTEPS) 16553.77
-2023-10-14 14:02:57,977 - tune.py [line:101] - INFO: Epoch 00080 | Time(s) 1.1136 | Val Loss 0.5271 | Val Acc 0.7954 | ETputs(KTEPS) 16575.12
-2023-10-14 14:03:20,013 - tune.py [line:101] - INFO: Epoch 00100 | Time(s) 1.1110 | Val Loss 0.5087 | Val Acc 0.8530 | ETputs(KTEPS) 16613.83
-2023-10-14 14:03:41,878 - tune.py [line:101] - INFO: Epoch 00120 | Time(s) 1.1078 | Val Loss 0.4954 | Val Acc 0.8734 | ETputs(KTEPS) 16661.39

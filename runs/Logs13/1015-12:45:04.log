@@ -1,4 +1,0 @@
-2023-10-15 12:45:04,908 - train2.py [line:208] - INFO: Namespace(seed=42, model='NormalNN', gpu=1, dataset='genius', ds_split='standard', n_layers=2, n_hidden=64, wd1=0.01, wd2=0.0005, wd3=0.0005, lr1=0.01, lr2=0.01, lr3=0.01, alpha=0.5, momentum=0.9, n_epochs=50, dropout=0.5, dropout2=0.7, self_loop=False, udgraph=False, early_stop=False, patience=300, es_ckpt='es_checkpoint_device=1', n_cv=1, start_cv=0, logging=True, log_detail=True, log_detailedCh=True, id_log=0)
-2023-10-15 12:45:05,250 - train2.py [line:132] - INFO: Split_seeds:[1824]
-2023-10-15 12:45:05,250 - train2.py [line:133] - INFO: Model_seeds:[409]
-2023-10-15 12:45:05,484 - train2.py [line:55] - INFO: #Train:210980

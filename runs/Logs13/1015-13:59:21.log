@@ -1,5 +1,0 @@
-2023-10-15 13:59:21,864 - tune.py [line:203] - INFO: Namespace(seed=42, model='NormalNN', gpu=1, dataset='genius', logging=True, log_detail=True, log_detailedCh=True, id_log=0, optuna_n_trials=1, n_epochs=20, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=20, lr1=0.02, lr2=0.05, wd1=0.001, wd2=1e-05, dropout=0.5, dropout2=0.3, es_ckpt='woselfloop-genius_NormalNN-genius_trialNo1')
-2023-10-15 13:59:24,237 - tune.py [line:127] - INFO: Split_seeds:[1824]
-2023-10-15 13:59:24,238 - tune.py [line:128] - INFO: Model_seeds:[409]
-2023-10-15 13:59:52,649 - tune.py [line:117] - INFO: [FINAL MODEL] Val accuracy 56.43% \Val loss: 0.6
-2023-10-15 13:59:52,649 - tune.py [line:118] - INFO: [FINAL MODEL] Test accuracy 56.98% \Test loss: 0.6

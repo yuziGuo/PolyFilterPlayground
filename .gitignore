@@ -9,6 +9,10 @@
 *.err
 *.log
 
+# private
+test_dataset.py
+/scripts/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

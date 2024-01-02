@@ -13,6 +13,7 @@
 test_dataset.py
 tune_backbone.py
 /scripts/*
+/scripts
 /test/usages/*
 # *Augmented.py
 

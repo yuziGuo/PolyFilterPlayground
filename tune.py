@@ -161,10 +161,7 @@ def initialize_args():
     parser.add_argument("--id-log", type=int, default=0)
     ##
     parser.add_argument("--optuna-n-trials", type=int, default=202)
-    parser.add_argument("--n-epochs", type=int, default=2000)
-
-    parser.add_argument("--random-perturb", action='store_true', default=False)
-    
+    parser.add_argument("--n-epochs", type=int, default=2000)    
 
     static_args = parser.parse_args()
     if static_args.gpu < 0:
@@ -264,9 +261,13 @@ if __name__ == '__main__':
     print("  Params: ")
     for key, value in trial.params.items():
         print("    {}: {}".format(key, value))
-    print("  Yuhe's record: ")
+    print("  Information for this best trial: ")
     for key, value in trial.user_attrs.items():
         print("    {}: {}".format(key, value))
+    print("REMARK: These are only results for **one run**! "
+          "\nDO NOT report the test acc here as the final result in your paper. "
+            "\nInsteat, use `train.py` to conduct further duplicative experiments."
+            "\n")
 
     # from utils.optuna_utils import _gen_scripts
     # cmd_str = _gen_scripts(study, vars(static_args))

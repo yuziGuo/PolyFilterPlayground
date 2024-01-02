@@ -81,4 +81,4 @@ the results can be found in `logs/OptBasisGNN-geom-chameleon.log`.
 
 ![Alt text](image.png)
 
-We find that even with tuned only for `10` optuna trials and `50` epochs for each trial, the final result, `73.98±0.88` over 10 random splits is quite high.
+We find that even tuned for such a small number of `10` optuna trials, and `50` epochs for each trial, the final result, `73.98±0.88` over 10 random splits is quite high.

@@ -1,49 +1,10 @@
 from models.NormalBasisNN import NormalNN
 from models.NormalBasisNNV2 import NormalNNV2
-from models.NormalBasisNNAugmented import NormalNNAugmented
 from models.FavardNormalNN import FavardNormalNN
 from models.GPRGNN import GPRGNN
 from models.GPRGNNV2 import GPRGNNV2
-from models.GPRGNNAugmented import GPRGNNAugmented
-from models.GPRGNNV2Augmented import GPRGNNV2Augmented
 import torch as th
 import torch.nn.functional as F
-
-
-def build_model_augmented(args, edge_index, edge_index2, norm_A, norm_A_2, in_feats, n_classes):
-    if args.model in ['GPRGNNAugmented', 'GPRGNNV2Augmented']:
-        model = globals()[args.model](
-                 edge_index,
-                 edge_index2,
-                 norm_A, 
-                 norm_A_2,
-                 in_feats,
-                 args.n_hidden,
-                 n_classes,
-                 args.n_layers,
-                 F.relu,
-                 args.dropout,
-                 args.dropout2,
-                 args.alpha
-                )
-    if args.model == 'OptBasisAugmented':
-            model = NormalNNAugmented(
-                 edge_index,
-                 edge_index2,
-                 norm_A, 
-                 norm_A_2,
-                 in_feats,
-                 args.n_hidden,
-                 n_classes,
-                 args.n_layers,
-                 F.relu,
-                 args.dropout,
-                 args.dropout2,
-                )
-
-    model.to(args.gpu)
-    return model
-
 
 def build_model(args, edge_index, norm_A, in_feats, n_classes):
     if args.model in ['NormalNN', 'OptBasisGNN']:
@@ -100,16 +61,8 @@ def build_model(args, edge_index, norm_A, in_feats, n_classes):
 
 
 def build_optimizers(args, model):
-    # OptBasisAugmented
-    if args.model == 'OptBasisAugmented' : 
-        param_groups = [
-            {'params':model.fcs.parameters(), 'lr':args.lr1, 'weight_decay':args.wd1}, 
-            {'params':model.alpha_params, 'lr':args.lr2,'weight_decay':args.wd2}
-        ]
-        optimizer = th.optim.Adam(param_groups)
-        return [optimizer]
     # OptBasis
-    elif args.model.startswith('OptBasis') or args.model.startswith('Normal') :
+    if args.model.startswith('OptBasis') or args.model.startswith('Normal') :
         param_groups = [
             {'params':model.fcs.parameters(), 'lr':args.lr1, 'weight_decay':args.wd1}, 
             {'params':[model.alpha_params], 'lr':args.lr2,'weight_decay':args.wd2}
@@ -123,14 +76,6 @@ def build_optimizers(args, model):
             {'params':model.fcs.parameters(), 'lr':args.lr1, 'weight_decay':args.wd1}, 
             {'params':[model.alpha_params], 'lr':args.lr2,'weight_decay':args.wd2},
             {'params':[model.yitas, model.sqrt_betas], 'lr':args.lr3,'weight_decay':args.wd3}
-        ]
-        optimizer = th.optim.Adam(param_groups)
-        return [optimizer]
-    # GPRGNNAugmented
-    elif args.model in ['GPRGNNAugmented', 'GPRGNNV2Augmented']:
-        param_groups = [
-            {'params':model.fcs.parameters(), 'lr':args.lr1, 'weight_decay':args.wd1},
-            {'params':[model.prop1.temp, model.prop2.temp], 'lr':args.lr2,'weight_decay':args.wd2}
         ]
         optimizer = th.optim.Adam(param_groups)
         return [optimizer]

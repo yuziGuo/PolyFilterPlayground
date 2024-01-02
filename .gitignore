@@ -14,9 +14,11 @@ test_dataset.py
 tune_backbone.py
 /scripts/*
 /test/usages/*
+# *Augmented.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*/__pycache__/
 *.py[cod]
 *$py.class
 

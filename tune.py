@@ -22,7 +22,7 @@ from utils.optuna_utils import _pruneDuplicate, _CkptsAndHandlersClearerCallBack
 from utils.random_utils import reset_random_seeds
 from utils.data_utils import build_dataset
 from utils.grading_logger import _set_logger
-from utils.model_utils import build_model, build_optimizers, build_model_augmented
+from utils.model_utils import build_model, build_optimizers
 from utils.stopper import EarlyStopping
 from utils.rocauc_eval import eval_rocauc
 from utils.model_utils import bce_with_logits_loss
@@ -63,17 +63,7 @@ def run(args, logger, trial,
         evaluator = acc
 
     data.in_feats = features.shape[-1] 
-    if args.model.endswith('Augmented'):
-        if args.random_perturb:
-            fn = f'./dataset/randomlyPerturbed-{args.dataset}-1028.dt'
-        else:
-            # fn = f'./dataset/perturbed-{args.dataset}-1027.dt'
-            fn = f'./dataset/perturbed-{args.dataset}-1028.dt'
-        edge_index2 = th.load(fn).to(args.gpu)
-        _, norm_A_2 = gcn_norm(edge_index2, add_self_loops=False) 
-        model = build_model_augmented(args, edge_index, edge_index2, norm_A, norm_A_2, data.in_feats, data.n_classes)
-    else:
-        model = build_model(args, edge_index, norm_A, data.in_feats, data.n_classes)
+    model = build_model(args, edge_index, norm_A, data.in_feats, data.n_classes)
     
     optimizers = build_optimizers(args, model)
     if args.early_stop:

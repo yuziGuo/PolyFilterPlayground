@@ -9,7 +9,7 @@ from torch_geometric.nn.conv.gcn_conv import gcn_norm
 import seaborn as sns
 
 from utils.data_utils import build_dataset
-from utils.model_utils import build_model, build_optimizers, build_model_augmented
+from utils.model_utils import build_model, build_optimizers
 from utils.grading_logger import _set_logger
 from utils.random_utils import reset_random_seeds
 from utils.stopper import EarlyStopping
@@ -55,17 +55,8 @@ def run(args, cv_id, edge_index, data, norm_A, features, labels, model_seed):
         evaluator = acc
 
     data.in_feats = features.shape[-1]
-    if args.model.endswith('Augmented'):
-        if args.random_perturb:
-            fn = f'./dataset/randomlyPerturbed-{args.dataset}-1028.dt'
-        else:
-            # fn = f'./dataset/perturbed-{args.dataset}-1027.dt'
-            fn = f'./dataset/perturbed-{args.dataset}-1028.dt'
-        edge_index2 = th.load(fn).to(args.gpu)
-        _, norm_A_2 = gcn_norm(edge_index2, add_self_loops=False) 
-        model = build_model_augmented(args, edge_index, edge_index2, norm_A, norm_A_2, data.in_feats, data.n_classes)
-    else:
-        model = build_model(args, edge_index, norm_A, data.in_feats, data.n_classes)
+
+    model = build_model(args, edge_index, norm_A, data.in_feats, data.n_classes)
     optimizers = build_optimizers(args, model)
     stopper = EarlyStopping(patience=args.patience, store_path=args.es_ckpt+'.pt', gauge='acc')
     stopper_step = stopper.step

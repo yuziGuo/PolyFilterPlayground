@@ -16,11 +16,3 @@ GPRGNN_opts = {
 GPRGNNV2_opts = {
     'alpha': 0.5
 }
-
-GPRGNNAugmented_opts = {
-    'alpha': 0.5
-}
-
-GPRGNNV2Augmented_opts = {
-    'alpha': 0.5
-}

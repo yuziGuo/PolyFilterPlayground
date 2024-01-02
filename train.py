@@ -48,7 +48,6 @@ def run(args, cv_id, edge_index, data, norm_A, features, labels, model_seed):
     
     
     if args.dataset in ['genius', 'minesweeper', 'tolokers', 'questions']:    
-        # TODO: introduce minesweeper/tolokers/questions datasets who should also use BCELoss
         loss_fcn = bce_with_logits_loss
         evaluator = fast_auc_th
     else:

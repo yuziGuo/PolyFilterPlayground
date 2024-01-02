@@ -184,10 +184,6 @@ def set_args():
     parser.add_argument("--log-detailedCh", action='store_true', default=False)
     parser.add_argument("--id-log", type=int, default=0)
 
-    # perturb
-    parser.add_argument("--random-perturb", action='store_true', default=False)
-
-
     args = parser.parse_args()
 
     if args.gpu < 0:

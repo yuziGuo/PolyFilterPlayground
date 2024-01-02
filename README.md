@@ -1,3 +1,12 @@
+
+## Table of contents
+1. [Introduction](#i-introduction)
+2. [A Quick Demo](#ii-a-quick-demo)
+    1. [Step 1: Tuning](#step-1-tune)
+    2. [Step 2: Reporting selected params](#step-2-report-the-selected-parameters)
+    3. [Step 3: Final Training](#step-3-train-and-get-the-final-result)
+
+
 ## I. Introduction
 Hi, `PolyFilterPlayground` is a repo for quick hyperparameter tuning, training and testing for polynomial-filter-based GNNs. It is written by Ph.D. student Yuhe Guo from Group Alg@RUC. I've summarized this repo from my own research experience, and it greatly reduces the amount of work I have to do to try out a model.
 

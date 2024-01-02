@@ -13,7 +13,6 @@ public_hypers_default = {
 
 
 def convert_dict_to_optuna_suggested(dic, model):
-
     def _specific_cases(trial, k):
         if model.startswith('GPRGNN'):
             if k == 'alpha':
@@ -42,7 +41,8 @@ def convert_dict_to_optuna_suggested(dic, model):
                 args[k] = round(_dp,4)
             # n_layers
             elif k.startswith('n_layers'):
-                args[k] = trial.suggest_int(k, 4, 20, step=4)
+                # args[k] = trial.suggest_int(k, 4, 20, step=4)
+                args[k] = trial.suggest_int(k, 10, 10, step=4)
                 pass
             else:
                 _v = _specific_cases(trial, k)

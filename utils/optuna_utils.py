@@ -42,14 +42,45 @@ class _CkptsAndHandlersClearerCallBack:
                 os.remove(_p)
 
 
-# def _gen_scripts(study, static_args):
-#     trial = study.best_trial
-#     cmd_opt_strs = []
-#     for k, v in trial.params.items():
-#         _opt = f"--{k} {v}"
-#         cmd_opt_strs.append(_opt)
-#     for k,v in static_args.items():
-#         _opt = f"--{k} {v}"
-#         cmd_opt_strs.append(_opt)
-#     cmd_str = ' '.join(cmd_opt_strs)
-#     return cmd_str
+def _process_kv(k, v):
+    map_lr = {-0.02: 0.0005,  -0.01: 0.001, 0. : 0.005}
+    
+    filtered_key_lst = ['optuna_n_trials', 'start_cv', 'n_cv', 'gpu', 'id_log',  
+                        'n_epochs', 'patience']
+    
+    if k in filtered_key_lst:
+        return None, None
+
+    if type(v) == bool:
+        if v is False:
+            return None, None
+        else:
+            v = ' '
+    if len(k.split('_')) > 0:
+        k = '-'.join(k.split('_'))
+    if k.startswith('lr'):
+        if v<=0:
+            v = map_lr[v]
+        v = round(v, 2)
+    if k.startswith('wd'):
+        v = float('1e'+str(v))
+    return k, v
+
+def _gen_scripts(study, static_args, prefix="python train.py", postfix="--n-cv 20"):
+    trial = study.best_trial
+    cmd_opt_strs = [prefix]
+    for k, v in trial.params.items():
+        k,v = _process_kv(k,v)
+        if k is None:
+            continue
+        _opt = f"--{k} {v}"
+        cmd_opt_strs.append(_opt)
+    for k,v in static_args.items():
+        k,v = _process_kv(k,v)
+        if k is None:
+            continue
+        _opt = f"--{k} {v}"
+        cmd_opt_strs.append(_opt)
+    cmd_opt_strs.append(postfix)
+    cmd_str = ' '.join(cmd_opt_strs)
+    return cmd_str

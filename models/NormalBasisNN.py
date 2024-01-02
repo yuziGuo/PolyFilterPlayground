@@ -65,13 +65,6 @@ class NormalNN(nn.Module):
 
         for i, con in enumerate(self.convs, 1):
             h_i = con(self.edge_index, self.norm_A, last_h, second_last_h)
-            '''
-            # check
-            _norm = th.norm(h_i, dim=0)
-            if (_norm==0).sum()>0:
-                import ipdb; ipdb.set_trace()
-            # end check
-            '''
             rst = rst + self.alpha_params[:,i] * h_i
             second_last_h = last_h
             last_h = h_i

@@ -22,12 +22,13 @@ from utils.optuna_utils import _pruneDuplicate, _CkptsAndHandlersClearerCallBack
 from utils.random_utils import reset_random_seeds
 from utils.data_utils import build_dataset
 from utils.grading_logger import _set_logger
-from utils.model_utils import build_model, build_optimizers
+from utils.model_utils import build_model, build_optimizers, build_model_augmented
 from utils.stopper import EarlyStopping
 from utils.rocauc_eval import eval_rocauc
 from utils.model_utils import bce_with_logits_loss
 from utils.rocauc_eval import fast_auc_th, fast_auc, acc
 
+from torch_geometric.nn.conv.gcn_conv import gcn_norm
 
 def evaluate(logits, labels, mask, evaluator):    
     if not th.is_tensor(logits):
@@ -46,7 +47,7 @@ def run(args, logger, trial,
 
 
     # split dataset for this run
-    if args.dataset in ['twitch-gamer', 'Penn94', 'genius']: 
+    if args.dataset in ['twitch-gamer', 'Penn94', 'genius', 'tolokers', 'minesweeper', 'roman-empire']: 
         # encouraged to use fixed splits
         data.load_mask()
     else:
@@ -62,7 +63,18 @@ def run(args, logger, trial,
         evaluator = acc
 
     data.in_feats = features.shape[-1] 
-    model = build_model(args, edge_index, norm_A, data.in_feats, data.n_classes)
+    if args.model.endswith('Augmented'):
+        if args.random_perturb:
+            fn = f'./dataset/randomlyPerturbed-{args.dataset}-1028.dt'
+        else:
+            # fn = f'./dataset/perturbed-{args.dataset}-1027.dt'
+            fn = f'./dataset/perturbed-{args.dataset}-1028.dt'
+        edge_index2 = th.load(fn).to(args.gpu)
+        _, norm_A_2 = gcn_norm(edge_index2, add_self_loops=False) 
+        model = build_model_augmented(args, edge_index, edge_index2, norm_A, norm_A_2, data.in_feats, data.n_classes)
+    else:
+        model = build_model(args, edge_index, norm_A, data.in_feats, data.n_classes)
+    
     optimizers = build_optimizers(args, model)
     if args.early_stop:
         stopper = EarlyStopping(patience=args.patience, store_path=args.es_ckpt+'.pt')
@@ -74,6 +86,7 @@ def run(args, logger, trial,
         model.train()
         for _ in optimizers:
             _.zero_grad()
+        
         logits = model(features)
         loss_train = loss_fcn(logits[data.train_mask], labels[data.train_mask])
         loss_train.backward()
@@ -127,7 +140,6 @@ def main(args, logger, trial):
     logger.info('Model_seeds:{:s}'.format(str(model_seeds)))
 
     edge_index = data.edge_index
-    from torch_geometric.nn.conv.gcn_conv import gcn_norm
     _, norm_A = gcn_norm(edge_index, add_self_loops=False)
     features = data.features
     labels = data.labels
@@ -160,6 +172,9 @@ def initialize_args():
     ##
     parser.add_argument("--optuna-n-trials", type=int, default=202)
     parser.add_argument("--n-epochs", type=int, default=2000)
+
+    parser.add_argument("--random-perturb", action='store_true', default=False)
+    
 
     static_args = parser.parse_args()
     if static_args.gpu < 0:
@@ -218,9 +233,11 @@ if __name__ == '__main__':
 
     # create an optuna study
     dataset = static_args.dataset
+    # kw = f'{static_args.model}-{dataset}-random={static_args.random_perturb}-1028V2'
     kw = f'{static_args.model}-{dataset}'
     study = optuna.create_study(
-        study_name="woselfloop-{}".format(dataset),
+        # study_name="{}-RandomPerturb".format(dataset),
+        study_name="{}".format(dataset),
         direction="maximize", 
         storage = optuna.storages.RDBStorage(url='sqlite:///{}/{}.db'.format('cache/OptunaTrials', kw), 
                 engine_kwargs={"connect_args": {"timeout": 10000}}),

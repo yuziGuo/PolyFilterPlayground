@@ -1,0 +1,135 @@
+202 trials to go!
+201 trials to go!
+198 trials to go!
+197 trials to go!
+196 trials to go!
+195 trials to go!
+194 trials to go!
+193 trials to go!
+192 trials to go!
+191 trials to go!
+190 trials to go!
+189 trials to go!
+188 trials to go!
+187 trials to go!
+186 trials to go!
+179 trials to go!
+178 trials to go!
+177 trials to go!
+175 trials to go!
+173 trials to go!
+171 trials to go!
+169 trials to go!
+160 trials to go!
+156 trials to go!
+155 trials to go!
+154 trials to go!
+153 trials to go!
+152 trials to go!
+151 trials to go!
+150 trials to go!
+146 trials to go!
+145 trials to go!
+144 trials to go!
+143 trials to go!
+142 trials to go!
+141 trials to go!
+140 trials to go!
+139 trials to go!
+138 trials to go!
+137 trials to go!
+136 trials to go!
+132 trials to go!
+131 trials to go!
+129 trials to go!
+128 trials to go!
+127 trials to go!
+126 trials to go!
+125 trials to go!
+124 trials to go!
+123 trials to go!
+122 trials to go!
+121 trials to go!
+113 trials to go!
+112 trials to go!
+110 trials to go!
+107 trials to go!
+106 trials to go!
+105 trials to go!
+104 trials to go!
+103 trials to go!
+99 trials to go!
+97 trials to go!
+95 trials to go!
+93 trials to go!
+92 trials to go!
+91 trials to go!
+90 trials to go!
+86 trials to go!
+85 trials to go!
+84 trials to go!
+83 trials to go!
+82 trials to go!
+81 trials to go!
+80 trials to go!
+79 trials to go!
+78 trials to go!
+77 trials to go!
+74 trials to go!
+73 trials to go!
+72 trials to go!
+71 trials to go!
+70 trials to go!
+69 trials to go!
+68 trials to go!
+60 trials to go!
+47 trials to go!
+46 trials to go!
+43 trials to go!
+42 trials to go!
+41 trials to go!
+39 trials to go!
+34 trials to go!
+32 trials to go!
+31 trials to go!
+30 trials to go!
+29 trials to go!
+28 trials to go!
+27 trials to go!
+26 trials to go!
+24 trials to go!
+23 trials to go!
+22 trials to go!
+21 trials to go!
+20 trials to go!
+19 trials to go!
+18 trials to go!
+15 trials to go!
+14 trials to go!
+13 trials to go!
+12 trials to go!
+11 trials to go!
+10 trials to go!
+9 trials to go!
+7 trials to go!
+5 trials to go!
+4 trials to go!
+3 trials to go!
+1 trials to go!
+Study statistics this: 
+  Number of finished trials:  206
+  Number of pruned trials:  144
+  Number of complete trials:  59
+Best trial:
+  Value:  0.9023111462593079
+  Params: 
+    dropout: 0.0
+    dropout2: 0.0
+    lr1: 0.05
+    lr2: 0.02
+    n_layers: 20
+    wd1: -7
+    wd2: -3
+  Yuhe's record: 
+    test_acc: 0.9023500680923462
+    val_acc: 0.9023111462593079

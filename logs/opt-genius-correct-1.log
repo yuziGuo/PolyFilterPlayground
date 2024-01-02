@@ -1,0 +1,100 @@
+191 trials to go!
+185 trials to go!
+184 trials to go!
+183 trials to go!
+182 trials to go!
+181 trials to go!
+180 trials to go!
+176 trials to go!
+174 trials to go!
+172 trials to go!
+170 trials to go!
+168 trials to go!
+167 trials to go!
+166 trials to go!
+165 trials to go!
+164 trials to go!
+163 trials to go!
+162 trials to go!
+161 trials to go!
+159 trials to go!
+158 trials to go!
+157 trials to go!
+149 trials to go!
+148 trials to go!
+147 trials to go!
+135 trials to go!
+134 trials to go!
+132 trials to go!
+130 trials to go!
+120 trials to go!
+119 trials to go!
+118 trials to go!
+117 trials to go!
+116 trials to go!
+115 trials to go!
+114 trials to go!
+111 trials to go!
+109 trials to go!
+108 trials to go!
+102 trials to go!
+101 trials to go!
+100 trials to go!
+98 trials to go!
+96 trials to go!
+94 trials to go!
+89 trials to go!
+88 trials to go!
+87 trials to go!
+76 trials to go!
+75 trials to go!
+67 trials to go!
+66 trials to go!
+65 trials to go!
+64 trials to go!
+63 trials to go!
+62 trials to go!
+61 trials to go!
+59 trials to go!
+58 trials to go!
+57 trials to go!
+56 trials to go!
+55 trials to go!
+54 trials to go!
+53 trials to go!
+52 trials to go!
+51 trials to go!
+50 trials to go!
+49 trials to go!
+48 trials to go!
+45 trials to go!
+44 trials to go!
+40 trials to go!
+38 trials to go!
+37 trials to go!
+36 trials to go!
+35 trials to go!
+33 trials to go!
+25 trials to go!
+17 trials to go!
+16 trials to go!
+8 trials to go!
+6 trials to go!
+2 trials to go!
+Study statistics this: 
+  Number of finished trials:  206
+  Number of pruned trials:  143
+  Number of complete trials:  59
+Best trial:
+  Value:  0.9023111462593079
+  Params: 
+    dropout: 0.0
+    dropout2: 0.0
+    lr1: 0.05
+    lr2: 0.02
+    n_layers: 20
+    wd1: -7
+    wd2: -3
+  Yuhe's record: 
+    test_acc: 0.9023500680923462
+    val_acc: 0.9023111462593079

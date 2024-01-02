@@ -66,8 +66,8 @@ class FavardNormalNN(nn.Module):
         x = self.act_fn(x) 
         x = self.dropout2(x) 
 
-        sqrt_betas = th.clamp(self.sqrt_betas, 1e-2)
-        # sqrt_betas = th.clamp(self.sqrt_betas, 1e-1)
+        # sqrt_betas = th.clamp(self.sqrt_betas, 1e-2)
+        sqrt_betas = th.clamp(self.sqrt_betas, 1e-1)
 
         h0 = x / sqrt_betas[:,0]
         rst = th.zeros_like(h0)

@@ -1,9 +1,10 @@
 ## I. Introduction
-Hi, `PolyFilterPlayground` is a repo for quick hyperparameter tuning, train and test for polynomial-filter-based GNNs. It is written by Ph.D. student Yuhe Guo from Group Alg@RUC.  
+Hi, `PolyFilterPlayground` is a repo for quick hyperparameter tuning, training and testing for polynomial-filter-based GNNs. It is written by Ph.D. student Yuhe Guo from Group Alg@RUC. I've summarized this repo from my own research experience, and it greatly reduces the amount of work I have to do to try out a model.
+
 
 This repo is still under construction. Some features of this repo are:
 
-- Support **tuning hyper-parameters** using Optuna efficiently.
+- Support **hyper-parameter tuning** via `Optuna` efficiently. Features of Optuna like `Pruners` are used.
 - The records are well-cached. 
 - Support most datasets (though some of them use interfaces from `PyG` directly).
 - Some modules, such as `ROC-AUC` is much faster than the common practice of using implementations from `scikit-learn`.

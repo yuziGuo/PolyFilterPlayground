@@ -1,3 +1,0 @@
-2023-10-14 05:20:08,745 - tune.py [line:203] - INFO: Namespace(seed=42, model='NormalNNV2', gpu=0, dataset='geom-chameleon', logging=True, log_detail=True, log_detailedCh=False, id_log=1013014503, optuna_n_trials=202, n_epochs=2000, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=12, lr1=0.04, lr2=0.01, wd1=1e-07, wd2=0.001, dropout=0.3, dropout2=0.5, es_ckpt='woselfloop-geom-chameleon_NormalNNV2-wonoise-geom-chameleon_trialNo77')
-2023-10-14 05:20:09,449 - tune.py [line:128] - INFO: Split_seeds:[1824]
-2023-10-14 05:20:09,449 - tune.py [line:129] - INFO: Model_seeds:[409]

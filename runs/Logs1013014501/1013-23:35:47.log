@@ -1,3 +1,0 @@
-2023-10-13 23:35:47,856 - tune.py [line:203] - INFO: Namespace(seed=42, model='NormalNN', gpu=0, dataset='genius', logging=True, log_detail=True, log_detailedCh=False, id_log=1013014501, optuna_n_trials=202, n_epochs=2000, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=12, lr1=0.03, lr2=0.02, wd1=1e-06, wd2=1e-07, dropout=0.0, dropout2=0.5, es_ckpt='chipLogSoftmax-genius_NormalNN-genius_trialNo143')
-2023-10-13 23:35:48,113 - tune.py [line:128] - INFO: Split_seeds:[1824]
-2023-10-13 23:35:48,114 - tune.py [line:129] - INFO: Model_seeds:[409]

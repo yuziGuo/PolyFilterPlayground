@@ -1,6 +1,0 @@
-2023-10-15 12:52:29,170 - train2.py [line:99] - INFO: Epoch 00050 | Time(s) 0.2050 | Val Loss 0.5839 | Val Acc 0.6058 |  Train Acc 0.6064 | ETputs(KTEPS) 90043.30
-2023-10-15 12:52:29,232 - train2.py [line:99] - INFO: [FINAL MODEL] Run 0 .\Val accuracy 80.00% \Val loss: 0.58
-2023-10-15 12:52:29,233 - train2.py [line:99] - INFO: [FINAL MODEL] Run 0 .	Test accuracy 80.00% \Test loss: 0.58
-2023-10-15 12:52:29,269 - train2.py [line:151] - INFO: Mean Acc For Cross Validation: 0.8000, STDV: 0.0000
-2023-10-15 12:52:29,269 - train2.py [line:152] - INFO: Uncertainty: 0.0000
-2023-10-15 12:52:29,269 - train2.py [line:153] - INFO: [0.8000284387145701]

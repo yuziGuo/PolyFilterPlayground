@@ -1,5 +1,0 @@
-2023-10-15 14:02:16,953 - tune.py [line:203] - INFO: Namespace(seed=42, model='NormalNN', gpu=1, dataset='genius', logging=True, log_detail=True, log_detailedCh=True, id_log=0, optuna_n_trials=1, n_epochs=150, self_loop=False, udgraph=True, early_stop=True, patience=300, n_hidden=64, n_cv=1, start_cv=0, n_layers=4, lr1=0.0005, lr2=0.02, wd1=1e-07, wd2=1e-07, dropout=0.5, dropout2=0.5, es_ckpt='woselfloop-genius_NormalNN-genius_trialNo4')
-2023-10-15 14:02:19,398 - tune.py [line:127] - INFO: Split_seeds:[1824]
-2023-10-15 14:02:19,398 - tune.py [line:128] - INFO: Model_seeds:[409]
-2023-10-15 14:02:36,352 - tune.py [line:97] - INFO: Epoch 00050 | Time(s) 0.3331 | Val Loss 0.6876 | Val Acc 0.6494 |  Train Acc 0.6508 | ETputs(KTEPS) 55409.99
-2023-10-15 14:02:52,274 - tune.py [line:97] - INFO: Epoch 00100 | Time(s) 0.3257 | Val Loss 0.6756 | Val Acc 0.6394 |  Train Acc 0.6400 | ETputs(KTEPS) 56667.37

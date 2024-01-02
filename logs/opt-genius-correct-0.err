@@ -1,4 +1,0 @@
-[32m[I 2023-10-15 14:22:31,109][0m Using an existing study with name 'woselfloop-genius' instead of creating a new one.[0m
-WARNING:root:The OGB package is out of date. Your version is 1.3.5, while the latest version is 1.3.6.
-[32m[I 2023-10-15 15:01:48,951][0m Trial 2 finished with value: 0.8410589098930359 and parameters: {'n_layers': 16, 'lr1': 0.05, 'lr2': 0.039999999999999994, 'wd1': -6, 'wd2': -7, 'dropout': 0.4, 'dropout2': 0.0}. Best is trial 2 with value: 0.8410589098930359 and user_attrs {'test_acc': 0.8446070551872253, 'val_acc': 0.8410589098930359}.[0m
-[32m[I 2023-10-15 15:07:22,352][0m Trial 4 finished with value: 0.4368452727794647 and parameters: {'n_layers': 8, 'lr1': -0.02, 'lr2': -0.01, 'wd1': -5, 'wd2': -7, 'dropout': 0.6000000000000001, 'dropout2': 0.6000000000000001}. Best is trial 3 with value: 0.8945955634117126 and user_attrs {'test_acc': 0.8933358192443848, 'val_acc': 0.8945955634117126}.[0m

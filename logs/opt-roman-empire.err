@@ -1,0 +1,6 @@
+[32m[I 2024-01-02 10:09:12,320][0m A new study created in RDB with name: woselfloop-roman-empire[0m
+/home/yuhe_guo/repos/polyPlayground/tune.py:230: FutureWarning: set_system_attr has been deprecated in v3.1.0. This feature will be removed in v6.0.0. See https://github.com/optuna/optuna/releases/tag/v3.1.0.
+  study.set_system_attr('kw', kw)
+WARNING:root:The OGB package is out of date. Your version is 1.3.5, while the latest version is 1.3.6.
+/home/yuhe_guo/repos/polyPlayground/utils/optuna_utils.py:10: FutureWarning: system_attrs has been deprecated in v3.1.0. This feature will be removed in v6.0.0. See https://github.com/optuna/optuna/releases/tag/v3.1.0.
+  return  '_'.join([study.study_name, study.system_attrs['kw'],'trialNo{}'.format(trial.number)])

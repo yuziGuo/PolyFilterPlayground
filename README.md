@@ -49,8 +49,8 @@ python tune.py --model OptBasisGNN --dataset geom-chameleon  --gpu 0 --logging -
     python tune.py --model NormalNN --dataset roman-empire --gpu 0 --logging --log-detail --id-log 1015014501 1>logs/${name}.log  2>logs/${name}.err &
     ```
 
-3. **How is the search sparce of hyperparameters specified?** I put them in `opts/`. Please read the logic in `initialize_args()` in `tune.py`. If you want to tune your model, remember to specify some options under `opts/` also. 
-(Also remember to slightlt trim the `build_optimizers()` and `build_models()` blocks.) 
+3. **How is the search sparce of hyperparameters specified?** I put them in `opts/`. Please read the logic in `initialize_args()` in `tune.py`. If you want to tune your own model, remember to specify some options under `opts/` also. 
+(Also remember to slightly trim `build_optimizers()` and `build_models()` for your own practice.) 
 
 ### Step 2: Report the selected parameters.
 

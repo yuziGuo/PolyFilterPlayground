@@ -11,7 +11,9 @@
 
 # private
 test_dataset.py
+tune_backbone.py
 /scripts/*
+/test/usages/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

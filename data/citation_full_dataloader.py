@@ -21,17 +21,17 @@ class citation_full_supervised_loader(loader):
         device="cuda:0",
         self_loop=True,
         digraph=False,
+        largest_component=False,
         n_cv=3,
-        cv_id=0,
-        needs_edge=False,
+        cv_id=0
     ):
         super(citation_full_supervised_loader, self).__init__(
             ds_name,
             self_loop,
             cross_validation=True,
+            largest_component=largest_component,
             n_cv=n_cv,
-            cv_id=cv_id,
-            needs_edge=needs_edge,
+            cv_id=cv_id
         )
         self.device = device
         self.self_loop = self_loop
@@ -53,6 +53,8 @@ class citation_full_supervised_loader(loader):
         self.in_feats = self.features.shape[1]
         self.n_classes = data.num_classes
         self.n_edges = self.edge_index.shape[-1]
+        self.n_nodes = self.labels.shape[0]
+
 
     def load_a_mask(self, p=None):
         if p == None:
@@ -66,9 +68,15 @@ class citation_full_supervised_loader(loader):
                 train_mask = splits_file["train_mask"]
                 val_mask = splits_file["val_mask"]
                 test_mask = splits_file["test_mask"]
+
             self.train_mask = th.BoolTensor(train_mask).to(self.device)
             self.val_mask = th.BoolTensor(val_mask).to(self.device)
             self.test_mask = th.BoolTensor(test_mask).to(self.device)
+
+            if self.largest_component:
+                self.train_mask = self.train_mask[self.lcc_flags]
+                self.test_mask = self.test_mask[self.lcc_flags]
+                self.val_mask = self.val_mask[self.lcc_flags]
             return
         else:
             (p_train, p_val, p_test) = p

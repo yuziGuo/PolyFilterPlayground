@@ -19,14 +19,19 @@ from opts.tune.private_static_settings import *
 from opts.tune.private_hypers import *
 
 from utils.optuna_utils import _get_complete_and_pruned_trial_nums
+from utils.exp_utils import _prepare_optuna_cache_dir
 
 
 def parse_args():
     parser = argparse.ArgumentParser()
+
+    parser.add_argument("--to-file", action='store_true', default=False)
+
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument("--model", type=str, default='NormalNN')
+    parser.add_argument("--model", type=str, default='OptBasisGNN')
     parser.add_argument("--gpu", type=int, default=0)
     parser.add_argument("--dataset", type=str, default="cora")
+    
     ## log options
     parser.add_argument("--logging", action='store_true', default=False)
     parser.add_argument("--log-detail", action='store_true', default=False)
@@ -34,6 +39,7 @@ def parse_args():
     parser.add_argument("--id-log", type=int, default=0)
     ##
     parser.add_argument("--optuna-n-trials", type=int, default=100)
+    parser.add_argument("--study-kw", type=str, required=True, help="Keyword for the study")    
 
     static_args = parser.parse_args()
     if static_args.gpu < 0:
@@ -41,8 +47,8 @@ def parse_args():
     return static_args
     
 def initialize_static_args(model=None, dataset=None):
-    # 1. Set static args
-    ## 1.1 static options shared by all tasks
+    # 1. Set static args: Define the static arguments shared across tasks and models
+    ## 1.1 Static options shared by all tasks
     static_args = parse_args()
     
     ## 1.2 Static options shared by all tasks (Part II)
@@ -56,62 +62,38 @@ def initialize_static_args(model=None, dataset=None):
         k = f'{static_args.model}_static_opts'
         dargs.update(globals()[k])
     return static_args
-    
-def test():
-    for model in ['OptBasisGNN', 'FavardGNN']:
-        for dataset in ['minesweeper', 'tolokers', 'roman-empire']:
-            static_args = initialize_static_args(model, dataset)
-
-            # create an optuna study
-            kw = f'{model}-{dataset}'
-            study = optuna.create_study(
-                study_name="{}".format(dataset),
-                direction="maximize", 
-                storage = optuna.storages.RDBStorage(url='sqlite:///{}/{}.db'.format('cache/OptunaTrials', kw)),
-                load_if_exists=True
-            )
-            study.set_system_attr('kw', kw)
-            
-            n_trials = static_args.optuna_n_trials
-            num_completed, num_pruned = _get_complete_and_pruned_trial_nums(study)
-            if num_completed + num_pruned >= n_trials:
-                print("Finished! Now I will report.")
-            else:
-                print('There remains {} trials to go!'.format(n_trials - num_completed - num_pruned))
-
-            from utils.optuna_utils import _gen_scripts
-            tofile = f"--es-ckpt {kw} --log-detail --log-detailedCh 1>logs/{kw}.log 2>logs/{kw}.err&"
-            cmd_str = _gen_scripts(study, vars(static_args), prefix="python train.py", postfix=f"--n-cv 10 {tofile}")
-            print(cmd_str, file=open('cmds.sh', 'a'))
 
 
 if __name__ == '__main__':
     static_args = initialize_static_args()
-    # create an optuna study
-    model = static_args.model 
-    dataset =  static_args.dataset
-    kw = f'{model}-{dataset}'
 
-    # Find the study and record
-    study = optuna.create_study(
-        study_name="{}".format(dataset),
-        direction="maximize", 
-        storage = optuna.storages.RDBStorage(url='sqlite:///{}/{}.db'.format('cache/OptunaTrials', kw)),
-        load_if_exists=True
+    # Path of .db is decided by 
+    # `model`, `dataset` and `study_kw`    
+    dataset = static_args.dataset
+    db_name = f'{static_args.model}-{dataset}'
+    dir_name = _prepare_optuna_cache_dir(static_args)
+    
+    study = optuna.load_study(
+        study_name="{}".format(db_name),
+        storage = optuna.storages.RDBStorage(url='sqlite:///{}/{}.db'.format(dir_name, db_name), 
+                engine_kwargs={"connect_args": {"timeout": 10000}}),
     )
-    study.set_system_attr('kw', kw)
+    kw = f"{static_args.model}-{dataset}-{study.user_attrs['kw']}"
     
     # Make sure the tuning process is completed
     n_trials = static_args.optuna_n_trials
     num_completed, num_pruned = _get_complete_and_pruned_trial_nums(study)
     if num_completed + num_pruned >= n_trials:
-        print("Finished! Now I will report.")
+        print("# Finished! Now I will report.")
     else:
-        print('There remains {} trials to go!'.format(n_trials - num_completed - num_pruned))
+        print("# There remains {} trials to finish the study! \
+              \nPlease finish tuning before report!".format(n_trials - num_completed - num_pruned))
         exit(0)
     
     from utils.optuna_utils import _gen_scripts
-    tofile = f"--es-ckpt {kw} --log-detail --log-detailedCh 1>logs/{kw}.log 2>logs/{kw}.err&"
+    tofile = f"--es-ckpt {kw} --log-detail --log-detailedCh 1>logs/{kw}.log 2>logs/{kw}.err"
     cmd_str = _gen_scripts(study, vars(static_args), prefix="python train.py", postfix=f"--n-cv 10 {tofile}")
     print(cmd_str)
-    print(cmd_str, file=open('cmds.sh', 'a'))
+
+    if static_args.to_file:
+        print(cmd_str, file=open('cmds.sh', 'a'))

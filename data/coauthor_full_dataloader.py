@@ -86,7 +86,6 @@ class coauthor_full_supervised_loader(loader):
             self.test_mask = test_mask.bool()
 
 if __name__ == "__main__":
-    import ipdb; ipdb.set_trace()
     loader = coauthor_full_supervised_loader("cs", "cuda:1", True)
     loader.load_data()
     loader.set_split_seeds()

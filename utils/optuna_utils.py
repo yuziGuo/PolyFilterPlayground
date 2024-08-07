@@ -5,9 +5,15 @@ import numpy as np
 import logging
 import optuna
 
+from utils.exp_utils import get_branch_name, get_commit_id
 
 def _ckpt_fname(study, trial):
-    return  '_'.join([study.study_name, study.system_attrs['kw'],'trialNo{}'.format(trial.number)])
+    return  '||'.join([study.study_name, 
+                      f"kw={study.user_attrs['kw']}",
+                      f'trialNo{trial.number}',
+                      f'br={get_branch_name()}',
+                      f'cmt={get_commit_id()[:6]}',
+                      ])
 
 
 def _pruneDuplicate(trial):
@@ -46,7 +52,7 @@ def _process_kv(k, v):
     map_lr = {-0.02: 0.0005,  -0.01: 0.001, 0. : 0.005}
     
     filtered_key_lst = ['optuna_n_trials', 'start_cv', 'n_cv', 'gpu', 'id_log',  
-                        'n_epochs', 'patience']
+                        'n_epochs', 'patience', 'study_kw']
     
     if k in filtered_key_lst:
         return None, None
@@ -61,13 +67,21 @@ def _process_kv(k, v):
     if k.startswith('lr'):
         if v<=0:
             v = map_lr[v]
-        v = round(v, 2)
+        v = round(v, 4)
     if k.startswith('wd'):
         v = float('1e'+str(v))
     return k, v
 
-def _gen_scripts(study, static_args, prefix="python train.py", postfix="--n-cv 20"):
+
+def _gen_scripts(study, 
+                 static_args, 
+                 prefix="python train.py", 
+                 postfix="--n-cv 20"
+                 ):
     trial = study.best_trial
+    best_trial_test_acc = round(trial.user_attrs['test_acc'], 4)
+    best_trial_val_acc = round(trial.user_attrs['val_acc'], 4)
+
     cmd_opt_strs = [prefix]
     for k, v in trial.params.items():
         k,v = _process_kv(k,v)
@@ -83,4 +97,6 @@ def _gen_scripts(study, static_args, prefix="python train.py", postfix="--n-cv 2
         cmd_opt_strs.append(_opt)
     cmd_opt_strs.append(postfix)
     cmd_str = ' '.join(cmd_opt_strs)
+    cmd_str = cmd_str + f"\n# Trial acc(test/val): {best_trial_test_acc}/{best_trial_val_acc} \n"
+
     return cmd_str

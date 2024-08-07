@@ -1,9 +1,9 @@
 import torch as th
 from torch_geometric.nn import MessagePassing
 
-class NormalBasisConv(MessagePassing):
+class OptBasisConv(MessagePassing):
     def __init__(self):
-        super(NormalBasisConv, self).__init__()
+        super(OptBasisConv, self).__init__()
 
     def message(self, x_j, norm):
         return norm.view(-1, 1) * x_j

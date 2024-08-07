@@ -28,11 +28,11 @@ For more information, feel free to contact me via guoyuhe@ruc.edu.cn.
 
 ### Step 1: Tune.
 
-Use the following command to tune `OptBasisGNN` (I also call it `NormalNN` sometimes) on the `Chameleon` dataset.
+Use the following command to tune `OptBasisGNN` (I also call it `OptBasisGNN` sometimes) on the `Chameleon` dataset.
 To get started quickly, we only test `10` optuna trials, and `50` epochs for each trial. (In real experiments, I suggest using `100` or `200` trials, and `2000` epochs for each trial.)
 
 ```bash
-python tune.py --model OptBasisGNN --dataset geom-chameleon  --gpu 0 --logging --log-detailedCh --optuna-n-trials 10 --n-epochs 50
+python tune.py --model OptBasisGNN --dataset geom-chameleon  --gpu 0 --logging --log-detailedCh --optuna-n-trials 10 --n-epochs 50 --study-kw quicktest
 ```
 
 **Remark: Influence of this step.**
@@ -55,7 +55,7 @@ python tune.py --model OptBasisGNN --dataset geom-chameleon  --gpu 0 --logging -
     sleep 1
 
     name="opt-roman-empire"
-    python tune.py --model NormalNN --dataset roman-empire --gpu 0 --logging --log-detail --id-log 1015014501 1>logs/${name}.log  2>logs/${name}.err &
+    python tune.py --model OptBasisGNN --dataset roman-empire --gpu 0 --logging --log-detail --id-log 1015014501 1>logs/${name}.log  2>logs/${name}.err &
     ```
 
 3. **How is the search sparce of hyperparameters specified?** I put them in `opts/`. Please read the logic in `initialize_args()` in `tune.py`. If you want to tune your own model, remember to specify some options under `opts/` also. 

@@ -190,7 +190,7 @@ def eval_rocauc(y_true, y_pred):
             score = roc_auc_score(y_true[is_labeled, i], y_pred[is_labeled, i])
                                 
             rocauc_list.append(score)
-    import ipdb; ipdb.set_trace()
+    
     if len(rocauc_list) == 0:
         raise RuntimeError(
             'No positively labeled data available. Cannot compute ROC-AUC.')

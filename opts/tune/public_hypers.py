@@ -1,16 +1,13 @@
+"""
+DOCS for `public_hypers_default`:
+
+- The **keys** in this dictionary contains default hyperparameters for some models. 
+These keys, possibly combined with some in `private_hypers`, will be 
+used in the function `convert_dict_to_optuna_suggested` to produce a `suggestor`.
+"""
+
+
 public_hypers_default = {
-    """
-    The keys, for some models possibly together with some keys in `private_hypers`, 
-    will be used in the following funtion `convert_dict_to_optuna_suggested`, 
-    to produce a `suggestor`.
-    """
-
-    """
-    The **keys** in this dictionary contains default hyperparameters for some models. 
-    These keys, possibly combined with some in `private_hypers`, will be 
-    used in the function `convert_dict_to_optuna_suggested` to produce a `suggestor`.
-    """
-
     # Model structure
     'n_layers': 2,
     

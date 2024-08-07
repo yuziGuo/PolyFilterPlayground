@@ -16,19 +16,20 @@ from data.loader import loader
 
 class geom_dataloader(loader):
     def __init__(self, ds_name, device='cuda:0', self_loop=True, 
-                    digraph=False, n_cv=3, cv_id=0,
-                    needs_edge=False):
+                    digraph=False, largest_component=False,
+                    n_cv=3, cv_id=0):
         super(geom_dataloader, self).__init__(
             ds_name, 
             cross_validation=True, 
+            largest_component=largest_component,
             n_cv=n_cv, 
-            cv_id=cv_id,
-            needs_edge=needs_edge
+            cv_id=cv_id
             )
         self.device = device
         self.digraph = digraph
         self.self_loop = self_loop
         self.root_path = 'dataset/geom_data'
+
 
     def preprocess_features(self, features):
         """Row-normalize feature matrix and convert to tuple representation"""
@@ -38,6 +39,7 @@ class geom_dataloader(loader):
         r_mat_inv = sp.diags(r_inv)
         features = r_mat_inv.dot(features)
         return features
+
 
     def load_geom_graph(self):
         dataset_name = self.ds_name
@@ -93,7 +95,7 @@ class geom_dataloader(loader):
 
         # edge_index
         adj = nx.adjacency_matrix(G, sorted(G.nodes()))
-        edge_index = th.Tensor(adj.nonzero())
+        edge_index = th.Tensor(np.array(adj.nonzero()))
         assert (np.array_equal(np.unique(labels), np.arange(len(np.unique(labels)))))
 
         features = th.FloatTensor(features)
@@ -125,7 +127,9 @@ class geom_dataloader(loader):
 
         self.in_feats = self.features.shape[1]
         self.n_classes = self.labels.max().item() + 1
-        self.n_edges = self.edge_index.shape[-1]
+        self.n_edges = max(self.edge_index.shape)
+        self.n_nodes = max(self.labels.shape)
+
 
     def load_a_mask(self, p=None):
         if p == None:

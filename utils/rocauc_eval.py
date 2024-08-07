@@ -66,14 +66,12 @@ def fast_auc_th_(y_true: np.array,
     y_score = F.softmax(y_score, dim=-1)[:,1]
     # y_true = (y_true == 1)
     desc_score_indices = th.argsort(y_score).flip(dims=[0])
-    # import ipdb; ipdb.set_trace()
     y_score = y_score[desc_score_indices]
     y_true = y_true[desc_score_indices]
     if sample_weight is not None:
         sample_weight = sample_weight[desc_score_indices]
 
     distinct_value_indices = th.where(th.diff(y_score))[0]
-    # import ipdb; ipdb.set_trace()
     # threshold_idxs = np.r_[c, y_true.size - 1]
     # threshold_idxs = th.concat((distinct_value_indices, th.tensor(y_true.shape).to(y_true.device) - 1))
     yts = th.tensor(y_true.shape, device=y_true.device) - 1
@@ -123,7 +121,6 @@ def fast_auc(y_true: np.array,
     y_score = F.softmax(y_score, dim=-1)[:,1].detach().cpu().numpy()
     y_true = (y_true == 1).detach().cpu().numpy()
     desc_score_indices = np.argsort(y_score, kind="mergesort")[::-1]
-    import ipdb; ipdb.set_trace()
     y_score = y_score[desc_score_indices]
     y_true = y_true[desc_score_indices]
     if sample_weight is not None:
@@ -191,5 +188,4 @@ def _eval_rocauc(y_true, y_pred):
     if len(rocauc_list) == 0:
         raise RuntimeError(
             'No positively labeled data available. Cannot compute ROC-AUC.')
-    import ipdb; ipdb.set_trace()
     return sum(rocauc_list)/len(rocauc_list)

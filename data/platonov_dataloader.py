@@ -1,4 +1,3 @@
-from data.split import index_to_mask
 from data.loader import loader
 
 from torch_geometric.utils import to_undirected, remove_self_loops, add_self_loops
@@ -11,18 +10,19 @@ import os
 
 class platonov_dataloader(loader):
     def __init__(self, ds_name, device='cuda:0', self_loop=True, 
-                    digraph=False, n_cv=3, cv_id=0,
-                    needs_edge=False):
+                    digraph=False, largest_component=False, 
+                    n_cv=3, cv_id=0):
         super(platonov_dataloader, self).__init__(
             ds_name, 
             cross_validation=True, 
+            largest_component=largest_component,
             n_cv=n_cv, 
-            cv_id=cv_id,
-            needs_edge=needs_edge
+            cv_id=cv_id
             )
         self.device = device
         self.digraph = digraph
         self.self_loop = self_loop
+
 
     def load_vanilla_data(self):
         dataset = np.load(os.path.join('dataset/platonov', f'{self.ds_name.replace("-", "_")}.npz'))

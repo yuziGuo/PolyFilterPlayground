@@ -101,6 +101,7 @@ def run(args, cv_id, edge_index, data, norm_A, features, labels, model_seed):
         logger.debug('Model Saved by Early Stopper is Loaded!')
     
     model.eval()
+    
     logits = model(features)
     loss_val = loss_fcn(logits[data.val_mask], labels[data.val_mask])
     loss_test = loss_fcn(logits[data.test_mask], labels[data.test_mask])
@@ -108,7 +109,7 @@ def run(args, cv_id, edge_index, data, norm_A, features, labels, model_seed):
     acc_test = evaluate(logits, labels, data.test_mask, evaluator)
     logger.info("[FINAL MODEL] Run {} .\Val accuracy {:.2%} \Val loss: {:.2}".format(cv_id+args.start_cv, acc_val, loss_val))
     logger.info("[FINAL MODEL] Run {} .\tTest accuracy {:.2%} \Test loss: {:.2}".format(cv_id+args.start_cv, acc_test, loss_test))
-    
+
     return model, acc_val, acc_test
     
 
@@ -123,9 +124,16 @@ def main(args):
     logger.info('Model_seeds:{:s}'.format(str(model_seeds)))
 
     edge_index = data.edge_index
-    # Alway set `add_self_loops=False' here. 
-    # If args.self_loop is True, the self-loops would be loaded in the loader 
-    _, norm_A = gcn_norm(edge_index, add_self_loops=False) 
+    if args.graph_norm == 'sym':
+        # Alway set `add_self_loops=False' here. 
+        # If args.self_loop is True, the self-loops would be loaded in the loader 
+        _, norm_A = gcn_norm(edge_index, add_self_loops=False)
+    elif args.graph_norm == 'none':
+        norm_A = th.ones(data.n_edges, device=data.device)
+    else:
+        raise NotImplementedError("Case for Rescaled Laplacian Not Implemented!")
+        exit(-1)
+    
     features = data.features
     labels = data.labels
 
@@ -148,32 +156,34 @@ def main(args):
 def set_args():
     parser = argparse.ArgumentParser(description='GCN')
     parser.add_argument('--seed', type=int, default=42, help='Random seed.')
-    parser.add_argument("--model", type=str, default='NormalNN',help='(NormalNN, ARMA, BernNet)')
+    parser.add_argument("--model", type=str, default='OptBasisGNN',help='(OptBasisGNN, ARMA, BernNet)')
     parser.add_argument("--gpu", type=int, default=1, help="gpu")
     parser.add_argument("--dataset", type=str, default="cora", help="Dataset name ('cora', 'citeseer', 'pubmed').")
     parser.add_argument("--ds-split", type=str, default="standard", help="split by ('standard', 'random').")
-
-    # for model configuration 
+    
+    # For graph
+    parser.add_argument("--self-loop", action='store_true', default=False, help="graph self-loop (default=False)")
+    parser.add_argument("--udgraph", action='store_true', default=False, help="process the graph to be undirected (default=False)")
+    parser.add_argument("--lcc", action='store_true', default=True)
+    
+    # For model structure configuration 
     parser.add_argument("--n-layers", type=int, default=2, help="number of hidden layers")
     parser.add_argument("--n-hidden", type=int, default=64, help="number of hidden units")
 
-    # for training
+    # For model training
     parser.add_argument("--wd1", type=float, default=1e-2, help="Weight for L2 loss")
     parser.add_argument("--wd2", type=float, default=5e-4, help="Weight for L2 loss")
-    parser.add_argument("--wd3", type=float, default=5e-4, help="Weight for L2 loss. Used in FavardNormalNN")
+    parser.add_argument("--wd3", type=float, default=5e-4, help="Weight for L2 loss. Used in FavardGNN")
     parser.add_argument("--lr1",  type=float, default=1e-2, help="learning rate")
     parser.add_argument("--lr2",  type=float, default=1e-2, help="learning rate")
-    parser.add_argument("--lr3",  type=float, default=1e-2, help="learning rate. Used in FavardNormalNN")
+    parser.add_argument("--lr3",  type=float, default=1e-2, help="learning rate. Used in FavardGNN")
     parser.add_argument("--alpha",  type=float, default=0.5, help="Option for initialization. Used in GPRGNN")
     parser.add_argument("--momentum",  type=float, default=0.9, help="SGD momentum. Used in ClenshawGCN")
     parser.add_argument("--n-epochs", type=int, default=2000, help="number of training epochs")
     parser.add_argument("--dropout", type=float, default=0.5, help="dropout probability")
     parser.add_argument("--dropout2", type=float, default=0.7, help="dropout probability")
-    
-    parser.add_argument("--self-loop", action='store_true', default=False, help="graph self-loop (default=False)")
-    parser.add_argument("--udgraph", action='store_true', default=False, help="process the graph to be undirected (default=False)")
 
-    # for experiment running
+    # For experiment running
     parser.add_argument("--early-stop", action='store_true', default=False, help="early stop (default=False)")
     parser.add_argument("--patience", type=int, default=300, help="patience for early stop")
     parser.add_argument("--es-ckpt", type=str, default="es_checkpoint", help="Saving directory for early stop checkpoint")

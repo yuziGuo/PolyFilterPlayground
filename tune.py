@@ -2,6 +2,7 @@ import argparse
 import optuna
 import optuna.study
 
+import os
 import numpy as np
 import random 
 import torch as th
@@ -27,6 +28,7 @@ from utils.stopper import EarlyStopping
 from utils.rocauc_eval import eval_rocauc
 from utils.model_utils import bce_with_logits_loss
 from utils.rocauc_eval import fast_auc_th, fast_auc, acc
+from utils.exp_utils import _prepare_optuna_cache_dir
 
 from torch_geometric.nn.conv.gcn_conv import gcn_norm
 
@@ -147,11 +149,11 @@ def main(args, logger, trial):
 
 
 def initialize_args():
-    # 1. Set static args
-    ## 1.1 static options shared by all tasks
+    # 1. Set static args: Define the static arguments shared across tasks and models
+    ## 1.1 Static options shared by all tasks
     parser = argparse.ArgumentParser()
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument("--model", type=str, default='NormalNN')
+    parser.add_argument("--model", type=str, default='OptBasisGNN')
     parser.add_argument("--gpu", type=int, default=0)
     parser.add_argument("--dataset", type=str, default="cora")
     ## log options
@@ -159,32 +161,46 @@ def initialize_args():
     parser.add_argument("--log-detail", action='store_true', default=False)
     parser.add_argument("--log-detailedCh", action='store_true', default=False)
     parser.add_argument("--id-log", type=int, default=0)
-    ##
+    
+    ## Tuning and training options
     parser.add_argument("--optuna-n-trials", type=int, default=202)
-    parser.add_argument("--n-epochs", type=int, default=2000)    
+    parser.add_argument("--n-epochs", type=int, default=2000) 
+    parser.add_argument("--study-kw", type=str, required=True, help="Keyword for the study")    
 
     static_args = parser.parse_args()
     if static_args.gpu < 0:
         static_args.gpu = 'cpu'
     
-    ## 1.2 Static options shared by all tasks (Part II)
+    ## 1.2 Additional static options shared by all tasks (Part II)
     dargs = vars(static_args)
-    ## 1.3 Static options of the specific model
+
+    ## 1.3 Static options specific to the model
     dargs.update(public_static_opts)
     if f'{static_args.model}_static_opts' in globals().keys():
         k = f'{static_args.model}_static_opts'
         dargs.update(globals()[k])
 
-    # 2. Args to be tuned
-    # Other options to be tuned will be suggested by optuna.
-    # For such case, we initialize a `suggestor' here, which wraps functions provided by optuna like `trial.suggest_float'.
-    # The suggestor suggests a group of option in a specific run (See function `objective').  
-    # Most of the options are shared across different models, i.e., learning rates, weight decays.
+    # 2. Args to be tuned: Define the hyperparameters to be tuned by Optuna
+    # Initialize a `suggestor` using the function `convert_dict_to_optuna_suggested`.
+    # The suggestor will generate a group of hyperparameters for a specific run (see function `convert_dict_to_optuna_suggested`).
+    # Most hyperparameters are shared across different models, such as learning rates and weight decays.    
+        
+    ## 2.1 Public hyperparameters default settings
     to_tune = public_hypers_default
+
+    ## 2.2 Private hyperparameters specific to the model
     if f'{static_args.model}_opts' in globals().keys():
         k = f'{static_args.model}_opts'
         to_tune.update(globals()[k])
+    else:
+        model_ = static_args.model.split('_')[0]
+        if f'{model_}_opts' in globals().keys():
+            k = f'{model_}_opts'
+            to_tune.update(globals()[k])
+    
+    # End of 2. : Get a suggestor!
     suggestor = convert_dict_to_optuna_suggested(to_tune, static_args.model)
+
     return static_args, suggestor
 
 
@@ -218,22 +234,23 @@ if __name__ == '__main__':
     global suggestor
     static_args, suggestor = initialize_args()
 
-    # create an optuna study
+    # Create an optuna study
     dataset = static_args.dataset
-    # kw = f'{static_args.model}-{dataset}-random={static_args.random_perturb}-1028V2'
-    kw = f'{static_args.model}-{dataset}'
+    db_name = f'{static_args.model}-{dataset}'
+    dir_name = _prepare_optuna_cache_dir(static_args)
+    
     study = optuna.create_study(
-        # study_name="{}-RandomPerturb".format(dataset),
-        study_name="{}".format(dataset),
+        study_name="{}".format(db_name),
         direction="maximize", 
-        storage = optuna.storages.RDBStorage(url='sqlite:///{}/{}.db'.format('cache/OptunaTrials', kw), 
+        storage = optuna.storages.RDBStorage(url='sqlite:///{}/{}.db'.format(dir_name, db_name), 
                 engine_kwargs={"connect_args": {"timeout": 10000}}),
         pruner=optuna.pruners.MedianPruner(n_startup_trials=5,n_warmup_steps=15,interval_steps=1,n_min_trials=5),
         load_if_exists=True
     )
-    study.set_system_attr('kw', kw)
+    study.set_user_attr('kw', static_args.study_kw)
     
-    # run trials
+
+    # Run trials
     n_trials = static_args.optuna_n_trials
     num_completed, num_pruned = _get_complete_and_pruned_trial_nums(study)
     while num_completed + num_pruned < n_trials:
@@ -248,7 +265,7 @@ if __name__ == '__main__':
         if num_pruned > 1000:
             break
     
-    # report results
+    # Report results
     print("Study statistics this: ")
     print("  Number of finished trials: ", len(study.trials))
     print("  Number of pruned trials: ", num_pruned)

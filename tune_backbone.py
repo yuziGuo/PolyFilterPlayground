@@ -27,9 +27,12 @@ def initialize_args():
     ## 1.1 static options shared by all tasks
     parser = argparse.ArgumentParser()
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument("--model", type=str, default='NormalNN')
+    parser.add_argument("--model", type=str, default='OptBasisGNN')
     parser.add_argument("--gpu", type=int, default=0)
     parser.add_argument("--dataset", type=str, default="cora")
+    
+    parser.add_argument("--lcc", action='store_true', default=True)
+    
     ## log options
     parser.add_argument("--logging", action='store_true', default=False)
     parser.add_argument("--log-detail", action='store_true', default=False)

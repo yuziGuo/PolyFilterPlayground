@@ -7,22 +7,21 @@ class loader():
                         self_loop=True,
                         process_features=False,
                         cross_validation=False,
+                        largest_component=False,
                         n_cv=-1,
                         cv_id=-1,
-                        needs_edge=False,
-                        seeds = None
-                        # needs_edge_oracle=False
                         ):
         self.g = None
         self.feature = None
         self.labels = None
-        
-        self.n_classes = None
-        self.n_edges = None
 
         self.train_mask = None
         self.val_mask = None
         self.test_mask = None
+
+        self.n_classes = None
+        self.n_edges = None
+        self.n_nodes = None
 
         self.cross_validation = cross_validation
         self.n_cv = n_cv
@@ -34,11 +33,8 @@ class loader():
         
         self.ds_name = ds_name
         self.self_loop = self_loop
+        self.largest_component = largest_component
 
-        self.needs_edge = needs_edge
-        self.edge_labels = None
-        self.edge_mask = None
-    
     def set_split_seeds(self):
         self.seeds = [random.randint(0,10000) for i in range(self.n_cv)]
 
@@ -46,78 +42,105 @@ class loader():
         if self.cross_validation:
             self.load_a_mask(p)
             self.cv_id += 1
-            if self.needs_edge:
-                self._load_edge_masks()
         else:
             # For some datasets, mask is already loaded before.
             # print('Mask is already loaded!')
             pass
+
         return
 
 
-    def load_edge_labels(self, multiview=True):
-        if multiview is False:
-            labels = self.labels.float()
-            labels = labels.unsqueeze(-1)
-        else:
-            labels = th.nn.functional.one_hot(self.labels)         
-        _t = ops.u_sub_v(self.g, labels.float(), labels.float())
-        _t_id_1 = (_t==0)
-        _t_id_2 = (_t!=0)
-        _t[_t_id_1] = 1
-        _t[_t_id_2] = -1
+    def _get_lcc(self):
+        '''
+        Return:
+            True, if there exists over one connected components(cc), 
+                and the largest cc is stored in two convenient Tensors
+                i.e. `self.lcc_flags' and `lcc_map' .
+            or False, if there exists only one connected component.
+        '''
+        from scipy.sparse import coo_array
+        from scipy.sparse.csgraph import connected_components
+        from collections import Counter
+        from torch_geometric.utils.num_nodes import maybe_num_nodes
+        import numpy as np
 
-        self.g.edata['labels_edge'] = _t  # [n_edges, 1] or [n_edges, n_class]
+        edge_index = self.edge_index
+        n = maybe_num_nodes(edge_index)
+        m = edge_index.shape[-1]
+        fill = np.ones(m)
+        arr = coo_array((fill, 
+                        (edge_index[0].detach().cpu().numpy(), 
+                         edge_index[1].detach().cpu().numpy()
+                        )),shape=(n, n))
         
-        # idxs = th.Tensor(_t.shape).uniform_(0,1) < prop
-        # self.g.edata['labels_edge'] = th.ones_like(_t)
-        # self.g.edata['labels_edge'][idxs] = _t[idxs]
+        n_components, labels = connected_components(csgraph=arr, directed=False, return_labels=True)
 
-        # self.load_edge_masks()
-        # idxs = self.g.edata['train_mask_edge'] | self.g.edata['val_mask_edge']
-        # # idxs = self.g.edata['train_mask_edge'] 
-        # self.g.edata['labels_edge'] = th.ones_like(_t)
-        # self.g.edata['labels_edge'][idxs] = _t[idxs]
-        return
+        print(f'n_components: {n_components}')
+        if n_components == 1:
+            print(f"[INFO - dataloader] There is only one largest component!")
+            self.largest_component = False
+            return False
+        # else: n_components > 1
 
 
-    def _load_edge_masks(self):
-        self.g.edata['train_mask_edge'] = \
-                ops.u_mul_v(self.g, self.train_mask.float(), self.train_mask.float())  
-        self.g.edata['val_mask_edge'] = \
-                ops.u_mul_v(self.g, self.train_mask.float(), self.val_mask.float())  \
-                    + ops.u_mul_v(self.g, self.val_mask.float(), self.train_mask.float()) \
-                    + ops.u_mul_v(self.g, self.val_mask.float(), self.val_mask.float())
-        assert (th.unique(self.g.edata['val_mask_edge']).size()[-1]==2)
-        self.g.edata['test_mask_edge'] = \
-                1 - self.g.edata['train_mask_edge'] - self.g.edata['val_mask_edge'] 
-
-
-        # self.g.edata['train_mask_edge'] = \
-        #         ops.u_mul_v(self.g, self.train_mask.float(), self.train_mask.float()) \
-        #             + ops.u_mul_v(self.g, self.train_mask.float(), self.val_mask.float())  \
-        #             + ops.u_mul_v(self.g, self.val_mask.float(), self.train_mask.float())   
-        # self.g.edata['val_mask_edge'] = \
-        #             ops.u_mul_v(self.g, self.val_mask.float(), self.val_mask.float())
-        # assert (th.unique(self.g.edata['val_mask_edge']).size()[-1]==2)
-        # self.g.edata['test_mask_edge'] = \
-        #         1 - self.g.edata['train_mask_edge'] - self.g.edata['val_mask_edge'] 
-
-        self.g.edata['train_mask_edge'] = self.g.edata['train_mask_edge'].bool()
-        self.g.edata['val_mask_edge'] = self.g.edata['val_mask_edge'].bool()
-        self.g.edata['test_mask_edge'] = self.g.edata['test_mask_edge'].bool()
-        return
+        '''
+        Below, we maintain two data structures to convert 
+        node ids **in the original graph** 
+        to node ids **in the lcc subgraph**.
         
+        - `self.lcc_flags`   shape: (n,)
+            Positions   0       1       2       3         n-1   
+            Values      [False, True,   False,  True ..., True]
+
+        - `self.lcc_map`   shape: (n,)
+            Positions   0       1       2       3         n-1   
+            Values      [-1,    0,      -1,     1,  ..., _n-1]
+
+        
+        Remark: These two data structures bring convenience to 
+        transferring node ids! The usages can be found in 
+        `self.__filter_edge_index`.
+        
+        '''
+        lcc_id, n_ = Counter(labels).most_common(1)[0]
+        self.lcc_flags = th.tensor((labels==lcc_id)).to(self.device) # (n,)
+
+        self.lcc_map = - th.ones(n, dtype=int, device=self.device)
+        self.relabeled_nids = th.arange(n_, device=self.device)
+        self.lcc_map[self.lcc_flags] = self.relabeled_nids  #(n,)
+
+        return True
+
+
+    def _filter_edge_index(self):
+        e = self.edge_index.T #(m,2)
+
+        # Retain edges where both endpoints are 
+        # in the largest connected component (LCC)
+        t = self.lcc_flags[e]
+        filter = t[:,0] | t[:,1]              # (m,)
+        edge_index_filtered = e[filter,:].T   # (m_,2)
+
+        # Reindex edge_index to new indices 
+        # in the LCC subgraph
+        edge_index_filtered_reindexed = self.lcc_map[edge_index_filtered]
+
+        return edge_index_filtered_reindexed 
+
+    def _filter_attrs(self):
+        self.features = self.features[self.lcc_flags,:]
+        self.labels = self.labels[self.lcc_flags]
+        self.n_edges = self.edge_index.shape[-1]
+        self.n_nodes = self.edge_index.max().item() + 1
+
 
     def load_data(self):
         self.load_vanilla_data()
-        # self.process_graph()
+        if self.largest_component:
+            if self._get_lcc():  # Return False is there is only one cc
+                self.edge_index = self._filter_edge_index()
+                self._filter_attrs()
 
-        # if self.needs_edge_oracle:
-        #     self.load_edge_labels(multiview=edge_multiview)
-        # self.load_mask()
-        # if self.needs_edge:
-        #     self.load_edge_masks()
 
     def load_vanilla_data(self):
         '''

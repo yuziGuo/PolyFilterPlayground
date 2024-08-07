@@ -1,10 +1,10 @@
 import torch.nn as nn
-from layers.NormalBasisConv import NormalBasisConv
+from layers.OptBasisConv import OptBasisConv
 
 import torch as th
 import torch.nn.functional as F
 
-class NormalNN(nn.Module):
+class OptBasisGNN(nn.Module):
     def __init__(self,
                  edge_index,
                  norm_A, 
@@ -16,13 +16,13 @@ class NormalNN(nn.Module):
                  dropout,
                  dropout2,
                  ):
-        super(NormalNN, self).__init__()
+        super(OptBasisGNN, self).__init__()
         self.edge_index = edge_index
         self.norm_A = norm_A
         
         self.convs = nn.ModuleList()
         for _ in range(K):
-            self.convs.append(NormalBasisConv())
+            self.convs.append(OptBasisConv())
         self.K = K
         self.n_channel = n_hidden
         self.fcs = nn.ModuleList()
@@ -71,5 +71,6 @@ class NormalNN(nn.Module):
         
         rst = self.dropout(rst)
         rst = self.fcs[-1](rst)
+        
         # rst = F.log_softmax(rst, dim=1)
         return rst

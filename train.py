@@ -42,6 +42,7 @@ def run(args, cv_id, edge_index, data, norm_A, features, labels, model_seed):
     else:
         data.load_mask(p=(0.6,0.2,0.2))
 
+    import ipdb; ipdb.set_trace()
     
     logger.info('#Train:{}'.format(data.train_mask.sum().item()))
     reset_random_seeds(model_seed)
@@ -124,15 +125,7 @@ def main(args):
     logger.info('Model_seeds:{:s}'.format(str(model_seeds)))
 
     edge_index = data.edge_index
-    if args.graph_norm == 'sym':
-        # Alway set `add_self_loops=False' here. 
-        # If args.self_loop is True, the self-loops would be loaded in the loader 
-        _, norm_A = gcn_norm(edge_index, add_self_loops=False)
-    elif args.graph_norm == 'none':
-        norm_A = th.ones(data.n_edges, device=data.device)
-    else:
-        raise NotImplementedError("Case for Rescaled Laplacian Not Implemented!")
-        exit(-1)
+    _, norm_A = gcn_norm(edge_index, add_self_loops=False)
     
     features = data.features
     labels = data.labels
@@ -164,8 +157,8 @@ def set_args():
     # For graph
     parser.add_argument("--self-loop", action='store_true', default=False, help="graph self-loop (default=False)")
     parser.add_argument("--udgraph", action='store_true', default=False, help="process the graph to be undirected (default=False)")
-    parser.add_argument("--lcc", action='store_true', default=True)
-    
+    parser.add_argument("--lcc", action='store_true', default=False)
+
     # For model structure configuration 
     parser.add_argument("--n-layers", type=int, default=2, help="number of hidden layers")
     parser.add_argument("--n-hidden", type=int, default=64, help="number of hidden units")

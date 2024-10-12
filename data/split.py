@@ -11,6 +11,7 @@ def index_to_mask(index, size):
         mask[index] = 1
     return mask
 
+
 def get_fingerprint(x):
     x = x.float()
     return x.dot(th.arange(x.shape[0]).float().to(x.device))
@@ -39,9 +40,11 @@ def random_planetoid_splits(y,
     val_mask = index_to_mask(rest_index[:val_lb], size=num_nodes)
     test_mask = index_to_mask(rest_index[val_lb:], size=num_nodes)
     th.set_rng_state(_state)
+
     if check_fingerprints:
         fingerprint_1 = get_fingerprint(y) # 
         fingerprint_2 = get_fingerprint(train_index)
         print('----'*20)
         print("Fingerprint: {}, {}; seed: {}".format(fingerprint_1, fingerprint_2, seed))
+    
     return train_mask, val_mask, test_mask

@@ -35,8 +35,10 @@ class loader():
         self.self_loop = self_loop
         self.largest_component = largest_component
 
+    
     def set_split_seeds(self):
         self.seeds = [random.randint(0,10000) for i in range(self.n_cv)]
+
 
     def load_mask(self,p=None):
         if self.cross_validation:
@@ -74,19 +76,21 @@ class loader():
                         )),shape=(n, n))
         
         n_components, labels = connected_components(csgraph=arr, directed=False, return_labels=True)
-
         print(f'n_components: {n_components}')
+        self.n_components_orig = n_components
+
         if n_components == 1:
             print(f"[INFO - dataloader] There is only one largest component!")
             self.largest_component = False
             return False
+        
         # else: n_components > 1
-
-
         '''
         Below, we maintain two data structures to convert 
         node ids **in the original graph** 
         to node ids **in the lcc subgraph**.
+
+        Example: 
         
         - `self.lcc_flags`   shape: (n,)
             Positions   0       1       2       3         n-1   
@@ -113,6 +117,50 @@ class loader():
 
 
     def _filter_edge_index(self):
+        """
+        An running example:
+
+        - the graph: 0-1 2-3-4 
+        - e: 
+            tensor([
+                [0,1],
+                [1,0],
+
+                [2,3],
+                [3,2],
+                [3,4],
+                [4,3]
+            ])
+
+        - self.lcc_flags
+            tensor([False, False, True, True, True])
+
+        - self.lcc_map
+            tensor([-1, -1, 0, 1, 2])
+
+        - t = self.lcc_flags[e]:
+            tensor([
+                [F, F],
+                [F, F]
+
+                [T, T],
+                [T, T],
+                [T, T],
+                [T, T],
+            ])
+
+        - filter:
+            tensor([F, F,   T, T, T, T])
+        
+        - edge_index_filtered: 
+            tensor([[2,3,3,4], 
+                    [3,2,4,3]])
+
+        - edge_index_filtered_reindexed = self.lcc_map[edge_index_filtered]:
+            tensor([[0,1,1,2], 
+                    [1,0,2,1]])
+        """
+
         e = self.edge_index.T #(m,2)
 
         # Retain edges where both endpoints are 
@@ -121,11 +169,12 @@ class loader():
         filter = t[:,0] | t[:,1]              # (m,)
         edge_index_filtered = e[filter,:].T   # (m_,2)
 
-        # Reindex edge_index to new indices 
+        # Reindex `edge_index` to new indices 
         # in the LCC subgraph
         edge_index_filtered_reindexed = self.lcc_map[edge_index_filtered]
 
         return edge_index_filtered_reindexed 
+
 
     def _filter_attrs(self):
         self.features = self.features[self.lcc_flags,:]
@@ -148,14 +197,14 @@ class loader():
             load features and labels
         '''
         pass
+    
 
     def process_features():
         pass
 
+    
     def process_graph(self):
         self.g = self.g.remove_self_loop()
         if self.self_loop:
             self.g = self.g.add_self_loop()
         self.n_edges = self.g.number_of_edges()
-
-

@@ -34,13 +34,15 @@ class citation_full_supervised_loader(loader):
             cv_id=cv_id
         )
         self.device = device
+        self.digraph = digraph
         self.self_loop = self_loop
-        self.name = ds_name.lower()
+        self.ds_name = ds_name.lower()
+
 
     def load_vanilla_data(self):
         data = Planetoid(
             root='~/datasets/Planetoid', 
-            name=self.name.split('full')[0], 
+            name=self.ds_name.split('full')[0], 
             transform=None)
         g = data[0]
         if self.self_loop:
@@ -93,8 +95,18 @@ class citation_full_supervised_loader(loader):
             self.val_mask = val_mask.bool()
             self.test_mask = test_mask.bool()
 
+
+
+# If use the script below for testing,
+# set `export PYTHONPATH=/home/yuhe_guo/repos/polyPlayPerturb`
 if __name__ == "__main__":
-    loader = citation_full_supervised_loader("corafull", "cuda:1", True)
+    # loader = citation_full_supervised_loader("corafull", "cuda:1", True)
+    loader = citation_full_supervised_loader("corafull", 
+                                             device="cuda:1", 
+                                             self_loop=False,
+                                             digraph=False,
+                                             largest_component=True,
+                                             )
     loader.load_data()
     loader.set_split_seeds()
     loader.load_mask(p=(0.6, 0.2, 0.2))

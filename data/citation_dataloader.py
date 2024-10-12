@@ -8,10 +8,10 @@ class citation_loader(loader):
         super(citation_loader, self).__init__(ds_name, self_loop)
         self.device = device
         self.self_loop = self_loop
-        self.name = ds_name.lower()
+        self.ds_name = ds_name.lower()
 
     def load_vanilla_data(self):
-        data = Planetoid(root='~/datasets/Planetoid',name=self.name)
+        data = Planetoid(root='~/datasets/Planetoid',name=self.ds_name)
         g = data[0]
 
         if self.self_loop:

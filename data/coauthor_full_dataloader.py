@@ -21,26 +21,27 @@ class coauthor_full_supervised_loader(loader):
         device="cuda:0",
         self_loop=True,
         digraph=False,
+        largest_component=False,
         n_cv=3,
         cv_id=0,
-        needs_edge=False,
     ):
         super(coauthor_full_supervised_loader, self).__init__(
             ds_name,
             self_loop,
             cross_validation=True,
+            largest_component=largest_component,
             n_cv=n_cv,
             cv_id=cv_id,
-            needs_edge=needs_edge,
         )
         self.device = device
         self.self_loop = self_loop
-        self.name = ds_name.lower()
+        self.ds_name = ds_name.lower()
+
 
     def load_vanilla_data(self):
         data = Coauthor(
             root='~/datasets/Coauthor', 
-            name=self.name.split('full')[0], 
+            name=self.ds_name.split('full')[0], 
             transform=None)
         g = data[0]
         if self.self_loop:
@@ -53,6 +54,7 @@ class coauthor_full_supervised_loader(loader):
         self.in_feats = self.features.shape[1]
         self.n_classes = data.num_classes
         self.n_edges = self.edge_index.shape[-1]
+
 
     def load_a_mask(self, p=None):
         if p == None:
@@ -84,6 +86,7 @@ class coauthor_full_supervised_loader(loader):
             self.train_mask = train_mask.bool()
             self.val_mask = val_mask.bool()
             self.test_mask = test_mask.bool()
+
 
 if __name__ == "__main__":
     loader = coauthor_full_supervised_loader("cs", "cuda:1", True)

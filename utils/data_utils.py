@@ -1,52 +1,61 @@
-from data.citation_full_dataloader import  citation_full_supervised_loader
-from data.coauthor_full_dataloader import  coauthor_full_supervised_loader
-from data.geom_dataloader import geom_dataloader
-from data.linkx_dataloader import linkx_dataloader
-from data.platonov_dataloader import platonov_dataloader
+from data import *
 import time
 
 def build_dataset(args):
+    if args.gpu < 0:
+        dargs = vars(args)
+        dargs.update({'gpu':'cpu'})
+    
+    # match a loader function
     if args.dataset in ['twitch-gamer', 'Penn94', 'genius']:
-        loader = linkx_dataloader(args.dataset, 
-                                  args.gpu, 
-                                  args.self_loop, 
-                                  n_cv=1)
-    elif args.dataset in ['citeseerfull', 'pubmedfull', 'corafull']:
-        loader = citation_full_supervised_loader(args.dataset, 
-                                                 args.gpu, 
-                                                 args.self_loop, 
-                                                 n_cv=args.n_cv)
-    elif args.dataset in ['cs', 'physics']:
-        loader = coauthor_full_supervised_loader(args.dataset, 
-                                                 args.gpu, 
-                                                 args.self_loop, 
-                                                 n_cv=args.n_cv)
+        loader = linkx_dataloader
+    elif args.dataset in ['citeseerfull', 'pubmedfull', 'corafull', 
+                          'citeseer','cora','pubmed']:
+        loader = citation_full_supervised_loader
+    elif args.dataset in ['photo', 'computers']:
+        loader = amazon_dataloader
     elif args.dataset.startswith('geom'):
-        dataset = args.dataset.split('-')[1]
-        loader = geom_dataloader(dataset, 
-                                 args.gpu, 
-                                 args.self_loop, 
-                                 digraph=not args.udgraph, 
-                                 n_cv=args.n_cv, 
-                                 cv_id=args.start_cv
-                                 )
+        args.dataset = args.dataset.split('-')[1]
+        loader = geom_dataloader
     elif args.dataset in ['questions', 'roman-empire', 'minesweeper', 'tolokers', 
                           'amazon_ratings', 'chameleonF', 'squirrelF']:
         if args.dataset in ['chameleonF', 'squirrelF']:
-            dataset = f'{args.dataset[:-1]}_filtered'
+            args.dataset = f'{args.dataset[:-1]}_filtered'
         else:
-            dataset = args.dataset
-        loader = platonov_dataloader(dataset, 
-                                     args.gpu, 
-                                     args.self_loop, 
-                                     digraph=not args.udgraph, 
-                                     n_cv=args.n_cv, 
-                                     cv_id=args.start_cv
-                                     )
+            args.dataset = args.dataset
+        loader = platonov_dataloader
     else:
         raise ValueError('Unknown dataset: {}'.format(args.dataset))    
+    
+    # build the loader
+    loader = loader(args.dataset, 
+                    args.gpu, 
+                    args.self_loop, 
+                    digraph=not args.udgraph, 
+                    largest_component=args.lcc,
+                    n_cv=args.n_cv, 
+                    cv_id=args.start_cv
+                    )
     loader.load_data()
-    # print('Sleep for 1 sec')
-    # time.sleep(1)
-    # To prevent 'Exception ignored in: <module 'threading' from '/home/yuhe_guo/miniconda3/lib/python3.9/threading.py'>'
+
+    # Prevent an exception: 'Exception ignored in: <module 'threading' from '/home/yuhe_guo/miniconda3/lib/python3.9/threading.py'>'
+    print('[INFO - dataloader] Sleep for 1 sec')
+    time.sleep(1)
+    
     return loader
+
+
+if __name__ == '__main__':
+    import argparse
+    for ds_name in ['Penn94', 'citeseerfull', 'questions']:
+        args = argparse.Namespace(
+            gpu=-1,
+            dataset=ds_name,
+            self_loop=True,
+            udgraph=False,
+            lcc=True,
+            n_cv=5,
+            start_cv=0
+        )
+        loader=build_dataset(args)
+        print(loader)

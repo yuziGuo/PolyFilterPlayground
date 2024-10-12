@@ -155,3 +155,22 @@ class geom_dataloader(loader):
             self.train_mask = train_mask.bool()
             self.val_mask = val_mask.bool()
             self.test_mask = test_mask.bool()
+
+
+if __name__ == "__main__":
+    # loader = citation_full_supervised_loader("corafull", "cuda:1", True)
+    for ds in ["chameleon", "squirrel", "film", "cornell", "texas", "wisconsin"]:
+        print(ds)
+        loader = geom_dataloader(ds, 
+                                 device="cuda:1", 
+                                 self_loop=False,
+                                 digraph=False,
+                                 largest_component=True
+                                 )
+        loader.load_data()
+        loader.set_split_seeds()
+        loader.load_mask(p=(0.6, 0.2, 0.2))
+        loader.load_mask()
+        print(loader)
+
+

@@ -31,7 +31,7 @@ def parse_args():
     parser.add_argument("--model", type=str, default='OptBasisGNN')
     parser.add_argument("--gpu", type=int, default=0)
     parser.add_argument("--dataset", type=str, default="cora")
-    
+        
     ## log options
     parser.add_argument("--logging", action='store_true', default=False)
     parser.add_argument("--log-detail", action='store_true', default=False)

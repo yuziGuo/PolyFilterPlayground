@@ -52,13 +52,23 @@ class platonov_dataloader(loader):
         self.val_mask = th.tensor(dataset['val_masks'][self.cv_id])
         self.test_mask = th.tensor(dataset['test_masks'][self.cv_id])
         return 
+    
 
     def load_a_mask(self, p=None):
+        if p==None:
+            assert ValueError, "Only support fixed split!"
+        
         self.load_fixed_splits()
+
+        if self.largest_component and self.n_components_orig > 1:
+            assert NotImplementedError, "For the largest component option, "\
+                "the fixed train/val/test nids should be reindexed. "\
+                    "It is not implemented yet."
+        
+        
         return 
 
         
-
 def test_platonov():
     loader = platonov_dataloader('questions', 'cuda:1', True)
     loader.load_data()
@@ -66,6 +76,20 @@ def test_platonov():
     print('Success!')
 
 
+def test_platonov_lcc():
+    for ds in ['questions', 'roman-empire', 'minesweeper', 'tolokers', 
+                          'amazon_ratings', 'chameleon-filtered', 'squirrel-filtered']:
+        print(ds)
+        loader = platonov_dataloader(ds, 
+                                     'cuda:1', 
+                                     self_loop=True,
+                                     digraph=False,
+                                     largest_component=True)
+        loader.load_data()
+        loader.load_mask()
+        print('Success!')
+
+
 if __name__=='__main__':
-    test_platonov()
-    
+    # test_platonov()
+    test_platonov_lcc()

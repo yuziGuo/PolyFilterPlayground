@@ -31,7 +31,7 @@ def initialize_args():
     parser.add_argument("--gpu", type=int, default=0)
     parser.add_argument("--dataset", type=str, default="cora")
     
-    parser.add_argument("--lcc", action='store_true', default=True)
+    parser.add_argument("--lcc", action='store_true', default=False)
     
     ## log options
     parser.add_argument("--logging", action='store_true', default=False)

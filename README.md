@@ -23,7 +23,6 @@ This repo is still under construction. Some features of this repo are:
 I write a demo to go through this repo. 
 For more information, feel free to contact me via guoyuhe@ruc.edu.cn.
 
-
 ## II. A Quick Demo.
 
 ### Step 1: Tune.
@@ -31,42 +30,63 @@ For more information, feel free to contact me via guoyuhe@ruc.edu.cn.
 Use the following command to tune `OptBasisGNN` (I also call it `OptBasisGNN` sometimes) on the `Chameleon` dataset.
 To get started quickly, we only test `10` optuna trials, and `50` epochs for each trial. (In real experiments, I suggest using `100` or `200` trials, and `2000` epochs for each trial.)
 
-```bash
+<!-- ```bash
 python tune.py --model OptBasisGNN --dataset geom-chameleon  --gpu 0 --logging --log-detailedCh --optuna-n-trials 10 --n-epochs 50 --study-kw quicktest
+``` -->
+
+<!-- ```bash
+python tune.py --model OptBasisGNN --dataset geom-chameleon  --gpu 0 --logging --log-detailed-console --log-ignore-steps --optuna-n-trials 10 --n-epochs 50 --study-kw quicktest
+``` -->
+
+
+```bash
+python tune.py \
+    --model OptBasisGNN \
+    --dataset geom-chameleon \
+    --gpu 0 \
+    --file-logging \
+    --file-log-id 1201017801 \
+    --detailed-console-logging \
+    --optuna-n-trials 10 \
+    --n-epochs 50 \
+    --study-kw quicktest
 ```
 
-**Remark: Influence of this step.**
+**Notes for this step.**
 
-1. **Optuna cache**. This command creates a database in `cache/OptunaTrials/`. This is where `Optuna` gather the trial histories and upon them search for the next  hyper-parameters. 
+1. **Optuna cache**. This command creates a directory in `cache/OptunaTrials/`. This is where `Optuna` gathers the trial histories and uses them to search for the next hyper-parameters. 
+The caches are organized with study keywords, branch id, and commit id (for different versions of the same model). 
+The zipped options are also stored in the same folder. The structure is as follows:
 
     ```
-    \cache
-    ---\ckpts
-    ---\OptunaTrials
-    ------\OptBasisGNN-geom-chameleon.db
+    cache/
+    ├── ckpts/
+    └── OptunaTrials/
+        └──studykw=[studykw]||br=[branchid]||cmt=[cmtid]/   # Ensure the same model is used in the same Optuna .db file. When the model or data undergoes slight changes, a new .db file will be created in a separate folder to avoid confusion.
+            ├── zipped-opts|[model]|[dataset]|[run_time]/   # Zip the files that decide the static and dynamic options, e.g., in case that we forget whether the runing trials adds self-loops or not. 
+            └── OptBasisGNN-geom-chameleon.db               # Optuna database.
     ```
 
-2. **Logging Modes**. Here, `--logging --log-detailedCh` means that the detailed information of each trial will be printed in the console. You can also specify other logging forms, e.g. 
-`--logging --log-detail --id-log [folder_name]`, which will make it silent in the console, and instead, log the details for each trial in the folder `runs/Logs[folder_name]`. I put some examples in `cmds_tune.sh`: 
+2. **Logging Modes**. Here, `--file-logging --file-log-id --detailed-console-logging` are all log options. They mean that detailed logs are printed on the console and also saved in the files under `logs/[arg.file-log-id]/`.
+
+You can also specify other logging forms. For example, `--file logging --file-log-id [xxx]` will make it **more silent** in the console, and instead, log the details for each trial into the folder `logs/[arg.file-log-id]/`. I put some examples in `cmds_tune.sh`:
 
     ```bash
-    name="gpr-cham"
-    python tune.py --model GPRGNN --dataset geom-chameleon --gpu 0 --logging --log-detail --id-log 1011014503 1>>logs/${name}.log  2>>logs/${name}.err &
-    sleep 1
-
     name="opt-roman-empire"
-    python tune.py --model OptBasisGNN --dataset roman-empire --gpu 0 --logging --log-detail --id-log 1015014501 1>logs/${name}.log  2>logs/${name}.err &
+    python tune.py --study-kw quicktest \
+        --model OptBasisGNN --dataset roman-empire --gpu 0 \
+        --file-logging   --file-log-id  1201017801 \
+        1>runs/logs/${name}.log  2>runs/logs/${name}.err & 
     ```
 
-3. **How is the search sparce of hyperparameters specified?** I put them in `opts/`. Please read the logic in `initialize_args()` in `tune.py`. If you want to tune your own model, remember to specify some options under `opts/` also. 
-(Also remember to slightly trim `build_optimizers()` and `build_models()` for your own practice.) 
+3. **How is the search space of hyperparameters specified?** I put them in `opts/`. Please read the logic in `initialize_args()` in `tune.py`. If you want to tune your own model, remember to specify some options under `opts/` as well. (Also remember to slightly trim `build_optimizers()` and `build_models()` for your own practice.)
 
 ### Step 2: Report the selected parameters.
 
 Following Step 1, now let the selected hyper-parameters be reported:
 
     ```bash
-    python report.py --model OptBasisGNN --dataset geom-chameleon  --gpu 0 --logging --log-detailedCh --optuna-n-trials 10 
+    python report.py --study-kw quicktest --model OptBasisGNN --dataset geom-chameleon  --gpu 0 --file-logging  --detailed-console-logging --optuna-n-trials 10 
     ```
 
 The output is as follows. You can directly copy it to train!

@@ -17,7 +17,6 @@ from utils.rocauc_eval import eval_rocauc
 from utils.model_utils import bce_with_logits_loss
 from utils.rocauc_eval import fast_auc_th, fast_auc, acc
 
-
 def build_stopper(args):
     stopper = EarlyStopping(patience=args.patience, store_path=args.es_ckpt+'.pt', gauge='acc')
     step = stopper.step
@@ -42,11 +41,8 @@ def run(args, cv_id, edge_index, data, norm_A, features, labels, model_seed):
     else:
         data.load_mask(p=(0.6,0.2,0.2))
 
-    import ipdb; ipdb.set_trace()
-    
     logger.info('#Train:{}'.format(data.train_mask.sum().item()))
     reset_random_seeds(model_seed)
-    
     
     if args.dataset in ['genius', 'minesweeper', 'tolokers', 'questions']:    
         loss_fcn = bce_with_logits_loss
@@ -65,7 +61,7 @@ def run(args, cv_id, edge_index, data, norm_A, features, labels, model_seed):
     rec_val_loss = []
     rec_val_accs = []
 
-    for epoch in range(args.n_epochs): 
+    for epoch in range(args.n_epochs):
         t0 = time.time()
         
         model.train()
@@ -86,14 +82,15 @@ def run(args, cv_id, edge_index, data, norm_A, features, labels, model_seed):
         rec_val_loss.append(loss_val.item())
         rec_val_accs.append(acc_val)
         dur.append(time.time() - t0)
-        if args.log_detail and (epoch+1) % 50 == 0 :
-            logger.info("Epoch {:05d} | Time(s) {:.4f} | Val Loss {:.4f} | Val Acc {:.4f} |  Train Acc {:.4f} | " 
+        if (epoch+1) % 50 == 0 :
+            logger.warning("Epoch {:05d} | Time(s) {:.4f} | Val Loss {:.4f} | Val Acc {:.4f} |  Train Acc {:.4f} | " 
                         "ETputs(KTEPS) {:.2f}".format(epoch+1, np.mean(dur), loss_val.item(),
                                                         acc_val, acc_train, 
                                                         data.n_edges/ np.mean(dur) / 100)
                         )
         if args.early_stop and epoch >= 0:
             if stopper_step(acc_val, model):
+                # import ipdb; ipdb.set_trace()
                 break   
     # end for
 
@@ -121,11 +118,20 @@ def main(args):
     data.seeds = [random.randint(0,10000) for _ in range(args.n_cv)]
     # Set random model seeds for args.n_cv runs 
     model_seeds = [random.randint(0,10000) for _ in range(args.n_cv)]
+    
     logger.info('Split_seeds:{:s}'.format(str(data.seeds)))
     logger.info('Model_seeds:{:s}'.format(str(model_seeds)))
 
     edge_index = data.edge_index
-    _, norm_A = gcn_norm(edge_index, add_self_loops=False)
+    if args.graph_norm == 'sym':
+        # Alway set `add_self_loops=False' here. 
+        # If args.self_loop is True, the self-loops would be loaded in the loader 
+        _, norm_A = gcn_norm(edge_index, add_self_loops=False)
+    elif args.graph_norm == 'none':
+        norm_A = th.ones(data.n_edges, device=data.device)
+    else:
+        raise NotImplementedError("Case for Rescaled Laplacian Not Implemented!")
+        exit(-1)
     
     features = data.features
     labels = data.labels
@@ -158,6 +164,10 @@ def set_args():
     parser.add_argument("--self-loop", action='store_true', default=False, help="graph self-loop (default=False)")
     parser.add_argument("--udgraph", action='store_true', default=False, help="process the graph to be undirected (default=False)")
     parser.add_argument("--lcc", action='store_true', default=False)
+    parser.add_argument("--graph-norm", type=str, default="none", 
+                        choices=['sym', 'none', 'rescale'], 
+                        required=True
+                        )
 
     # For model structure configuration 
     parser.add_argument("--n-layers", type=int, default=2, help="number of hidden layers")
@@ -182,10 +192,11 @@ def set_args():
     parser.add_argument("--es-ckpt", type=str, default="es_checkpoint", help="Saving directory for early stop checkpoint")
     parser.add_argument("--n-cv", type=int, default=1, help="number of cross validation")
     parser.add_argument("--start-cv", type=int, default=0, help="option used in debugging mode")
-    parser.add_argument("--logging", action='store_true', default=False, help="log results and details to files (default=False)")
-    parser.add_argument("--log-detail", action='store_true', default=False)
-    parser.add_argument("--log-detailedCh", action='store_true', default=False)
-    parser.add_argument("--id-log", type=int, default=0)
+    # # - For logging
+    parser.add_argument("--file-logging", action='store_true', default=False, help="Enable logging to files (default: False)")
+    parser.add_argument("--file-log-id", type=int, default=0, help="ID for log directory (default: 0)")
+    parser.add_argument("--detailed-console-logging", action='store_true', default=False, help="Enable detailed logging in the console (default: False)")
+
 
     args = parser.parse_args()
 

@@ -3,11 +3,11 @@ import torch.nn.functional as F
 
 from models import *
 
-def build_model(args, edge_index, norm_A, in_feats, n_classes):
+def build_model(args, edge_index, edge_weights, in_feats, n_classes):
     if args.model.startswith(('OptBasis',  'Favard', 'BernNet', 'ChebNetII')):
         model = globals()[args.model](
                     edge_index,
-                    norm_A,
+                    edge_weights,
                     in_feats,
                     args.n_hidden,
                     n_classes,
@@ -20,7 +20,7 @@ def build_model(args, edge_index, norm_A, in_feats, n_classes):
     elif args.model in ['GPRGNN', 'GPRGNNV2']:
         model = globals()[args.model](
                 edge_index,
-                 norm_A, 
+                 edge_weights, 
                  in_feats,
                  args.n_hidden,
                  n_classes,
@@ -55,7 +55,7 @@ def build_optimizers(args, model):
         ]
         optimizer = th.optim.Adam(param_groups)
     
-    elif args.model.startswith('GPR') or args.model in ['ChebNetII', 'BernNet']:
+    elif args.model.startswith(('GPR', 'Cheb', 'Bern')):
         param_groups = [
             {'params':model.lin1.parameters(), 'lr':args.lr1, 'weight_decay':args.wd1}, 
             {'params':model.lin2.parameters(), 'lr':args.lr1, 'weight_decay':args.wd1}, 

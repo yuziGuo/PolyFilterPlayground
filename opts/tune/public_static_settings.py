@@ -3,6 +3,7 @@ public_static_opts = {
     'self_loop': False,
     'udgraph': True,
     'lcc': True,
+    'graph_norm': 'sym',
     
     # training
     'early_stop': True,

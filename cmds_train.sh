@@ -11,7 +11,5 @@
 # python train.py --gpu 1 --dropout 0.30000000000000004 --dropout2 0.0 --lr1 0.03 --lr2 0.02 --lr3 0.05 --n-layers 10 --wd1 1e-06 --wd2 0.001 --wd3 1e-05 --seed 42 --model FavardGNN --dataset roman-empire --udgraph   --early-stop   --n-hidden 64 --n-cv 10 --es-ckpt FavardGNN-roman-empire --log-detail --log-detailedCh 1>logs/FavardGNN-roman-empire.log 2>logs/FavardGNN-roman-empire.err 
 
 python train.py --gpu 0 --dropout 0.5 --dropout2 0.0 --lr1 0.005 --lr2 0.005 --n-layers 10 --wd1 0.0001 --wd2 0.0001 --seed 42 --model OptBasisGNN --dataset physics --udgraph   --early-stop   --n-hidden 64 --n-cv 20 --log-detail --log-detailedCh 1>logs/OptBasisGNN-physics-1e-1.log 2>logs/OptBasisGNN-physics-1e-1.err
-
 python train.py --gpu 1  --dropout 0.30000000000000004 --dropout2 0.1 --lr1 0.005 --lr2 0.01 --lr3 0.03 --n-layers 10 --wd1 1e-05 --wd2 1e-07 --wd3 0.001 --seed 42 --model FavardGNN --dataset physics --udgraph   --early-stop   --n-hidden 64 --n-cv 20 --log-detail --log-detailedCh 1>logs/FavardGNN-physics-1e-1.log 2>logs/FavardGNN-physics-1e-1.err 
-
 python train.py --gpu 1 --dropout 0.0 --dropout2 0.0 --lr1 0.005 --lr2 0.04 --lr3 0.02 --n-layers 10 --wd1 0.001 --wd2 1e-05 --wd3 0.0001 --seed 42 --model FavardGNN --dataset minesweeper --udgraph   --early-stop   --n-hidden 64 --n-cv 10 --es-ckpt FavardGNN-minesweeper --log-detail --log-detailedCh 1>logs/FavardGNN-minesweeper-1e-1.log 2>logs/FavardGNN-minesweeper-1e-1.err 

@@ -20,17 +20,19 @@ from opts.tune.private_hypers import *
 from utils.optuna_utils import _ckpt_fname
 from utils.optuna_utils import _get_complete_and_pruned_trial_nums
 from utils.optuna_utils import _pruneDuplicate, _CkptsAndHandlersClearerCallBack
-from utils.random_utils import reset_random_seeds
+from utils.exp_utils import _prepare_optuna_cache_dir, _record_tuning_opts_in_optuna_cache_dir
+
 from utils.data_utils import build_dataset
-from utils.grading_logger import _set_logger
 from utils.model_utils import build_model, build_optimizers
-from utils.stopper import EarlyStopping
-from utils.rocauc_eval import eval_rocauc
+
+from utils.random_utils import reset_random_seeds
+from utils.grading_logger import _set_logger
 from utils.model_utils import bce_with_logits_loss
-from utils.rocauc_eval import fast_auc_th, fast_auc, acc
-from utils.exp_utils import _prepare_optuna_cache_dir
+from utils.stopper import EarlyStopping
+from utils.rocauc_eval import fast_auc_th, acc
 
 from torch_geometric.nn.conv.gcn_conv import gcn_norm
+
 
 def evaluate(logits, labels, mask, evaluator):    
     if not th.is_tensor(logits):
@@ -42,11 +44,16 @@ def evaluate(logits, labels, mask, evaluator):
 
 
 def run(args, logger, trial, 
-        edge_index, data, norm_A, features, labels, 
+        # edge_index, data, norm_A, features, labels, 
+        data, 
         model_seed
         ):
     dur = []
 
+    edge_index = data.edge_index
+    norm_A = data.norm_A
+    features = data.features
+    labels = data.labels
 
     # split dataset for this run
     if args.dataset in ['twitch-gamer', 'Penn94', 'genius', 'tolokers', 'minesweeper', 'roman-empire']: 
@@ -65,44 +72,49 @@ def run(args, logger, trial,
         evaluator = acc
 
     data.in_feats = features.shape[-1] 
-    model = build_model(args, edge_index, norm_A, data.in_feats, data.n_classes)
-    
+    model = build_model(args, 
+                        edge_index, 
+                        edge_weights=norm_A, 
+                        in_feats=data.in_feats, 
+                        n_classes=data.n_classes
+                        )
     optimizers = build_optimizers(args, model)
     if args.early_stop:
         stopper = EarlyStopping(patience=args.patience, store_path=args.es_ckpt+'.pt')
         stopper_step = stopper.step
-    
+
     for epoch in range(args.n_epochs): 
         t0 = time.time()
-        
+
+        # train
         model.train()
         for _ in optimizers:
             _.zero_grad()
-        
         logits = model(features)
         loss_train = loss_fcn(logits[data.train_mask], labels[data.train_mask])
         loss_train.backward()
-
         for _ in optimizers:
             _.step()
         
-        logits = logits.detach()
+        # eval
+        model.eval()
+        with th.no_grad():
+            logits = model(features)
         loss_val = loss_fcn(logits[data.val_mask], labels[data.val_mask])
-        
         acc_val = evaluate(logits, labels, data.val_mask, evaluator)
         trial.report(acc_val, epoch)
         if trial.should_prune():
             raise optuna.exceptions.TrialPruned()
-        
         acc_train = evaluate(logits, labels, data.train_mask, evaluator)
-
+        
+        # end of the epoch
         dur.append(time.time() - t0)
-        if args.log_detail and (epoch+1) % 20 == 0 :
-            logger.info("Epoch {:05d} | Time(s) {:.4f} | Val Loss {:.4f} | Val Acc {:.4f} |  Train Acc {:.4f} | " 
+        if (epoch+1) % 20 == 0 :
+            logger.debug("Epoch {:05d} | Time(s) {:.4f} | Val Loss {:.4f} | Val Acc {:.4f} |  Train Acc {:.4f} | " 
                         "ETputs(KTEPS) {:.2f}".format(epoch+1, np.mean(dur), loss_val.item(),
                                                         acc_val, acc_train, 
                                                         data.n_edges/ np.mean(dur) / 100)
-                        )
+                                                        )
         if args.early_stop and epoch >= 0:
             if stopper_step(acc_val, model):
                 break    
@@ -110,7 +122,10 @@ def run(args, logger, trial,
 
     if args.early_stop:
         model.load_state_dict(th.load(stopper.store_path))
-        logger.debug('Model Saved by Early Stopper is Loaded!')
+        logger.debug('Model saved by early stopper is loaded!')
+    
+
+    # report the final model
     model.eval()
     with th.no_grad():
         logits = model(features)
@@ -118,8 +133,9 @@ def run(args, logger, trial,
     loss_test = loss_fcn(logits[data.test_mask], labels[data.test_mask])
     acc_val = evaluate(logits, labels, data.val_mask, evaluator)
     acc_test = evaluate(logits, labels, data.test_mask, evaluator)
-    logger.info("[FINAL MODEL] Val accuracy {:.2%} \Val loss: {:.2}".format(acc_val, loss_val))
-    logger.info("[FINAL MODEL] Test accuracy {:.2%} \Test loss: {:.2}".format(acc_test, loss_test))
+    logger.warning("[FINAL MODEL] Val accuracy {:.2%} \Val loss: {:.2}".format(acc_val, loss_val))
+    logger.warning("[FINAL MODEL] Test accuracy {:.2%} \Test loss: {:.2}".format(acc_test, loss_test))
+
     return acc_val, acc_test
 
 
@@ -132,19 +148,22 @@ def main(args, logger, trial):
     logger.info('Model_seeds:{:s}'.format(str(model_seeds)))
 
     edge_index = data.edge_index
-    _, norm_A = gcn_norm(edge_index, add_self_loops=False)
-    features = data.features
-    labels = data.labels
-    
-    # I tune hyper-parameter on only the first cv
+    if args.graph_norm == 'sym':
+        _, data.norm_A = gcn_norm(edge_index, add_self_loops=False)
+    elif args.graph_norm == 'none':
+        data.norm_A = th.ones(data.n_edges, device=data.device)
+    else:
+        raise NotImplementedError("Case for Rescaled Laplacian Not Implemented!")
+
+    # For tuning stage, I use only the first cross-validation split
     cv_id = 0
     val_acc, test_acc = run(args, logger, trial,  
-                            edge_index, data, norm_A, features, labels, 
+                            # edge_index, data, norm_A, features, labels, 
+                            data, 
                             model_seed=model_seeds[cv_id]
                             )
-
-    logger.info("Acc on the first split (Validation Set): {:.4f}".format(val_acc))
-    logger.info("Acc on the first split (Test Set): {:.4f}".format(test_acc))
+    # logger.info("Acc on the first split (Validation Set): {:.4f}".format(val_acc))
+    # logger.info("Acc on the first split (Test Set): {:.4f}".format(test_acc))
     return val_acc.item(), test_acc.item()
 
 
@@ -156,19 +175,24 @@ def initialize_args():
     parser.add_argument("--model", type=str, default='OptBasisGNN')
     parser.add_argument("--gpu", type=int, default=0)
     parser.add_argument("--dataset", type=str, default="cora")
+
+    # `--lcc` option: put into `public_static_opts`, not here
+    # `--graph-norm` option: also put into `public_static_opts`, not here
     
-    ## log options
-    # `--lcc` option: put into `public_static_opts` 
-    
-    parser.add_argument("--logging", action='store_true', default=False)
-    parser.add_argument("--log-detail", action='store_true', default=False)
-    parser.add_argument("--log-detailedCh", action='store_true', default=False)
-    parser.add_argument("--id-log", type=int, default=0)
-    
+    ## Log options
+    # parser.add_argument("--log-ignore-steps", action='store_true', default=False, help='Do not report intermediate results for each 50/20 epochs (default: False)')
+    # parser.add_argument("--logging", action='store_true', default=False, help="Enable logging to files (default: False)")
+    # parser.add_argument("--log-id", type=int, default=0, help="ID for log directory (default: 0)")
+    # parser.add_argument("--log-detailed-console", action='store_true', default=False, help="Enable detailed logging in the console (default: False)")
+    parser.add_argument("--file-logging", action='store_true', default=False, help="Enable logging to files (default: False)")
+    parser.add_argument("--file-log-id", type=int, default=0, help="ID for log directory (default: 0)")
+    parser.add_argument("--detailed-console-logging", action='store_true', default=False, help="Enable detailed logging in the console (default: False)")
+
+
     ## Tuning and training options
     parser.add_argument("--optuna-n-trials", type=int, default=202)
     parser.add_argument("--n-epochs", type=int, default=2000) 
-    parser.add_argument("--study-kw", type=str, required=True, help="Keyword for the study")    
+    parser.add_argument("--study-kw", type=str, required=True, help="Keyword for the study; for better recording")    
 
     static_args = parser.parse_args()
     if static_args.gpu < 0:
@@ -221,7 +245,9 @@ def objective(trial):
     logger = _set_logger(args)
     logger.info(args)
 
-    # might prune; in this case an exception will be raised
+    # If the same set of params have been tested, 
+    # it will be pruned; 
+    # in this case an exception handled by optuna will be raised
     _pruneDuplicate(trial)
 
     # report args
@@ -240,7 +266,7 @@ if __name__ == '__main__':
     # Create an optuna study
     dataset = static_args.dataset
     db_name = f'{static_args.model}-{dataset}'
-    dir_name = _prepare_optuna_cache_dir(static_args)
+    dir_name, opts_rec_path = _prepare_optuna_cache_dir(static_args)
     
     study = optuna.create_study(
         study_name="{}".format(db_name),
@@ -252,12 +278,12 @@ if __name__ == '__main__':
     )
     study.set_user_attr('kw', static_args.study_kw)
     
-
     # Run trials
     n_trials = static_args.optuna_n_trials
     num_completed, num_pruned = _get_complete_and_pruned_trial_nums(study)
+    rec_flag = False
     while num_completed + num_pruned < n_trials:
-        print('{} trials to go!'.format(n_trials - num_completed - num_pruned))
+        print('=='*10 + '\n{} trials to go!'.format(n_trials - num_completed - num_pruned), flush=True )
         # One trial each time
         study.optimize(objective, 
             n_trials=1,
@@ -267,7 +293,11 @@ if __name__ == '__main__':
         num_completed, num_pruned = _get_complete_and_pruned_trial_nums(study)
         if num_pruned > 1000:
             break
-    
+        
+        if rec_flag is False:
+            _record_tuning_opts_in_optuna_cache_dir(study, opts_rec_path)
+            rec_flag = True
+
     # Report results
     print("Study statistics this: ")
     print("  Number of finished trials: ", len(study.trials))
@@ -288,7 +318,3 @@ if __name__ == '__main__':
           "\nDO NOT report the test acc here as the final result in your paper. "
             "\nInsteat, use `train.py` to conduct further duplicative experiments."
             "\n")
-
-    # from utils.optuna_utils import _gen_scripts
-    # cmd_str = _gen_scripts(study, vars(static_args))
-    # print(cmd_str)
